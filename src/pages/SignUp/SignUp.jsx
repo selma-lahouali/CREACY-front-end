@@ -6,7 +6,7 @@ import logo from "../../assets/logo.png";
 import { useState } from "react";
 
 const SignUp = () => {
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(true);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -14,10 +14,8 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="logobar">
-        <img src={logo} alt="logo image" className="logo" />
-      </div>
       <div className="signUp">
+        <img src={logo} alt="logo image" className="logo" />
         <h1>Welcome To CREACY. Sign Up Now For Free</h1>
         <form>
           <label>User Name</label>
@@ -28,16 +26,16 @@ const SignUp = () => {
           <MdOutlineMail className="emailIcon" />
           <label>Password</label>
           <input
-            type={passwordVisible ? "text" : "password"}
+            type={passwordVisible ? "password" : "text"}
             placeholder="Enter Your Password"
           />
           {passwordVisible ? (
-            <FaRegEyeSlash
+            <FaRegEye
               className="passwordIcon"
               onClick={togglePasswordVisibility}
             />
           ) : (
-            <FaRegEye
+            <FaRegEyeSlash
               className="passwordIcon"
               onClick={togglePasswordVisibility}
             />

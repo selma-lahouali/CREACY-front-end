@@ -59,19 +59,19 @@ a {
 }
 .userIcon {
   position: absolute;
-  top: 34vh;
+  top: 34.1vh;
   left: 45vw;
   font-size: 1.5vw;
 }
 .emailIcon {
   position: absolute;
-  top: 49.8vh;
+  top: 50.2vh;
   left: 45vw;
   font-size: 1.6vw;
 }
 .passwordIcon {
   position: absolute;
-  top: 66.4vh;
+  top: 66.5vh;
   left: 45vw;
   font-size: 1.6vw;
 }
