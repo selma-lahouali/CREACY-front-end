@@ -1,0 +1,12 @@
+* {
+  margin: 0vw;
+}
+body {
+  height: 100vh;
+}
+:root {
+  --bleu: rgb(0, 166, 227);
+  --palPink: #e6b7a2cf;
+  --darkPink: #d69f7e;
+}
+/* palette https://coolors.co/palette/edc4b3-e6b8a2-deab90-d69f7e-cd9777-c38e70-b07d62-9d6b53-8a5a44-774936 */

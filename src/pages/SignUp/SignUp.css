@@ -1,0 +1,77 @@
+.signUp {
+  width: 45vw;
+  height: auto;
+  padding: 2vw 3.5vw;
+  background-color: var(--palPink);
+}
+.logo {
+  width: 7vw;
+}
+.logobar {
+  background-color: var(--darkPink);
+  width: 45vw;
+  padding: 0 3.5vw;
+}
+.signUp form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+.signUp h1 {
+  font-size: 2vw;
+}
+.signUp input {
+  width: 43vw;
+  height: 8vh;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+.signUp input:focus {
+  outline: none;
+  border: 2px solid var(--darkPink);
+}
+.signUp label {
+  font-size: 22px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.signUp button {
+  background-color: var(--darkPink);
+  width: 38vw;
+  height: 7vh;
+  border-radius: 10px;
+  border: 1px solid #906b54;
+  margin-left: 55px;
+  margin-top: 40px;
+  color: white;
+}
+.signUp .logintLink {
+  margin-top: 20px;
+  font-size: 22px;
+  text-decoration: none;
+}
+a {
+  color: rgb(149, 0, 255);
+  text-decoration: none;
+}
+.userIcon {
+  position: absolute;
+  top: 34vh;
+  left: 45vw;
+  font-size: 1.5vw;
+}
+.emailIcon {
+  position: absolute;
+  top: 49.8vh;
+  left: 45vw;
+  font-size: 1.6vw;
+}
+.passwordIcon {
+  position: absolute;
+  top: 66.4vh;
+  left: 45vw;
+  font-size: 1.6vw;
+}
