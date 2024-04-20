@@ -6,7 +6,9 @@ body {
 }
 :root {
   --bleu: rgb(0, 166, 227);
-  --palPink: #e6b7a2cf;
+  /* --palPink: #e6b7a2;
+  --darkPink: #d69f7e; */
+  --palPink: #f8e2d8;
   --darkPink: #d69f7e;
 }
 form button{

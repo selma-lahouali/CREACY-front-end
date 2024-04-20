@@ -1,44 +1,53 @@
-.signUp {
+.register {
+  display: flex;
+}
+.registe-right {
+  background-color: var(--palPink);
+  width: 48.8vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bigLogo {
+  width: 46vw;
+}
+.register-left {
   width: 45vw;
   height: auto;
   padding: 2vw 3.5vw;
-  background-color: var(--palPink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.logo {
-  width: 7vw;
-}
-.logobar {
-  background-color: var(--darkPink);
-  width: 45vw;
-  padding: 0 3.5vw;
-}
-.signUp form {
+.register form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 20px;
   gap: 10px;
 }
-.signUp h1 {
+.register h1 {
   font-size: 2vw;
 }
-.signUp input {
+.register input {
   width: 43vw;
   height: 8vh;
   padding-left: 10px;
   border-radius: 10px;
   border: 1px solid;
 }
-.signUp input:focus {
+.register input:focus {
   outline: none;
   border: 2px solid var(--darkPink);
 }
-.signUp label {
+.register label {
   font-size: 22px;
   margin-left: 10px;
   font-weight: bold;
 }
-.signUp button {
+.register button {
   background-color: var(--darkPink);
   width: 38vw;
   height: 7vh;
@@ -48,7 +57,7 @@
   margin-top: 40px;
   color: white;
 }
-.signUp .logintLink {
+.register .logintLink {
   margin-top: 20px;
   font-size: 22px;
   text-decoration: none;
@@ -59,19 +68,19 @@ a {
 }
 .userIcon {
   position: absolute;
-  top: 34.1vh;
+  top: 27.6vh;
   left: 45vw;
   font-size: 1.5vw;
 }
 .emailIcon {
   position: absolute;
-  top: 50.2vh;
+  top: 43.8vh;
   left: 45vw;
   font-size: 1.6vw;
 }
 .passwordIcon {
   position: absolute;
-  top: 66.5vh;
+  top: 60.3vh;
   left: 45vw;
   font-size: 1.6vw;
 }

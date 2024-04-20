@@ -1,10 +1,10 @@
-import SignUp from "./pages/SignUp/SignUp";
+import Register from "./pages/Register/Register";
 
 
 const App = () => {
   return (
     <>
-      <SignUp></SignUp>
+      <Register></Register>
     </>
   );
 };
