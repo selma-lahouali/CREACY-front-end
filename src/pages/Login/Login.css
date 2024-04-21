@@ -1,0 +1,83 @@
+.login {
+    display: flex;
+  }
+  .login-right {
+    background-color: var(--palPink);
+    width: 48.8vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bigLogo {
+    width: 46vw;
+  }
+  .login-left {
+    width: 45vw;
+    height: auto;
+    padding: 2vw 3.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .login h1 {
+    font-size: 2vw;
+  }
+  .login input {
+    width: 43vw;
+    height: 8vh;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid;
+  }
+  .login input:focus {
+    outline: none;
+    border: 2px solid var(--darkPink);
+  }
+  .login label {
+    font-size: 22px;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  .login button {
+    background-color: var(--darkPink);
+    width: 38vw;
+    height: 7vh;
+    border-radius: 10px;
+    border: 1px solid #906b54;
+    margin-left: 55px;
+    margin-top: 40px;
+    color: white;
+    margin-bottom: 5vh;
+  }
+  .login .logintLink {
+    margin-top: 20px;
+    font-size: 22px;
+    text-decoration: none;
+  }
+  a {
+    color: rgb(149, 0, 255);
+    text-decoration: none;
+  }
+  
+  .loginEmailIcon {
+    position: absolute;
+    top: 34.8vh;
+    left: 45vw;
+    font-size: 1.6vw;
+  }
+  .loginPasswordIcon {
+    position: absolute;
+    top: 50.3vh;
+    left: 45vw;
+    font-size: 1.6vw;
+  }
+  
