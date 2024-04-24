@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Register.css";
 import { FaUserCircle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
-import bigLogo from "../../assets/big-logo.png";
+import registerImage from "../../assets/register-image.webp";
 import { useState } from "react";
 
 const Register = () => {
@@ -46,7 +46,7 @@ const Register = () => {
           </h1>
         </div>
         <div className="registe-right">
-          <img src={bigLogo} alt="logo image" className="bigLogo" />
+          <img src={registerImage} alt="logo image" className="registerImage" />
         </div>
       </div>
     </>

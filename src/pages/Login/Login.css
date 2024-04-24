@@ -2,15 +2,15 @@
     display: flex;
   }
   .login-right {
-    background-color: var(--palPink);
     width: 48.8vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   }
   .bigLogo {
-    width: 46vw;
+    width: 48.5vw;
+  height: 100%;
   }
   .login-left {
     width: 45vw;
@@ -48,11 +48,11 @@
     font-weight: bold;
   }
   .login button {
-    background-color: var(--darkPink);
+    background-color: var(--darkBleu);
     width: 38vw;
     height: 7vh;
     border-radius: 10px;
-    border: 1px solid #906b54;
+    border: 1px solid #4b5257;
     margin-left: 55px;
     margin-top: 40px;
     color: white;
@@ -64,19 +64,19 @@
     text-decoration: none;
   }
   a {
-    color: rgb(149, 0, 255);
+    color: #4f565c;
     text-decoration: none;
   }
   
   .loginEmailIcon {
     position: absolute;
-    top: 34.8vh;
+    top: 34.6vh;
     left: 45vw;
     font-size: 1.6vw;
   }
   .loginPasswordIcon {
     position: absolute;
-    top: 50.3vh;
+    top: 50.7vh;
     left: 45vw;
     font-size: 1.6vw;
   }

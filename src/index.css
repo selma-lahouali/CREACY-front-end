@@ -5,13 +5,13 @@ body {
   height: 100vh;
 }
 :root {
-  --bleu: rgb(0, 166, 227);
-  /* --palPink: #e6b7a2;
+  --darkBleu: #6C757D;
+  --lightBleu: #ADB5BD;
+  /* --palPink: #f8e2d8;
   --darkPink: #d69f7e; */
-  --palPink: #f8e2d8;
-  --darkPink: #d69f7e;
 }
 form button{
   cursor: pointer;
 }
-/* palette https://coolors.co/palette/edc4b3-e6b8a2-deab90-d69f7e-cd9777-c38e70-b07d62-9d6b53-8a5a44-774936 */
+/* palette pink https://coolors.co/palette/edc4b3-e6b8a2-deab90-d69f7e-cd9777-c38e70-b07d62-9d6b53-8a5a44-774936 */
+/* palette bleu https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */
