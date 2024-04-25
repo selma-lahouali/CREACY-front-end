@@ -4,6 +4,7 @@
   align-items: center;
   background-color: var(--mediumBleu);
   padding: 0.5vh 4vw;
+  border-bottom: 1px solid var(--darkBleu);
 }
 .home-logo {
   width: 5vw;
@@ -15,11 +16,15 @@
   border: none;
   border-radius: 7px;
   padding-left: 2.4vw;
+  border: 1px solid var(--darkBleu);
 }
 .searchIcon {
   position: absolute;
   left: 18.8vw;
-  top: 3.9vh;
+  top: 3.8vh;
+}
+.searchBar input:focus {
+  outline: 1px solid var(--darkBleu);
 }
 .darkLightMode {
   /* background-color: azure; */
@@ -30,6 +35,7 @@
   gap: 1vw;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .darkMode {
   background-color: var(--lightBleu);
@@ -48,6 +54,7 @@
   background-color: var(--lightBleu);
   border-radius: 50%;
   padding: 0.5vw;
+  cursor: pointer;
 }
 .languag {
   border: 1px solid var(--darkBleu);
@@ -56,6 +63,7 @@
   padding: 0.5vw;
   font-size: 1.3vw;
   margin-right: 15vw;
+  cursor: pointer;
 }
 .profil {
   display: flex;
@@ -92,6 +100,8 @@ a {
 .profil ul :hover {
   background-color: #eef7ff;
   text-decoration: underline;
+  border-radius: 0.3vw;
+  transition: var(--shortTransition);
 }
 .profil-pic {
   width: 2.5vw;

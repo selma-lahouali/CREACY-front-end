@@ -26,4 +26,8 @@
   background-color: var(--lightBleu);
   box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.284);
   border-radius: 0.3vw;
+  transition: var(--shortTransition);
+}
+.sideBar-icon {
+  color: var(--darkBleu);
 }

@@ -6,12 +6,15 @@ body {
   height: 100vh;
 }
 :root {
+  /* colors / colors / colors / colors / colors */
   --mainBleu: #6c757d;
   --mediumBleu: #adb5bd;
   --darkBleu: #4b5257;
   --lightBleu: #dee5ec;
   /* --palPink: #f8e2d8;
   --darkPink: #d69f7e; */
+  /* animations / animations / animations / animations */
+  --shortTransition: 0.2s;
 }
 form button {
   cursor: pointer;

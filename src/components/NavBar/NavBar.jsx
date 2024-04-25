@@ -59,9 +59,6 @@ const NavBar = () => {
                 <Link to="/account">
                   <li>Account</li>
                 </Link>
-                <Link to="/setting">
-                  <li>Settings</li>
-                </Link>
                 <Link to="/contactUs">
                   <li>Contac Us</li>
                 </Link>
