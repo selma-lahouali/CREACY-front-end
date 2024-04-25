@@ -40,7 +40,7 @@
 }
 .register input:focus {
   outline: none;
-  border: 2px solid var(--darkBleu);
+  border: 2px solid var(--mainBleu);
 }
 .register label {
   font-size: 22px;
@@ -48,7 +48,7 @@
   font-weight: bold;
 }
 .register button {
-  background-color: var(--darkBleu);
+  background-color: var(--mainBleu);
   width: 38vw;
   height: 7vh;
   border-radius: 10px;
@@ -62,7 +62,7 @@
   font-size: 22px;
   text-decoration: none;
 }
-a {
+.register-left a {
   color: #4f565c;
   text-decoration: none;
 }

@@ -1,6 +1,5 @@
 import Register from "./pages/Register/Register";
 
-
 const App = () => {
   return (
     <>

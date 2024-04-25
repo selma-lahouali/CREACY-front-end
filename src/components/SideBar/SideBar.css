@@ -1,0 +1,29 @@
+.sideBar {
+  background-color: var(--mediumBleu);
+  width: 8vw;
+  height: 90vh;
+}
+.sideBar-top li {
+  margin-bottom: 15vh;
+  padding-top: 4vh;
+  padding-bottom: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8vw;
+  padding-left: 0.5vw;
+  font-size: 1.25vw;
+}
+.sideBar-bottom li {
+  margin-top: 2.5vh;
+  padding-left: 0.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8vw;
+}
+.sideBar a :hover {
+  background-color: var(--lightBleu);
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.284);
+  border-radius: 0.3vw;
+}

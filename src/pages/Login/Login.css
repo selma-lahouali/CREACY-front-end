@@ -40,7 +40,7 @@
   }
   .login input:focus {
     outline: none;
-    border: 2px solid var(--darkPink);
+    border: 2px solid var(--mainBleu);
   }
   .login label {
     font-size: 22px;
@@ -48,7 +48,7 @@
     font-weight: bold;
   }
   .login button {
-    background-color: var(--darkBleu);
+    background-color: var(--mainBleu);
     width: 38vw;
     height: 7vh;
     border-radius: 10px;
@@ -63,7 +63,7 @@
     font-size: 22px;
     text-decoration: none;
   }
-  a {
+  .login-left a {
     color: #4f565c;
     text-decoration: none;
   }
