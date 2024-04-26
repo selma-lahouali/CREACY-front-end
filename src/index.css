@@ -15,9 +15,21 @@ body {
   --darkPink: #d69f7e; */
   /* animations / animations / animations / animations */
   --shortTransition: 0.2s;
+  /* dark or light mode / dark or light mode / dark or light mode / dark or light mode  */
+  /* light mode */
 }
-form button {
+form,
+button {
   cursor: pointer;
 }
+
+[data-theme="dark-mode"] {
+  color: white;
+  --mainBleu: #de870e;
+  --mediumBleu: #2c8ff1;
+  --darkBleu: #0d2e46;
+  --lightBleu: #c0c692;
+}
+
 /* palette pink https://coolors.co/palette/edc4b3-e6b8a2-deab90-d69f7e-cd9777-c38e70-b07d62-9d6b53-8a5a44-774936 */
 /* palette bleu https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */

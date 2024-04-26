@@ -1,5 +1,4 @@
 import logo from "../../assets/logoV2.png";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
 import "./NavBar.css";
@@ -8,13 +7,7 @@ import profilImage from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const [darkLightToggle, setDarkLightToggle] = useState(true);
   const [profilOptions, setProfilOptions] = useState(true);
-
-  const toggleDarkLightMode = () => {
-    setDarkLightToggle(!darkLightToggle);
-  };
-
   const toggleProfilOptions = () => {
     setProfilOptions(!profilOptions);
   };
@@ -32,15 +25,7 @@ const NavBar = () => {
           />
           <IoMdSearch className="searchIcon" />
         </form>
-        {/* Dark and light mode */}
-        <div
-          className={`darkLightMode ${
-            darkLightToggle ? "darkMode" : "lightMode"
-          }`}
-          onClick={toggleDarkLightMode}
-        >
-          {darkLightToggle ? <MdDarkMode /> : <MdLightMode />}
-        </div>
+
         {/* Messenger */}
         <MdEmail className="home-messangerie" />
         <h1 className="languag">Eng</h1>
