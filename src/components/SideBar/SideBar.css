@@ -1,6 +1,6 @@
 .sideBar {
   background-color: var(--mediumBleu);
-  width: 8vw;
+  width: 9.3vw;
   height: 90vh;
 }
 .sideBar-top li {
@@ -23,7 +23,8 @@
   gap: 0.8vw;
 }
 .sideBar a :hover {
-  background-color: var(--lightBleu);
+  background-color: #74ebd5;
+  background-image: linear-gradient(270deg, #8cdacb 0%, #9face6 100%);
   box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.284);
   border-radius: 0.3vw;
   transition: var(--shortTransition);

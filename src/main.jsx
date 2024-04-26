@@ -6,6 +6,9 @@ import App from "./App.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
+import MyShop from "./pages/MyShop/Shop/MyShop.jsx";
+import NavBar from "./components/NavBar/NavBar.jsx";
+import AddNewProd from "./pages/MyShop/AddNewProd/AddNewProd.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,10 +27,19 @@ const router = createBrowserRouter([
     path: "/home",
     element: <Home></Home>,
   },
+  {
+    path: "/myShop",
+    element: <MyShop></MyShop>,
+  },
+  {
+    path: "/addNewProduct",
+    element: <AddNewProd></AddNewProd>,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <NavBar></NavBar>
     <RouterProvider router={router} />
   </React.StrictMode>
 );
