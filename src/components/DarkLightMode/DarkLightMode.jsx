@@ -12,7 +12,6 @@ const DarkLightMode = () => {
 
   return (
     <>
-      {/* vdfv bv bv bf */}
       <div className="container-switch">
         <span></span>
         <label className="switch">

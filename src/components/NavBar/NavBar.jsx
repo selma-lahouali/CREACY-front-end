@@ -32,8 +32,8 @@ const NavBar = () => {
         {/* Messenger */}
         <MdEmail className="home-messangerie" />
         <h1 className="languag">Eng</h1>
-        {/* profil button / profil button / profil button / profil button*/}
 
+        {/* profil button / profil button / profil button / profil button*/}
         <div className="profil" onClick={toggleProfilOptions}>
           <img src={profilImage} alt="image not found" className="profil-pic" />
           <h1>
