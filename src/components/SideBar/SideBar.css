@@ -13,6 +13,7 @@
   gap: 0.8vw;
   padding-left: 0.5vw;
   font-size: 1.25vw;
+  color: var(--fontColor);
 }
 .sideBar-bottom li {
   margin-top: 2.5vh;
@@ -21,6 +22,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.8vw;
+  color: var(--fontColor);
 }
 .sideBar a :hover {
   background-color: #74ebd5;

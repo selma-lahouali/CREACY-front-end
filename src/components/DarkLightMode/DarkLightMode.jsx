@@ -1,25 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./DarkLightMode.css";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
 
-const DarkLightMode = ({ onToggle }) => {
-  const [theme, setTheme] = useState("dark");
-  
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    onToggle(newTheme);
-  };
+const DarkLightMode = () => {
+  const [theme, setTheme] = useState("light");
+
+  const handleChange = (e) => setTheme(e.target.checked ? "dark" : "light");
+
+  useEffect(() => {
+    document.body.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
     <>
-      <button className="dark-light-mode" onClick={toggleTheme}>
-        {theme === "dark" ? (
-          <MdDarkMode className="darkMode" />
-        ) : (
-          <MdLightMode className="lightMode" />
-        )}
-      </button>
+      {/* vdfv bv bv bf */}
+      <div className="container-switch">
+        <span></span>
+        <label className="switch">
+          <input
+            type="checkbox"
+            onChange={handleChange}
+            checked={theme === "dark"}
+          />
+          <span className="slider"></span>
+        </label>
+      </div>
     </>
   );
 };

@@ -5,6 +5,7 @@ import "./NavBar.css";
 import { useState } from "react";
 import profilImage from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import DarkLightMode from "../DarkLightMode/DarkLightMode";
 
 const NavBar = () => {
   const [profilOptions, setProfilOptions] = useState(true);
@@ -26,6 +27,8 @@ const NavBar = () => {
           <IoMdSearch className="searchIcon" />
         </form>
 
+        {/* dark mode / dark mode / dark mode / dark mode / dark mode / dark mode   */}
+        <DarkLightMode></DarkLightMode>
         {/* Messenger */}
         <MdEmail className="home-messangerie" />
         <h1 className="languag">Eng</h1>

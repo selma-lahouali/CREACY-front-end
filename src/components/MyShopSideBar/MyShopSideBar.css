@@ -11,13 +11,14 @@
   align-items: center;
   gap: 0.8vw;
   font-size: 1.25vw;
+  color: var(--fontColor);
 }
 .sideBar-list {
   padding-left: 1vw;
 }
 .sideBar-list:hover {
-  background-color: #74ebd5;
-  background-image: linear-gradient(270deg, #8cdacb 0%, #9face6 100%);
+  background-color: var(--NBbackGroundColor);
+  background-image: var(--NBbackGroundImage);
   box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.284);
   border-radius: 0.3vw;
   transition: var(--shortTransition);
@@ -34,12 +35,25 @@
   border: 1px solid var(--lightBleu);
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.284);
   height: 13vh;
-  background-color: #d9afd9;
-  background-image: linear-gradient(270deg, #d9afd9 0%, #aad9de 100%);
+  /* background-color: #d9afd9;
+  background-image: linear-gradient(270deg, #d9afd9 0%, #aad9de 100%); */
+  background-color: var(--shopBackGroundColor);
+  background-image: var(--shopBackGroundImage);
   margin-bottom: 9vh;
   display: flex;
   justify-content: center;
   
+
+
+
+
+
+
+
+
+  
+
+
 }
 .shop-logo {
   width: 3vw;
