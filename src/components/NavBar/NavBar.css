@@ -1,14 +1,14 @@
 .navBar {
   display: flex;
-  gap: 9vw;
+  gap: 8vw;
   align-items: center;
   background-color: var(--mediumBleu);
-  padding: 0.5vh 4vw;
+  padding: 0.5vh 3vw;
   border-bottom: 1px solid var(--darkBleu);
   color: var(--fontColor);
 }
 .home-logo {
-  width: 5vw;
+  width: 11vw;
   height: 9vh;
 }
 .searchBar input {
@@ -23,7 +23,7 @@
 }
 .searchIcon {
   position: absolute;
-  left: 18.8vw;
+  left: 22.8vw;
   top: 3.8vh;
 }
 .searchBar input:focus {

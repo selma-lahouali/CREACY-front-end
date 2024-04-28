@@ -12,8 +12,26 @@ import NavBar from "./components/NavBar/NavBar.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App></App>,
+    path: "/main",
+    element: <NavBar></NavBar>,
+    children: [
+      {
+        path: "test",
+        element: <App></App>,
+      },
+      {
+        path: "home",
+        element: <Home></Home>,
+      },
+      {
+        path: "myShop",
+        element: <MyShop></MyShop>,
+      },
+      {
+        path: "addNewProduct",
+        element: <AddNewProd></AddNewProd>,
+      },
+    ],
   },
   {
     path: "/register",
@@ -23,23 +41,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login></Login>,
   },
-  {
-    path: "/home",
-    element: <Home></Home>,
-  },
-  {
-    path: "/myShop",
-    element: <MyShop></MyShop>,
-  },
-  {
-    path: "/addNewProduct",
-    element: <AddNewProd></AddNewProd>,
-  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    < NavBar></NavBar>
     <RouterProvider router={router} />
   </React.StrictMode>
 );

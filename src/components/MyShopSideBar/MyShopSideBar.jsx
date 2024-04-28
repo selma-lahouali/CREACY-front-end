@@ -12,7 +12,7 @@ const MyShopSideBar = () => {
       <div className="shop-sideBar">
         <ul>
           <div className="shop-name">
-            <Link to="./shopInfo">
+            <Link to="./main/shopInfo">
               <li>
                 <img
                   src={shopLogo}
@@ -25,7 +25,7 @@ const MyShopSideBar = () => {
           </div>
           {/* add New Product / add New Product / add New Product / add New Product  */}
           <div className="sideBar-list">
-            <NavLink to="/addNewProduct">
+            <NavLink to="/main/addNewProduct">
               <li>
                 <FaPlusCircle className="shop-icon" /> Add A Product
               </li>
@@ -33,7 +33,7 @@ const MyShopSideBar = () => {
           </div>
           {/* manage Products / manage Products / manage Products / manage Products / manage Products */}
           <div className="sideBar-list">
-            <NavLink to="/manageProducts">
+            <NavLink to="/main/manageProducts">
               <li>
                 <RiEdit2Fill className="shop-icon" />
                 Manage Products
@@ -42,7 +42,7 @@ const MyShopSideBar = () => {
           </div>
           {/* sales Statistic / sales Statistic / sales Statistic / sales Statistic / sales Statistic */}
           <div className="sideBar-list">
-            <NavLink to="/salesStatistic">
+            <NavLink to="/main/salesStatistic">
               <li>
                 <ImStatsDots className="shop-icon" />
                 Sales statistic
@@ -51,7 +51,7 @@ const MyShopSideBar = () => {
           </div>
           {/* customers List / customers List / customers List / customers List / customers List */}
           <div className="sideBar-list">
-            <NavLink to="/customersList">
+            <NavLink to="/main/customersList">
               <li>
                 <PiUserListFill className="shop-icon" /> Customers List
               </li>

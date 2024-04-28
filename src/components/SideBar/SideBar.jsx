@@ -11,19 +11,19 @@ const SideBar = () => {
       <div className="sideBar">
         <ul>
           <div className="sideBar-top">
-            <Link to="/cart">
+            <Link to="/main/cart">
               <li>
                 <FaShoppingCart className="sideBar-icon" />
                 My Cart
               </li>
             </Link>
-            <Link to="/favorit">
+            <Link to="/main/favorit">
               <li>
                 <IoMdHeart className="sideBar-icon" />
                 Favorites
               </li>
             </Link>
-            <Link to="/myShop">
+            <Link to="/main/myShop">
               <li>
                 <FaShop className="sideBar-icon" />
                 My Shop
@@ -31,7 +31,7 @@ const SideBar = () => {
             </Link>
           </div>
           <div className="sideBar-bottom">
-            <Link to="/settings">
+            <Link to="/main/settings">
               <li>
                 <IoSettingsSharp className="sideBar-icon" />
                 Settings

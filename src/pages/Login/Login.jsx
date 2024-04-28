@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineMail } from "react-icons/md";
 import registerImage from "../../assets/register-image.webp";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
@@ -17,12 +17,16 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
   // login API call / login API call / login API call / login API call
+  const navigate = useNavigate();
   const handlsubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:3000/auth/login", { email, password })
-      .then((res) => console.log(res.data, "login successful"))
+      .then((res) => {
+        console.log(res.data, "login successful"), navigate("/home");
+      })
       .catch((err) => setError(err.response.data));
   };
 

@@ -1,10 +1,10 @@
-import logo from "../../assets/logoV2.png";
+import logo from "../../assets/logo-navBare .png";
 import { MdEmail } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
 import "./NavBar.css";
 import { useState } from "react";
 import profilImage from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import DarkLightMode from "../DarkLightMode/DarkLightMode";
 
 const NavBar = () => {
@@ -56,6 +56,7 @@ const NavBar = () => {
           </h1>
         </div>
       </div>
+      <Outlet />
     </>
   );
 };

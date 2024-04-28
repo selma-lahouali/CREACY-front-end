@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import { FaUserCircle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
@@ -17,6 +17,7 @@ const Register = () => {
     setPasswordVisible(!passwordVisible);
   };
   // register API call / register API call / register API call / register API call
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -26,7 +27,7 @@ const Register = () => {
         password,
       })
       .then(() => {
-        alert("Registation Successful.");
+        alert("Registation Successful."), navigate("/home");
       })
       .catch((err) => {
         console.error(err);
