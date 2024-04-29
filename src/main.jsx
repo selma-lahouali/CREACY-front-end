@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { store } from './redux/Store'
+import { Provider } from 'react-redux'
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
@@ -9,14 +11,15 @@ import Register from "./pages/Register/Register.jsx";
 import MyShop from "./pages/MyShop/Shop/MyShop.jsx";
 import AddNewProd from "./pages/MyShop/AddNewProd/AddNewProd.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
+import ContactUs from "./pages/ContactUs/ContactUs.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/main",
+    path: "/",
     element: <NavBar></NavBar>,
     children: [
       {
-        path: "test",
+        path: "/",
         element: <App></App>,
       },
       {
@@ -30,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "addNewProduct",
         element: <AddNewProd></AddNewProd>,
+      },
+      {
+        path: "contactUs",
+        element: <ContactUs></ContactUs>,
       },
     ],
   },
@@ -45,6 +52,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </Provider>
+</React.StrictMode>
 );

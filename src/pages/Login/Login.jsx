@@ -5,6 +5,8 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import "./Login.css";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/slices/AuthSlice";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(true);
@@ -18,6 +20,8 @@ const Login = () => {
     setPasswordVisible(!passwordVisible);
   };
 
+  // login slice
+  const dispatch = useDispatch();
   // login API call / login API call / login API call / login API call
   const navigate = useNavigate();
   const handlsubmit = (e) => {
@@ -25,9 +29,13 @@ const Login = () => {
     axios
       .post("http://localhost:3000/auth/login", { email, password })
       .then((res) => {
+        
+        dispatch(login(res?.data?.user));
+        localStorage.setItem("token",res.data.token)
+
         console.log(res.data, "login successful"), navigate("/home");
       })
-      .catch((err) => setError(err.response.data));
+      .catch((err) => setError(err.message));
   };
 
   return (
@@ -60,7 +68,7 @@ const Login = () => {
                 onClick={togglePasswordVisibility}
               />
             )}
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
           </form>
           <div className="error">{error}</div>
           <h1 className="registertLink">

@@ -5,6 +5,8 @@ import { MdOutlineMail } from "react-icons/md";
 import registerImage from "../../assets/register-image.webp";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/slices/AuthSlice";
 
 const Register = () => {
   const [passwordVisible, setPasswordVisible] = useState(true);
@@ -17,6 +19,8 @@ const Register = () => {
     setPasswordVisible(!passwordVisible);
   };
   // register API call / register API call / register API call / register API call
+  // LOGIN slice
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,8 +30,10 @@ const Register = () => {
         username: userName,
         password,
       })
-      .then(() => {
+      .then((res) => {
         alert("Registation Successful."), navigate("/home");
+        dispatch(register(res?.data?.user));
+        localStorage.setItem("token",res.data.token)
       })
       .catch((err) => {
         console.error(err);
