@@ -1,4 +1,4 @@
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 import { useState } from "react";
 import axios from "axios";
 import "./ImgUpload.css";
@@ -36,7 +36,7 @@ const ImgUpload = () => {
         }
       );
 
-      // Check the response status
+      // responses status
       if (response.status === 200) {
         setUploadStatus("Image uploaded successfully!");
       } else {
@@ -49,19 +49,19 @@ const ImgUpload = () => {
   };
   return (
     <>
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div className="imageUpload">
+        <form  onSubmit={handleSubmit}>
           <input type="file" accept="image/*" onChange={handleFileChange} />
           <button type="submit">Upload Image</button>
         </form>
         <p>{uploadStatus}</p>
       </div>
       {/* existing code */}
-      <div className="image-display">
+      {/* <div className="image-display">
         <div className="image">
           <img src={logo} alt="image not found" className="loadedImg" />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

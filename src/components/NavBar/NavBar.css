@@ -6,6 +6,7 @@
   padding: 0.5vh 3vw;
   border-bottom: 1px solid var(--darkBleu);
   color: var(--fontColor);
+   /* position: fixed; */
 }
 .home-logo {
   width: 11vw;

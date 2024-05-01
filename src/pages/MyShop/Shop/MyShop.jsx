@@ -3,7 +3,6 @@ const MyShop = () => {
   return (
     <div>
       <MyShopSideBar></MyShopSideBar>
-  
     </div>
   );
 };

@@ -18,3 +18,8 @@
  
   width: 12vw;
 }
+.imageUpload{
+  position: absolute;
+  top: 15vh;
+  left: 15vw;
+}
