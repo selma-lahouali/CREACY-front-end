@@ -72,7 +72,7 @@ const Login = () => {
           </form>
           <div className="error">{error}</div>
           <h1 className="registertLink">
-            Don't Have An Account? <Link to="/register">Sign Up Now</Link>
+            Don t Have An Account? <Link to="/register">Sign Up Now</Link>
           </h1>
         </div>
         <div className="login-right">
