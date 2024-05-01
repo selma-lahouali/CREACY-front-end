@@ -29,10 +29,8 @@ const Login = () => {
     axios
       .post("http://localhost:3000/auth/login", { email, password })
       .then((res) => {
-        
         dispatch(login(res?.data?.user));
-        localStorage.setItem("token",res.data.token)
-
+        localStorage.setItem("token", res.data.token);
         console.log(res.data, "login successful"), navigate("/home");
       })
       .catch((err) => setError(err.message));
@@ -50,6 +48,7 @@ const Login = () => {
               placeholder="Enter Your Email"
               onChange={(e) => setEmail(e.target.value)}
             />
+            {/* password icon togge / password icon togge / password icon togge */}
             <MdOutlineMail className="loginEmailIcon" />
             <label>Password</label>
             <input

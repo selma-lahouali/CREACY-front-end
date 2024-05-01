@@ -15,11 +15,10 @@
   align-items: center;
   margin: 0;
   border: solid 0.5px rgb(119, 127, 148);
- 
   width: 12vw;
 }
-.imageUpload{
+/* .imageUpload{
   position: absolute;
   top: 15vh;
   left: 15vw;
-}
+} */
