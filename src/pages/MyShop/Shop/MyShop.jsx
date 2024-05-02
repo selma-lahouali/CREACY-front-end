@@ -3,6 +3,7 @@ import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
 import "./MyShop.css";
 import axios from "axios";
 import { BiSolidLike } from "react-icons/bi";
+import { RiEdit2Fill } from "react-icons/ri";
 
 const MyShop = () => {
   const [products, setProducts] = useState([]);
@@ -16,29 +17,30 @@ const MyShop = () => {
   return (
     <>
       <MyShopSideBar></MyShopSideBar>
-      <div className="products-display">
+      <div className="my-products-display">
         <ul>
           {products.map((product, index) => (
             <div key={index}>
-              <li>
+              <li className="my-products">
                 <img
                   src={product.image}
                   alt="image not found"
-                  className="product-image"
+                  className="my-product-image"
                 />
                 {/* Display image */}
-                <div className="product-info">
-                  <div className="prod-name-price">
+                <div className="my-product-info">
+                  <div className="my-prod-name-price">
                     <h4>{product.name}</h4>
                     <h4>{product.price} $</h4>
                   </div>
-                  <h1>{product.category}</h1>
-                  <h1>{product.quantity}</h1>
-                  <p className="product-reaction">
+                  <h4>{product.category}</h4>
+                  <h4> Quantity {product.quantity}</h4>
+                  <p className="my-product-likes">
                     {product.likes} <BiSolidLike />
                   </p>
-                  <h4 className="add-to-cart">Modify Product</h4>
+                  <h4 className="modify-Product">  <RiEdit2Fill /> Modify Product</h4>
                 </div>
+               
               </li>
             </div>
           ))}
