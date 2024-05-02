@@ -1,12 +1,14 @@
 .navBar {
   display: flex;
   gap: 8vw;
+  width: 92.8vw;
   align-items: center;
   background-color: var(--mediumBleu);
   padding: 0.5vh 3vw;
   border-bottom: 1px solid var(--darkBleu);
   color: var(--fontColor);
-   /* position: fixed; */
+   position: fixed;
+   z-index: 999;
 }
 .home-logo {
   width: 11vw;

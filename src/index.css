@@ -29,10 +29,10 @@ body {
   --shortTransition: 0.2s;
 }
 [data-theme="dark"] {
-  --bodyColor: #25294a;
+  --bodyColor: #1d203a;
   --fontColor: #d9e5ee;
   --mainBleu: #6c757d;
-  --mediumBleu: #12152e;
+  --mediumBleu: #0f1127;
   --darkBleu: #b0bcc5;
   --lightBleu: #4a4e77;
   --searchBareColor: #909aa1;

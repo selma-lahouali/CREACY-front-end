@@ -1,4 +1,4 @@
-/* .products-display {
+.products-display {
   position: absolute;
   top: 25vh;
   left: 11vw;
@@ -60,4 +60,4 @@
   display: flex;
   align-items: center;
   gap: 1vw;
-} */
+}

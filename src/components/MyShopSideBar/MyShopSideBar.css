@@ -2,7 +2,8 @@
   background-color: var(--mediumBleu);
   width: 13vw;
   height: 89.9vh;
-  /* position: fixed; */
+  position: fixed;
+  top: 10.14vh;
 }
 .shop-sideBar li {
   margin-bottom: 8vh;
