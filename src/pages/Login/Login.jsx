@@ -7,63 +7,71 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/slices/AuthSlice";
-import DarkLightMode from "../../components/DarkLightMode/DarkLightMode";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(true);
-  // login states / login states / login states / login states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // define dark or light mode based on the user's preferences
   const userMode = localStorage.getItem("theme") || "light";
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  // Apply the user's mode preference / Apply the user's mode preference
   useEffect(() => {
     document.body.setAttribute("data-theme", userMode);
   }, [userMode]);
 
-  // password visibiity / password visibiity / password visibiity / password visibiity
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  // login slice
-  const dispatch = useDispatch();
-  // login API call / login API call / login API call / login API call
-  const navigate = useNavigate();
-  const handlsubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:3000/auth/login", { email, password })
       .then((res) => {
-        dispatch(login(res?.data?.user));
+        dispatch(login(res.data.user));
         localStorage.setItem("token", res.data.token);
-        console.log(res.data, "login successful"), navigate("/home");
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        navigate("/home");
       })
       .catch((err) => setError(err.message));
   };
 
+  //  save the email and password if they are in the local storage
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("email");
+    const savedPassword = localStorage.getItem("password");
+    if (savedEmail && savedPassword) {
+      setEmail(savedEmail);
+      setPassword(savedPassword);
+    }
+  }, []);
+
   return (
     <>
-    <DarkLightMode></DarkLightMode>
       <div className="login">
         <div className="login-left">
           <h1>Welcome To CREACY</h1>
-          <form onSubmit={(e) => handlsubmit(e)}>
-            <label>E-mail</label>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">E-mail</label>
             <input
               type="email"
+              id="email"
+              name="email"
               placeholder="Enter Your Email"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            {/* password icon togge / password icon togge / password icon togge */}
             <MdOutlineMail className="login-loginEmailIcon" />
-            <label>Password :</label>
+            <label htmlFor="password">Password :</label>
             <input
               type={passwordVisible ? "password" : "text"}
+              id="password"
+              name="password"
               placeholder="Enter Your Password"
-              required
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             {passwordVisible ? (
@@ -81,7 +89,7 @@ const Login = () => {
           </form>
           <div className="error">{error}</div>
           <h3 className="registertLink">
-            Don t Have An Account? <Link to="/register">Sign Up Now</Link>
+            Don't Have An Account? <Link to="/register">Sign Up Now</Link>
           </h3>
         </div>
         <div className="login-right">

@@ -22,17 +22,17 @@ const Register = () => {
   // define dark or light mode based on the user's preferences
   const userMode = localStorage.getItem("theme") || "light";
 
-  // Apply the user's mode preference / Apply the user's mode preference
+  // Apply the user's mode preference
   useEffect(() => {
     document.body.setAttribute("data-theme", userMode);
   }, [userMode]);
 
-  // toggle Password Visibility / toggle Password Visibility / toggle Password Visibility
+  // toggle Password Visibility
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  // register API call / register API call / register API call / register API call
+  // register API call
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password.length < 6) {
@@ -50,7 +50,9 @@ const Register = () => {
       .then((res) => {
         dispatch(register(res?.data?.user));
         localStorage.setItem("token", res.data.token);
-        // sweet alert successess message / sweet alert successess message
+        localStorage.setItem("email", email); // Save email to local storage
+        localStorage.setItem("password", password); // Save password to local storage
+        // sweet alert successess message
         Swal.fire({
           title: "Good job!",
           text: "Your Account Has Been Created!",
@@ -63,6 +65,16 @@ const Register = () => {
         alert("Registration failed. Please try again.");
       });
   };
+
+  // Check for saved user credentials upon component mount
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("email");
+    const savedPassword = localStorage.getItem("password");
+    if (savedEmail && savedPassword) {
+      setEmail(savedEmail);
+      setPassword(savedPassword);
+    }
+  }, []);
 
   return (
     <>
