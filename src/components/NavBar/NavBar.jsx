@@ -15,8 +15,8 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="navBar">
-        <img src={logo} alt="image not found" className="home-logo" />
+       <div className="navBar">
+        <Link to ="/home"> <img src={logo} alt="image not found" className="home-logo" /></Link>
         <form className="searchBar">
           <input
             type="search"

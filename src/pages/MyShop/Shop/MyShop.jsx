@@ -5,6 +5,7 @@ import axios from "axios";
 import { BiSolidLike } from "react-icons/bi";
 import { RiEdit2Fill } from "react-icons/ri";
 import { Pagination } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const MyShop = () => {
   const [products, setProducts] = useState([]);
@@ -51,6 +52,10 @@ const MyShop = () => {
                   </h4>
                 </div>
               </li>
+
+              <Link to={`/myShop/${product._id}`}>
+                <button>Details</button>
+              </Link>
             </div>
           ))}
         </ul>

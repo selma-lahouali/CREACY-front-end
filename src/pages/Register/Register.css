@@ -105,3 +105,10 @@
   letter-spacing: 0.07vw;
   margin-bottom: 2vh;
 }
+.logintLink a{
+  color: rgb(216, 8, 150);
+}
+.logintLink a:hover{
+  text-decoration: underline 2px solid rgb(125, 22, 74);
+  color: rgb(255, 42, 149);
+}

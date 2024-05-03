@@ -49,17 +49,24 @@
   margin-top: 2vh;
 }
 .add-product-btn {
-  background-color: var(--mediumBleu);
+  background-color: var(--mainBleu);
   border: none;
   border-radius: 0.5vw;
   width: 17.7vw;
+  color: var(--bodyColor);
+  font-size: 1.1vw;
+  font-weight: bold;
+  letter-spacing: 0.04vw;
 }
 .cancel-add-product-btn {
-  background-color: var(--mediumBleu);
+  background-color: rgb(214, 156, 166);
   height: 5vh;
   border: none;
   border-radius: 0.5vw;
   width: 7vw;
   padding-top: -0.2vh;
   margin-top: -0.3vh;
+  color: red;
+  font-size: 1.1vw;
+  font-weight: bold;
 }

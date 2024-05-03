@@ -12,6 +12,7 @@ import MyShop from "./pages/MyShop/Shop/MyShop.jsx";
 import AddNewProd from "./pages/MyShop/AddNewProd/AddNewProd.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import ContactUs from "./pages/ContactUs/ContactUs.jsx";
+import SingelProductPage from "./pages/MyShop/SingelProductPage/SingelProductPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         path: "myShop",
         element: <MyShop></MyShop>,
       },
+      {
+        path: "myShop/:_id",
+        element: <SingelProductPage></SingelProductPage>,
+      }
+      ,
       {
         path: "addNewProduct",
         element: <AddNewProd></AddNewProd>,
