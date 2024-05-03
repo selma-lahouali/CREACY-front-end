@@ -6,7 +6,10 @@ body {
   height: 100vh;
   background-color: var(--bodyColor);
 }
-
+form,
+button,select {
+  cursor: pointer;
+}
 :root {
   /* colors / colors / colors / colors / colors */
   --bodyColor: #ffffff;
@@ -31,7 +34,7 @@ body {
 [data-theme="dark"] {
   --bodyColor: #1d203a;
   --fontColor: #d9e5ee;
-  --mainBleu: #6c757d;
+  --mainBleu: #9bb5cd;
   --mediumBleu: #0f1127;
   --darkBleu: #b0bcc5;
   --lightBleu: #4a4e77;
@@ -41,16 +44,16 @@ body {
   --border: #696969;
   /* gradient color / gradient color / gradient color / gradient color / gradient color  */
   /* shop gradient / shop gradient / shop gradient */
-  --shopBackGroundColor: #21D4FD;
+  --shopBackGroundColor: #21d4fd;
   --shopBackGroundImage: linear-gradient(270deg, #1ea7c6 0%, #a40beb 100%);
   /* navBare gradient / navBare gradient / navBare gradient */
-  --NBbackGroundColor: #FF3CAC;
-  --NBbackGroundImage: linear-gradient(270deg, #FF3CAC 0%, #7920c3 60%, #287af5 110%);
-}
-
-form,
-button {
-  cursor: pointer;
+  --NBbackGroundColor: #ff3cac;
+  --NBbackGroundImage: linear-gradient(
+    270deg,
+    #ff3cac 0%,
+    #7920c3 60%,
+    #287af5 110%
+  );
 }
 
 /* palette bleu https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 */

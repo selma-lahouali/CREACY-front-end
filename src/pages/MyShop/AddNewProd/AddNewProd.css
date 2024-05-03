@@ -4,4 +4,62 @@
   left: 15vw;
   display: flex;
   flex-direction: column;
+  border: 2px solid var(--darkBleu);
+  border-radius: 0.8vw;
+  padding: 1vw 2vw;
+}
+.add-product-input {
+  width: 30vw;
+  height: 7vh;
+  border: none;
+  border-radius: 0.5vw;
+  padding-left: 0.5vw;
+  border: 1px solid var(--darkBleu);
+  background-color: var(--searchBareColor);
+  margin-bottom: 3vh;
+  font-size: 1vw;
+}
+.add-product-input::placeholder {
+  color: black;
+  font-size: 1vw;
+}
+.add-product-input:focus {
+  outline: 1px solid #adb5bd;
+  box-shadow: 1px 1px 5px rgb(38, 38, 38);
+}
+.add-new-product select {
+  width: 30.7vw;
+  height: 7vh;
+  border: none;
+  border-radius: 0.5vw;
+  padding-left: 0.5vw;
+  border: 1px solid var(--darkBleu);
+  background-color: var(--searchBareColor);
+  margin-bottom: 3vh;
+}
+.add-new-product label {
+  color: var(--fontColor);
+  font-size: 1.2vw;
+  margin-bottom: 1vh;
+}
+.my-product-btn {
+  height: 5vh;
+  display: flex;
+  gap: 6vw;
+  margin-top: 2vh;
+}
+.add-product-btn {
+  background-color: var(--mediumBleu);
+  border: none;
+  border-radius: 0.5vw;
+  width: 17.7vw;
+}
+.cancel-add-product-btn {
+  background-color: var(--mediumBleu);
+  height: 5vh;
+  border: none;
+  border-radius: 0.5vw;
+  width: 7vw;
+  padding-top: -0.2vh;
+  margin-top: -0.3vh;
 }

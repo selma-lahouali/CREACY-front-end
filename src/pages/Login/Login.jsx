@@ -3,10 +3,11 @@ import { MdOutlineMail } from "react-icons/md";
 import registerImage from "../../assets/register-image.webp";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import "./Login.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/slices/AuthSlice";
+import DarkLightMode from "../../components/DarkLightMode/DarkLightMode";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(true);
@@ -14,6 +15,13 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  // define dark or light mode based on the user's preferences
+  const userMode = localStorage.getItem("theme") || "light";
+
+  // Apply the user's mode preference / Apply the user's mode preference
+  useEffect(() => {
+    document.body.setAttribute("data-theme", userMode);
+  }, [userMode]);
 
   // password visibiity / password visibiity / password visibiity / password visibiity
   const togglePasswordVisibility = () => {
@@ -38,6 +46,7 @@ const Login = () => {
 
   return (
     <>
+    <DarkLightMode></DarkLightMode>
       <div className="login">
         <div className="login-left">
           <h1>Welcome To CREACY</h1>
@@ -49,30 +58,31 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             {/* password icon togge / password icon togge / password icon togge */}
-            <MdOutlineMail className="loginEmailIcon" />
-            <label>Password</label>
+            <MdOutlineMail className="login-loginEmailIcon" />
+            <label>Password :</label>
             <input
               type={passwordVisible ? "password" : "text"}
               placeholder="Enter Your Password"
+              required
               onChange={(e) => setPassword(e.target.value)}
             />
             {passwordVisible ? (
               <FaRegEye
-                className="loginPasswordIcon"
+                className="login-passwordIcon"
                 onClick={togglePasswordVisibility}
               />
             ) : (
               <FaRegEyeSlash
-                className="passwordIcon"
+                className="login-passwordIcon"
                 onClick={togglePasswordVisibility}
               />
             )}
             <button type="submit">Login</button>
           </form>
           <div className="error">{error}</div>
-          <h1 className="registertLink">
+          <h3 className="registertLink">
             Don t Have An Account? <Link to="/register">Sign Up Now</Link>
-          </h1>
+          </h3>
         </div>
         <div className="login-right">
           <img src={registerImage} alt="logo image" className="registerImage" />

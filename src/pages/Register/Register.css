@@ -1,5 +1,6 @@
 .register {
   display: flex;
+  background-color: var(--bodyColor);
 }
 .registe-right {
   width: 48.8vw;
@@ -25,37 +26,51 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
-  gap: 10px;
+  margin-top: 3vh;
+  gap: 0.5vh;
 }
 .register h1 {
   font-size: 2vw;
+  color: var(--fontColor);
+  letter-spacing: 0.07vw;
+  margin-bottom: 2vh;
 }
 .register input {
   width: 43vw;
   height: 8vh;
   padding-left: 10px;
-  border-radius: 10px;
+  border-radius: 0.7vw;
   border: 1px solid;
+  border: 1px solid var(--darkBleu);
+  background-color: var(--searchBareColor);
+}
+.register input::placeholder {
+  color: black;
+  font-size: 1.1vw;
 }
 .register input:focus {
-  outline: none;
-  border: 2px solid var(--mainBleu);
+  outline: 0.2vw solid #adb5bd;
 }
 .register label {
   font-size: 22px;
-  margin-left: 10px;
+  margin-left: 0.4vw;
+  margin-bottom: 1vh;
   font-weight: bold;
+  color: var(--fontColor);
+  letter-spacing: 0.05vw;
 }
 .register button {
   background-color: var(--mainBleu);
-  width: 38vw;
+  width: 36vw;
   height: 7vh;
-  border-radius: 10px;
+  border-radius: 0.7vw;
   border: 1px solid #4b5257;
-  margin-left: 55px;
-  margin-top: 40px;
-  color: white;
+  margin-left: 4vw;
+  margin-top: 3vh;
+  color: var(--bodyColor);
+  font-size: 1.1vw;
+  font-weight: bold;
+  letter-spacing: 0.07vw;
 }
 .register .logintLink {
   margin-top: 20px;
@@ -67,20 +82,26 @@
   text-decoration: none;
 }
 .userIcon {
-  position: absolute;
-  top: 27.6vh;
-  left: 45vw;
+  position: relative;
+  top: -6.5vh;
+  left: 41vw;
   font-size: 1.5vw;
 }
 .emailIcon {
-  position: absolute;
-  top: 43.8vh;
-  left: 45vw;
+  position: relative;
+  top: -6.5vh;
+  left: 41vw;
   font-size: 1.6vw;
 }
 .passwordIcon {
-  position: absolute;
-  top: 60.3vh;
-  left: 45vw;
+  position: relative;
+  top: -6.5vh;
+  left: 41vw;
   font-size: 1.6vw;
+}
+.logintLink {
+  font-size: 0.8vw;
+  color: var(--fontColor);
+  letter-spacing: 0.07vw;
+  margin-bottom: 2vh;
 }

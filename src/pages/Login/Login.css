@@ -1,83 +1,111 @@
 .login {
-    display: flex;
-  }
-  .login-right {
-    width: 48.8vw;
+  display: flex;
+  background-color: var(--bodyColor);
+}
+.login-right {
+  width: 48.8vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  }
-  .bigLogo {
+}
+/* .bigLogo {
     width: 48.5vw;
   height: 100%;
-  }
-  .login-left {
-    width: 45vw;
-    height: auto;
-    padding: 2vw 3.5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .login form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
-  }
-  .login h1 {
-    font-size: 2vw;
-  }
-  .login input {
-    width: 43vw;
-    height: 8vh;
-    padding-left: 10px;
-    border-radius: 10px;
-    border: 1px solid;
-  }
-  .login input:focus {
-    outline: none;
-    border: 2px solid var(--mainBleu);
-  }
-  .login label {
-    font-size: 22px;
-    margin-left: 10px;
-    font-weight: bold;
-  }
-  .login button {
-    background-color: var(--mainBleu);
-    width: 38vw;
-    height: 7vh;
-    border-radius: 10px;
-    border: 1px solid #4b5257;
-    margin-left: 55px;
-    margin-top: 40px;
-    color: white;
-    margin-bottom: 5vh;
-  }
-  .login .logintLink {
-    margin-top: 20px;
-    font-size: 22px;
-    text-decoration: none;
-  }
-  .login-left a {
-    color: #4f565c;
-    text-decoration: none;
-  }
-  
-  .loginEmailIcon {
-    position: absolute;
-    top: 34.6vh;
-    left: 45vw;
-    font-size: 1.6vw;
-  }
-  .loginPasswordIcon {
-    position: absolute;
-    top: 50.7vh;
-    left: 45vw;
-    font-size: 1.6vw;
-  }
-  
+  } */
+.login-left {
+  width: 45vw;
+  height: auto;
+  padding: 2vw 3.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+.login h1 {
+  font-size: 2vw;
+  color: var(--fontColor);
+  letter-spacing: 0.07vw;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+.login input {
+  width: 43vw;
+  height: 8vh;
+  padding-left: 10px;
+  border-radius: 0.7vw;
+  border: 1px solid;
+  border: 1px solid var(--darkBleu);
+  background-color: var(--searchBareColor);
+}
+.login input::placeholder {
+  color: black;
+  font-size: 1.1vw;
+}
+.login input:focus {
+  outline: 0.2vw solid #adb5bd;
+}
+.login label {
+  font-size: 22px;
+  margin-left: 0.4vw;
+  margin-bottom: 1vh;
+  font-weight: bold;
+  color: var(--fontColor);
+  letter-spacing: 0.05vw;
+}
+.login button {
+  background-color: var(--mainBleu);
+  width: 36vw;
+  height: 7vh;
+  border-radius: 0.7vw;
+  border: 1px solid #4b5257;
+  margin-left: 4vw;
+  margin-top: 7vh;
+  color: var(--bodyColor);
+  font-size: 1.1vw;
+  font-weight: bold;
+  letter-spacing: 0.07vw;
+  margin-bottom: 5vh;
+}
+.login .logintLink {
+  margin-top: 20px;
+  font-size: 22px;
+  text-decoration: none;
+}
+.login-left a {
+  color: #4f565c;
+  text-decoration: none;
+}
+
+.login-loginEmailIcon {
+  position: relative;
+  top: -7.5vh;
+  left: 41vw;
+  font-size: 1.5vw;
+}
+.login-passwordIcon {
+  position: relative;
+  top: -7.5vh;
+  left: 41vw;
+  font-size: 1.5vw;
+}
+.registertLink {
+  font-size: 1.5vw;
+  color: var(--fontColor);
+  letter-spacing: 0.07vw;
+  margin-bottom: 2vh;
+}
+.registertLink a{
+  color: rgb(216, 8, 150);
+}
+.registertLink a:hover{
+  text-decoration: underline 2px solid rgb(125, 22, 74);
+  color: rgb(255, 42, 149);
+}
