@@ -1,26 +1,26 @@
 import axios from "axios";
-import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
+import MyShopSideBar from "../../../../components/MyShopSideBar/MyShopSideBar";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import "./ManageProducts.css";
+import "./UpdateProduct.css";
+import deleteProduct from "../../ManageProducts/DeleteProduct/DeleteProduct";
 
-const ManageProducts = () => {
+const UpdateProduct = () => {
   const { _id } = useParams();
-
-  // product states
   const [product, setProduct] = useState({
     name: "",
     description: "",
     price: "",
     category: "",
     quantity: "",
-    image: null
+    image: null,
   });
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/products/${_id}`)
+    axios
+      .get(`http://localhost:3000/products/${_id}`)
       .then((res) => {
         setProduct(res.data);
       })
@@ -29,10 +29,9 @@ const ManageProducts = () => {
         setError("Failed to load product.");
       });
   }, [_id]);
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const formData = new FormData();
     formData.append("name", product.name);
     formData.append("description", product.description);
@@ -53,7 +52,8 @@ const ManageProducts = () => {
       );
 
       if (response.status === 200) {
-        console.log(response.data, "product updated successfully");
+        console.log(response.data, "product updated successfully"),
+          navigate("/myShop");
         Swal.fire({
           title: "Success!",
           text: "Your Product Has Been Updated!",
@@ -78,20 +78,29 @@ const ManageProducts = () => {
     if (e.target.name === "image") {
       setProduct({
         ...product,
-        image: e.target.files[0]
+        image: e.target.files[0],
       });
     } else {
       setProduct({
         ...product,
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value,
       });
+    }
+  };
+  //  delete Product / delete Product / delete Product / delete Product / delete Product / delete Product
+  const handleDelete = async () => {
+    try {
+      await deleteProduct(_id, setError, navigate);
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      setError("Failed to delete product.");
     }
   };
 
   return (
     <>
       <MyShopSideBar />
-      <form onSubmit={handleSubmit} className="add-new-product">
+      <form onSubmit={handleSubmit} className="update-product">
         <label>Product Name :</label>
         <input
           type="text"
@@ -110,7 +119,7 @@ const ManageProducts = () => {
           name="description"
           value={product.description}
           onChange={handleChange}
-          className="add-product-input"
+          className="update-product-input"
         />
         <label>Product Price :</label>
         <input
@@ -120,7 +129,7 @@ const ManageProducts = () => {
           name="price"
           value={product.price}
           onChange={handleChange}
-          className="add-product-input"
+          className="update-product-input"
         />
         <label>Product Category :</label>
         <select
@@ -143,7 +152,7 @@ const ManageProducts = () => {
           name="quantity"
           value={product.quantity}
           onChange={handleChange}
-          className="add-product-input"
+          className="update-product-input"
         />
         <label>Product Image :</label>
         <input
@@ -151,22 +160,34 @@ const ManageProducts = () => {
           accept="image/*"
           onChange={handleChange}
           name="image"
-          className="add-product-input"
+          className="update-product-input"
         />
         <div className="my-product-btn">
           <Link to="/myShop">
-            <button type="button" className="cancel-add-product-btn">
+            <button type="button" className="back-update-product-btn">
               Back
             </button>
           </Link>
-          <button type="submit" className="add-product-btn">
+          <button type="submit" className="update-product-btn">
             Update Product
           </button>
         </div>
       </form>
       <div className="error">{error}</div>
+      <div className="delet-product">
+        <h3>Delete Your Product :</h3>
+        <p>
+          <span>Caution:</span> Once you delete this product, it will be
+          permanently removed from our inventory. This action cannot be
+          reversed. Please ensure that you intend to delete this product before
+          proceeding.
+        </p>
+        <button className="delete-product-btn" onClick={handleDelete}>
+          Delete Product
+        </button>
+      </div>
     </>
   );
 };
 
-export default ManageProducts;
+export default UpdateProduct;

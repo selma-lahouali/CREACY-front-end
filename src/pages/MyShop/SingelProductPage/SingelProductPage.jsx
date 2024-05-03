@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./SingelProductPage.css";
 const SingleProductPage = () => {
   const [singleProduct, setSingleProduct] = useState({});
@@ -44,6 +44,7 @@ const SingleProductPage = () => {
           </div>
         </li>
       </div>
+    <Link to="/myShop"> <button className="back-to-shop-btn">Back To The Shop</button></Link> 
     </>
   );
 };

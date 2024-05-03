@@ -48,7 +48,7 @@ const MyShop = () => {
                   </p>
                   {/* Link to ManageProducts page with product ID as parameter */}
                   <Link
-                    to={`/manageProducts/${product._id}`}
+                    to={`/updateProduct/${product._id}`}
                     className="modify-product-link"
                   >
                     {/* update product link / update product link / update product link  */}

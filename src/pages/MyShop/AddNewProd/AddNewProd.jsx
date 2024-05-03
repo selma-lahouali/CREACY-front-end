@@ -6,16 +6,15 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddNewProd = () => {
-  // product states / product states / product states / product states
+  // product states
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [quantity, setQuantity] = useState("");
   const [error, setError] = useState("");
-  // image upload states / image upload states / image upload states / image upload states
+  // image upload states
   const [selectedFile, setSelectedFile] = useState(null);
-  const [uploadStatus] = useState("");
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -31,7 +30,7 @@ const AddNewProd = () => {
     formData.append("category", category);
     formData.append("quantity", quantity);
     formData.append("image", selectedFile);
-    // product creation / product creation / product creation / product creation
+
     try {
       const response = await axios.post(
         "http://localhost:3000/products/",
@@ -45,7 +44,15 @@ const AddNewProd = () => {
 
       if (response.status === 200) {
         console.log(response.data, "product created successfully");
-        // sweet alert success message / sweet alert success message / sweet alert success message
+        // Reset input fields after successful product creation
+        setName("");
+        setDescription("");
+        setPrice("");
+        setCategory("");
+        setQuantity("");
+        setSelectedFile(null);
+
+        // Display success message
         Swal.fire({
           title: "Good job!",
           text: "Your Product Has Been Created!",
@@ -57,7 +64,7 @@ const AddNewProd = () => {
     } catch (error) {
       console.error("Error creating product:", error);
       setError("Failed to create product.");
-      // sweet alert fail message / sweet alert fail message / sweet alert fail message
+      // Display error message
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -66,38 +73,42 @@ const AddNewProd = () => {
       });
     }
   };
+
   return (
     <>
       <MyShopSideBar />
       <form onSubmit={handleSubmit} className="add-new-product">
-        {/* product name / product name / product name / product name  */}
+        {/* Product name */}
         <label>Product Name :</label>
         <input
           type="text"
           placeholder="Enter Your Product Name"
           required
+          value={name}
           onChange={(e) => setName(e.target.value)}
           className="add-product-input"
         />
-        {/* product description / product description / product description */}
+        {/* Product description */}
         <label>Product Description :</label>
         <input
           type="text"
           placeholder="Enter Your Product Description"
           required
+          value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="add-product-input"
         />
-        {/* product price / product price / product price / product price */}
+        {/* Product price */}
         <label>Product Price :</label>
         <input
           type="number"
           placeholder="Enter The Price"
           required
+          value={price}
           onChange={(e) => setPrice(e.target.value)}
           className="add-product-input"
         />
-        {/* product category / product category / product category / product category  */}
+        {/* Product category */}
         <label>Product Category :</label>
         <select
           id="category"
@@ -111,16 +122,17 @@ const AddNewProd = () => {
           <option value="shoes">shoes</option>
           <option value="home decoration">home decoration</option>
         </select>
-        {/* product quantity / product quantity / product quantity / product quantity  */}
+        {/* Product quantity */}
         <label>Product Quantity :</label>
         <input
           type="number"
           placeholder="Enter The Quantity"
           required
+          value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
           className="add-product-input"
         />
-        {/* image upload / image upload / image upload / image upload / image upload */}
+        {/* Image upload */}
         <input
           type="file"
           accept="image/*"
@@ -139,7 +151,6 @@ const AddNewProd = () => {
         </div>
       </form>
       <div className="error">{error}</div>
-      <p>{uploadStatus}</p>
     </>
   );
 };

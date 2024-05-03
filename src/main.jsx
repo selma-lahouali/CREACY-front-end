@@ -13,7 +13,9 @@ import AddNewProd from "./pages/MyShop/AddNewProd/AddNewProd.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import ContactUs from "./pages/ContactUs/ContactUs.jsx";
 import SingelProductPage from "./pages/MyShop/SingelProductPage/SingelProductPage.jsx";
-import ManageProducts from "./pages/MyShop/ManageProducts/ManageProducts.jsx";
+// import ManageProducts from "./pages/MyShop/ManageProducts/UpdateProduct/ManageProducts.jsx";
+import UpdateProduct from "./pages/MyShop/ManageProducts/UpdateProduct/UpdateProduct.jsx";
+import DeleteProduct from "./pages/MyShop/ManageProducts/DeleteProduct/DeleteProduct.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,13 +43,18 @@ const router = createBrowserRouter([
         element: <AddNewProd></AddNewProd>,
       },
       {
-        path: "manageProducts/:_id",
-        element: <ManageProducts></ManageProducts>,
+        path: "updateProduct/:_id",
+        element: <UpdateProduct></UpdateProduct>,
       },
       {
-        path: "manageProducts",
-        element: <ManageProducts></ManageProducts>,
+        path: "deleteProduct",
+        element: <DeleteProduct></DeleteProduct>,
       },
+      // {
+      //   path: "manageProducts",
+      //   element: <ManageProducts></ManageProducts>,
+      // },
+
       {
         path: "contactUs",
         element: <ContactUs></ContactUs>,

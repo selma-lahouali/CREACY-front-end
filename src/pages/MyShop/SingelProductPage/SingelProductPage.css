@@ -4,3 +4,16 @@
     top: 15vh;
     left: 15vw;
 }
+.back-to-shop-btn{
+    position: relative;
+    top: 60vh;
+    left: 15vw;
+    background-color: var(--mainBleu);
+    border: none;
+    border-radius: 0.5vw;
+    width: 13vw;
+    height: 5vh;
+    color: var(--bodyColor);
+    font-size: 1.1vw;
+    letter-spacing: 0.04vw;
+}
