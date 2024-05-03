@@ -9,13 +9,13 @@ import { Link } from "react-router-dom";
 
 const MyShop = () => {
   const [products, setProducts] = useState([]);
-  // pagination / pagination / pagination / pagination / pagination / pagination
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
   const handlePageChange = (event, value) => {
     setPage(value);
   };
-  // get all products / get all products / get all products / get all products / get all products
+
   useEffect(() => {
     axios.get(`http://localhost:3000/products?page=${page}`).then((res) => {
       setProducts(res.data.products);
@@ -31,7 +31,6 @@ const MyShop = () => {
           {products.map((product, index) => (
             <div key={index}>
               <li className="my-products">
-                {/* Display image */}
                 <img
                   src={product.image}
                   alt="image not found"
@@ -47,9 +46,16 @@ const MyShop = () => {
                   <p className="my-product-likes">
                     <BiSolidLike className="my-product-icon" /> {product.likes}
                   </p>
-                  <h4 className="modify-Product">
-                    <RiEdit2Fill className="my-product-icon" /> Modify Product
-                  </h4>
+                  {/* Link to ManageProducts page with product ID as parameter */}
+                  <Link
+                    to={`/manageProducts/${product._id}`}
+                    className="modify-product-link"
+                  >
+                    {/* update product link / update product link / update product link  */}
+                    <h4 className="modify-Product">
+                      <RiEdit2Fill className="my-product-icon" /> Modify Product
+                    </h4>
+                  </Link>
                 </div>
               </li>
 

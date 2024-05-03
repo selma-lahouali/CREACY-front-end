@@ -8,21 +8,20 @@ const SingleProductPage = () => {
   const { _id } = useParams();
 
   useEffect(() => {
-    // Construct the API endpoint URL with the product ID
+    // API url + id / API url + id / API url + id / API url + id / API url + id
     const apiUrl = `http://localhost:3000/products/${_id}`;
 
-    //get products by id
+    //get products by id / get products by id / get products by id / get products by id
     axios
       .get(apiUrl)
       .then((res) => {
-        // Update state with the fetched product data
         setSingleProduct(res.data);
       })
       .catch((err) => {
         console.error(err);
         console.log("Failed to load product.");
       });
-  }, [_id]); // Dependency array ensures the effect runs when _id changes
+  }, [_id]);
 
   return (
     <>
