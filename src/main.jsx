@@ -16,6 +16,8 @@ import SingelProductPage from "./pages/MyShop/SingelProductPage/SingelProductPag
 // import ManageProducts from "./pages/MyShop/ManageProducts/UpdateProduct/ManageProducts.jsx";
 import UpdateProduct from "./pages/MyShop/ManageProducts/UpdateProduct/UpdateProduct.jsx";
 import DeleteProduct from "./pages/MyShop/ManageProducts/DeleteProduct/DeleteProduct.jsx";
+import NotFound from "./pages/NotFound/NotFound.jsx";
+import CreatShop from "./pages/MyShop/CreatShop/CreatShop.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "myShop",
         element: <MyShop></MyShop>,
+      },
+      {
+        path: "creatShop",
+        element: <CreatShop></CreatShop>,
       },
       {
         path: "myShop/:_id",
@@ -68,6 +74,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login></Login>,
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>
   },
 ]);
 

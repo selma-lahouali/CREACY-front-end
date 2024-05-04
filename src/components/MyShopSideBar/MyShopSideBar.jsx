@@ -12,7 +12,7 @@ const MyShopSideBar = () => {
       <div className="shop-sideBar">
         <ul>
           <div className="shop-name">
-            <Link to="/shopInfo">
+            <Link to="/CreatShop">
               <li>
                 <img
                   src={shopLogo}

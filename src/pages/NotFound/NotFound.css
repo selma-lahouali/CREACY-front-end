@@ -1,0 +1,12 @@
+/* NotFound.css */
+
+.notfoundimg {
+    margin: 0;
+    padding: 0;
+    background-image: url("../../assets/40.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  

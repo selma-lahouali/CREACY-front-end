@@ -8,7 +8,6 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/slices/AuthSlice";
 import Swal from "sweetalert2";
-import DarkLightMode from "../../components/DarkLightMode/DarkLightMode";
 
 const Register = () => {
   const [passwordVisible, setPasswordVisible] = useState(true);
@@ -78,7 +77,6 @@ const Register = () => {
 
   return (
     <>
-      <DarkLightMode></DarkLightMode>
       <div className="register">
         <div className="register-left">
           <h1>Welcome To CREACY. Sign Up Now For Free</h1>
