@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./UpdateProduct.css";
-import deleteProduct from "../../ManageProducts/DeleteProduct/DeleteProduct";
+import deleteProduct from "../../../../components/DeleteProduct/DeleteProduct";
 
 const UpdateProduct = () => {
   const { _id } = useParams();

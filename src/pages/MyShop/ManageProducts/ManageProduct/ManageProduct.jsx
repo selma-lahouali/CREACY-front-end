@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
-import "./MyShop.css";
+import MyShopSideBar from "../../../../components/MyShopSideBar/MyShopSideBar";
+import "./ManageProduct.css";
 import axios from "axios";
 import { BiSolidLike } from "react-icons/bi";
+import { RiEdit2Fill } from "react-icons/ri";
 import { Pagination } from "@mui/material";
-
-// API call get all product / API call get all product / API call get all product
-const MyShop = () => {
+import { Link } from "react-router-dom";
+const ManageProduct = () => {
   const [products, setProducts] = useState([]);
-  // pagination / pagination / pagination / pagination /pagination
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const handlePageChange = (event, value) => {
@@ -45,8 +44,22 @@ const MyShop = () => {
                   <p className="my-product-likes">
                     <BiSolidLike className="my-product-icon" /> {product.likes}
                   </p>
+                  {/* Link to ManageProducts page with product ID as parameter */}
+                  <Link
+                    to={`/updateProduct/${product._id}`}
+                    className="modify-product-link"
+                  >
+                    {/* update product link / update product link / update product link  */}
+                    <h4 className="modify-Product">
+                      <RiEdit2Fill className="my-product-icon" /> Modify Product
+                    </h4>
+                  </Link>
                 </div>
               </li>
+
+              <Link to={`/myShop/${product._id}`}>
+                <button>Details</button>
+              </Link>
             </div>
           ))}
         </ul>
@@ -61,4 +74,4 @@ const MyShop = () => {
   );
 };
 
-export default MyShop;
+export default ManageProduct;

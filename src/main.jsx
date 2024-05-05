@@ -13,11 +13,10 @@ import AddNewProd from "./pages/MyShop/AddNewProd/AddNewProd.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import ContactUs from "./pages/ContactUs/ContactUs.jsx";
 import SingelProductPage from "./pages/MyShop/SingelProductPage/SingelProductPage.jsx";
-// import ManageProducts from "./pages/MyShop/ManageProducts/UpdateProduct/ManageProducts.jsx";
 import UpdateProduct from "./pages/MyShop/ManageProducts/UpdateProduct/UpdateProduct.jsx";
-import DeleteProduct from "./pages/MyShop/ManageProducts/DeleteProduct/DeleteProduct.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import CreatShop from "./pages/MyShop/CreatShop/CreatShop.jsx";
+import ManageProduct from "./pages/MyShop/ManageProducts/ManageProduct/ManageProduct.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,18 +48,14 @@ const router = createBrowserRouter([
         element: <AddNewProd></AddNewProd>,
       },
       {
+        path: "manageProducts",
+        element: <ManageProduct></ManageProduct>,
+      },
+      {
         path: "updateProduct/:_id",
         element: <UpdateProduct></UpdateProduct>,
       },
-      {
-        path: "deleteProduct",
-        element: <DeleteProduct></DeleteProduct>,
-      },
-      // {
-      //   path: "manageProducts",
-      //   element: <ManageProducts></ManageProducts>,
-      // },
-
+     
       {
         path: "contactUs",
         element: <ContactUs></ContactUs>,
@@ -77,7 +72,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <NotFound></NotFound>
+    element: <NotFound></NotFound>,
   },
 ]);
 
