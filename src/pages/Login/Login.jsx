@@ -33,7 +33,6 @@ const Login = () => {
         dispatch(login(res.data.user));
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("email", email);
-        localStorage.setItem("password", password);
         navigate("/home");
       })
       .catch((err) => setError(err.message));

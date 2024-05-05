@@ -70,4 +70,8 @@
     font-size: 1.1vw;
     font-weight: bold;
   }
-  
+  .test{
+    position: relative;
+    top: 20vh;
+    left: 15vw;
+  }

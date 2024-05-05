@@ -4,6 +4,7 @@ import "./MyShop.css";
 import axios from "axios";
 import { BiSolidLike } from "react-icons/bi";
 import { Pagination } from "@mui/material";
+import { Link } from "react-router-dom";
 
 // API call get all product / API call get all product / API call get all product
 const MyShop = () => {
@@ -46,6 +47,9 @@ const MyShop = () => {
                     <BiSolidLike className="my-product-icon" /> {product.likes}
                   </p>
                 </div>
+                <Link to={`/myShop/${product._id}`}>
+                <button>Details</button>
+              </Link>
               </li>
             </div>
           ))}

@@ -54,9 +54,10 @@ const ManageProduct = () => {
                       <RiEdit2Fill className="my-product-icon" /> Modify Product
                     </h4>
                   </Link>
+                 
                 </div>
               </li>
-
+               {/* show product detail / show product detail */}
               <Link to={`/myShop/${product._id}`}>
                 <button>Details</button>
               </Link>

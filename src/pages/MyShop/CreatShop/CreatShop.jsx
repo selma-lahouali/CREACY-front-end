@@ -1,18 +1,23 @@
 import axios from "axios";
 import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./CreatShop.css";
+import { useDispatch } from "react-redux";
+import { shopCreation } from "../../../redux/slices/CreatShopSlice";
 
 const CreatShop = () => {
   // product states
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("clothing");
   const [error, setError] = useState("");
   // image upload states
   const [selectedFile, setSelectedFile] = useState(null);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -40,6 +45,7 @@ const CreatShop = () => {
 
       if (response.status === 200) {
         console.log(response.data, "Shop created successfully");
+        dispatch(shopCreation(response?.data));
         // Reset input fields after successful product creation
         setName("");
         setDescription("");
@@ -52,6 +58,7 @@ const CreatShop = () => {
           text: "Your Shop Has Been Created!",
           icon: "success",
         });
+        navigate("/myShop");  
       } else {
         setError("Failed to create shop.");
       }
