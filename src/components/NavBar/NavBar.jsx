@@ -15,8 +15,11 @@ const NavBar = () => {
 
   return (
     <>
-       <div className="navBar">
-        <Link to ="/home"> <img src={logo} alt="image not found" className="home-logo" /></Link>
+      <div className="navBar">
+        <Link to="/home">
+          
+          <img src={logo} alt="image not found" className="home-logo" />
+        </Link>
         <form className="searchBar">
           <input
             type="search"
@@ -50,7 +53,6 @@ const NavBar = () => {
                 <Link to="/contactUs">
                   <li>Contac Us</li>
                 </Link>
-                <li>Log Out</li>
               </ul>
             )}
           </h1>

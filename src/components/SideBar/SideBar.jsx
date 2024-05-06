@@ -3,9 +3,18 @@ import { IoMdHeart } from "react-icons/io";
 import { FaShop } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdLogout } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SideBar.css";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/slices/AuthSlice";
 const SideBar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
   return (
     <>
       <div className="sideBar">
@@ -37,8 +46,8 @@ const SideBar = () => {
                 Settings
               </li>
             </Link>
-            <Link to="/logout">
-              <li>
+            <Link to="/login">
+              <li onClick={handleLogout}>
                 <MdLogout className="sideBar-icon" />
                 Log Out
               </li>

@@ -18,6 +18,8 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import CreatShop from "./pages/MyShop/CreatShop/CreatShop.jsx";
 import ManageProduct from "./pages/MyShop/ManageProducts/ManageProduct/ManageProduct.jsx";
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -70,10 +72,13 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login></Login>,
   },
+
   {
     path: "*",
     element: <NotFound></NotFound>,
   },
+
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

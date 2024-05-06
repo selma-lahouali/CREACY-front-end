@@ -5,7 +5,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import "./Login.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/slices/AuthSlice";
 
 const Login = () => {
@@ -24,6 +24,10 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+  const isAuthenticatedState = useSelector(
+    (state) => state.auth.isAuthenticated
+  );
+  console.log("Is authenticated:", isAuthenticatedState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,21 +36,11 @@ const Login = () => {
       .then((res) => {
         dispatch(login(res.data.user));
         localStorage.setItem("token", res.data.token);
-        localStorage.setItem("email", email);
+        localStorage.setItem("isAuthenticatedState", true);
         navigate("/home");
       })
       .catch((err) => setError(err.message));
   };
-
-  //  save the email and password if they are in the local storage
-  useEffect(() => {
-    const savedEmail = localStorage.getItem("email");
-    const savedPassword = localStorage.getItem("password");
-    if (savedEmail && savedPassword) {
-      setEmail(savedEmail);
-      setPassword(savedPassword);
-    }
-  }, []);
 
   return (
     <>

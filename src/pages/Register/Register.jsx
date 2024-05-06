@@ -48,9 +48,8 @@ const Register = () => {
       })
       .then((res) => {
         dispatch(register(res?.data?.user));
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("email", email); // Save email to local storage
-        localStorage.setItem("password", password); // Save password to local storage
+        // localStorage.setItem("token", res.data.token);
+     
         // sweet alert successess message
         Swal.fire({
           title: "Good job!",
@@ -65,15 +64,7 @@ const Register = () => {
       });
   };
 
-  // Check for saved user credentials upon component mount
-  useEffect(() => {
-    const savedEmail = localStorage.getItem("email");
-    const savedPassword = localStorage.getItem("password");
-    if (savedEmail && savedPassword) {
-      setEmail(savedEmail);
-      setPassword(savedPassword);
-    }
-  }, []);
+
 
   return (
     <>

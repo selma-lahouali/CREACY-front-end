@@ -1,23 +1,41 @@
 import axios from "axios";
 import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import "./CreatShop.css";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { shopCreation } from "../../../redux/slices/CreatShopSlice";
 
 const CreatShop = () => {
-  // product states
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("clothing");
   const [error, setError] = useState("");
-  // image upload states
   const [selectedFile, setSelectedFile] = useState(null);
-
-  const navigate = useNavigate();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      Swal.fire({
+        title: "Create An Account For Free",
+        text: "Sorry, you need to create an account",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        } else {
+          navigate("/home");
+        }
+      });
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -33,12 +51,14 @@ const CreatShop = () => {
     formData.append("image", selectedFile);
 
     try {
+      const token = localStorage.getItem("token");
       const response = await axios.post(
         "http://localhost:3000/shop/",
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -46,26 +66,23 @@ const CreatShop = () => {
       if (response.status === 200) {
         console.log(response.data, "Shop created successfully");
         dispatch(shopCreation(response?.data));
-        // Reset input fields after successful product creation
         setName("");
         setDescription("");
         setCategory("");
         setSelectedFile(null);
 
-        // sweetalert success message / sweetalert success message / sweetalert success message
         Swal.fire({
-          title: "CONRATULATION!",
+          title: "CONGRATULATIONS!",
           text: "Your Shop Has Been Created!",
           icon: "success",
         });
-        navigate("/myShop");  
+        navigate("/myShop");
       } else {
         setError("Failed to create shop.");
       }
     } catch (error) {
       console.error("Error creating shop:", error);
       setError("Failed to create shop.");
-      // Display error message
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -79,7 +96,6 @@ const CreatShop = () => {
     <>
       <MyShopSideBar />
       <form onSubmit={handleSubmit} className="add-new-product">
-        {/* Shop name */}
         <label>Shop Name :</label>
         <input
           type="text"
@@ -89,7 +105,6 @@ const CreatShop = () => {
           onChange={(e) => setName(e.target.value)}
           className="add-product-input"
         />
-        {/* Shop description */}
         <label>Shop Description :</label>
         <input
           type="text"
@@ -99,8 +114,6 @@ const CreatShop = () => {
           onChange={(e) => setDescription(e.target.value)}
           className="add-product-input"
         />
-
-        {/* Shop category */}
         <label>Shop Category :</label>
         <select
           id="category"
@@ -114,14 +127,7 @@ const CreatShop = () => {
           <option value="shoes">shoes</option>
           <option value="home decoration">home decoration</option>
         </select>
-
-        {/* Image upload */}
-        <input
-          type="file"
-          accept="image/*"
-          required
-          onChange={handleFileChange}
-        />
+        <input type="file" accept="image/*" onChange={handleFileChange} />
         <div className="my-product-btn">
           <Link to="/myShop">
             <button type="submit" className="cancel-add-product-btn">
@@ -129,7 +135,7 @@ const CreatShop = () => {
             </button>
           </Link>
           <button type="submit" className="add-product-btn">
-            Creat My Shop
+            Create My Shop
           </button>
         </div>
       </form>

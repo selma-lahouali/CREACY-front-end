@@ -10,7 +10,7 @@ const CreatShopSlice = createSlice({
   initialState,
   reducers: {
     shopCreation(state, action) {
-      console.log("test", action.payload);
+      console.log("test", action.payload, state.isShopCreated);
       state.isShopCreated = true;
       state.shop = action.payload;
     },
