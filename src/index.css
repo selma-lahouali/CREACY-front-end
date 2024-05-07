@@ -6,7 +6,7 @@ body {
   height: 100vh;
   background-color: var(--bodyColor);
 }
-form,
+
 button,select {
   cursor: pointer;
 }

@@ -1,5 +1,83 @@
-.contactUs-form{
-   display: flex;
-   flex-direction: column;
-   gap: 2vh;
+.contactUs {
+  position: relative;
+  top: 16vh;
+  left: 13vw;
+  width: 66vw;
+  color: var(--fontColor);
+}
+.contactUs-intro h1 {
+  font-size: 1.5vw;
+  letter-spacing: 0.1vw;
+  text-decoration: underline 2px var(--darkBleu);
+  text-underline-offset: 0.6vh;
+  margin-bottom: 2vh;
+}
+.contactUs p {
+  font-size: 1.26vw;
+  line-height: 3.5vh;
+  padding-bottom: 1vh;
+}
+.contactUs-form {
+  display: flex;
+  flex-direction: column;
+
+  border: 2px solid var(--darkBleu);
+  border-radius: 0.8vw;
+  padding: 1vw 2vw;
+  margin-top: 3vh;
+  width: 53vw;
+}
+.contactUs-form input {
+  width: 28vw;
+  height: 6vh;
+  border: none;
+  border-radius: 0.5vw;
+  padding-left: 0.6vw;
+  border: 1px solid var(--darkBleu);
+  background-color: var(--searchBareColor);
+  margin-bottom: 3vh;
+  font-size: 1vw;
+}
+.contactUs-form input::placeholder {
+  color: black;
+  font-size: 1vw;
+}
+.contactUs-form input:focus {
+  outline: 0.2vw solid #adb5bd;
+}
+.contactUs-form textarea {
+  width: 35vw;
+  height: 15vh;
+  border: none;
+  border-radius: 0.5vw;
+  padding-left: 0.6vw;
+  padding-top: 1.5vh;
+  border: 1px solid var(--darkBleu);
+  background-color: var(--searchBareColor);
+  margin-bottom: 3vh;
+  font-size: 1vw;
+}
+.contactUs-form textarea::placeholder {
+  color: black;
+  font-size: 1vw;
+}
+.contactUs-form textarea:focus {
+  outline: 0.2vw solid #adb5bd;
+}
+.contactUs-form label {
+  margin-bottom: 2vh;
+  font-size: 1.25vw;
+  font-weight: bold;
+}
+.contactUs-form button{
+  background-color: var(--mainBleu);
+  border: none;
+  border-radius: 0.5vw;
+  width: 25vw;
+  height: 4.5vh;
+  color: var(--bodyColor);
+  font-size: 1.2vw;
+  font-weight: bold;
+  letter-spacing: 0.04vw;
+ 
 }

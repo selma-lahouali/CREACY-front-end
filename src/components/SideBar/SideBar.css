@@ -4,6 +4,7 @@
   height: 89.9vh;
   position: fixed;
   top: 10.14vh;
+  z-index: 998;
 }
 .sideBar-top li {
   margin-bottom: 15vh;
