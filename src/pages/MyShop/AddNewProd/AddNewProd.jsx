@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./AddNewProd.css";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loader from "../../../components/Loader/Loader";
 
 const AddNewProd = () => {
   // product states / product states / product states / product states / product states
@@ -15,13 +16,15 @@ const AddNewProd = () => {
   const [error, setError] = useState("");
   // image upload states / image upload states / image upload states / image upload states
   const [selectedFile, setSelectedFile] = useState(null);
-  // image upoad function / image upoad function / image upoad function / image upoad function
+  // loading state / loading state / loading state  / loading state  / loading state
+  const [isLoading, setIsLoading] = useState(false);
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
-
+  // add new product API call / add new product API call / add new product API call / add new product API call
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
@@ -60,18 +63,17 @@ const AddNewProd = () => {
         setCategory("");
         setQuantity("");
         setSelectedFile(null);
-
+        setIsLoading(false);
         // sweet alert success message / sweet alert success message / sweet alert success message
         Swal.fire({
           title: "Good job!",
           text: "Your Product Has Been Created!",
           icon: "success",
         });
-      } else {
-        setError("Failed to create product.");
       }
     } catch (error) {
       console.error("Error creating product:", error);
+      setIsLoading(false);
       setError("Failed to create product.");
       // Display error message
       Swal.fire({
@@ -86,6 +88,7 @@ const AddNewProd = () => {
   return (
     <>
       <MyShopSideBar />
+      {isLoading && <Loader></Loader>}
       <form onSubmit={handleSubmit} className="add-new-product">
         {/* Product name */}
         <label>Product Name :</label>

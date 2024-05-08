@@ -5,13 +5,18 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import { shopCreation } from "../../../redux/slices/CreatShopSlice";
+import Loader from "../../../components/Loader/Loader";
 
 const CreatShop = () => {
+  // shop states / shop states / shop states / shop states / shop states / shop states
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("clothing");
-  const [error, setError] = useState("");
+  const [error] = useState("");
+  // image upload states / image upload states / image upload states / image upload states
   const [selectedFile, setSelectedFile] = useState(null);
+  // loading state / loading state / loading state  / loading state  / loading state
+  const [isLoading, setIsLoading] = useState(false);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,7 +24,7 @@ const CreatShop = () => {
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
-
+  // navigate to home if not connecter / navigate to home if not connecter
   useEffect(() => {
     if (!isAuthenticated) {
       Swal.fire({
@@ -40,9 +45,10 @@ const CreatShop = () => {
       });
     }
   }, [isAuthenticated, navigate]);
-
+  // creat shop APIcall / creat shop APIcall / creat shop APIcall / creat shop APIcall
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
@@ -68,6 +74,7 @@ const CreatShop = () => {
       .then((res) => {
         console.log("Shop Created Successfully");
         dispatch(shopCreation(res.data));
+        setIsLoading(false);
         // sweet alert success message / sweet alert success message / sweet alert success message
         Swal.fire({
           title: "CONGRATULATIONS!",
@@ -78,6 +85,7 @@ const CreatShop = () => {
       })
       .catch((err) => {
         console.error("Error creating shop:", err);
+        setIsLoading(false);
         // sweet alert fail message / sweet alert fail message / sweet alert fail message
         Swal.fire({
           icon: "error",
@@ -90,6 +98,7 @@ const CreatShop = () => {
   return (
     <>
       <MyShopSideBar />
+      {isLoading && <Loader></Loader>}
       <form onSubmit={handleSubmit} className="add-new-product">
         {/* shop name / shop name/ shop name/ shop name/ shop name/ shop name/ shop name/ shop name */}
         <label>Shop Name :</label>

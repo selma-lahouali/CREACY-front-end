@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./UpdateProduct.css";
 import deleteProduct from "../../../../components/DeleteProduct/DeleteProduct";
+import Loader from "../../../../components/Loader/Loader";
 
 const UpdateProduct = () => {
   const { _id } = useParams();
@@ -17,27 +18,30 @@ const UpdateProduct = () => {
     image: null,
   });
   const [error, setError] = useState("");
+  // loading state / loading state / loading state  / loading state  / loading state
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/${_id}`,{
+      .get(`http://localhost:3000/products/${_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => {
-        setProduct(res.data); // Set the product state with the fetched data
+        setProduct(res.data);
       })
       .catch((err) => {
         console.error(err);
         setError("Failed to load product.");
       });
-  }, [_id,token]);
+  }, [_id, token]);
 
-  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     const formData = new FormData();
     formData.append("name", product.name);
     formData.append("description", product.description);
@@ -45,7 +49,7 @@ const UpdateProduct = () => {
     formData.append("category", product.category);
     formData.append("quantity", product.quantity);
     formData.append("image", product.image);
-    
+
     try {
       const response = await axios.put(
         `http://localhost:3000/products/${_id}`,
@@ -59,19 +63,19 @@ const UpdateProduct = () => {
       );
 
       if (response.status === 200) {
-        console.log(response.data, "product updated successfully"),
-          navigate("/myShop");
+        console.log("product updated successfully");
+        setIsLoading(false);
+        navigate("/myShop");
         Swal.fire({
           title: "Success!",
           text: "Your Product Has Been Updated!",
           icon: "success",
         });
-      } else {
-        setError("Failed to update product.");
       }
     } catch (error) {
       console.error("Error updating product:", error);
       setError("Failed to update product.");
+      setIsLoading(false);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -108,6 +112,7 @@ const UpdateProduct = () => {
   return (
     <>
       <MyShopSideBar />
+      {isLoading && <Loader></Loader>}
       <form onSubmit={handleSubmit} className="update-product">
         <label>Product Name :</label>
         <input
