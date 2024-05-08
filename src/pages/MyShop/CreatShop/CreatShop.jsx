@@ -1,9 +1,9 @@
-import axios from "axios";
+import { useEffect, useState } from "react";
 import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
-import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import Swal from "sweetalert2";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { shopCreation } from "../../../redux/slices/CreatShopSlice";
 
 const CreatShop = () => {
@@ -15,6 +15,10 @@ const CreatShop = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -37,83 +41,81 @@ const CreatShop = () => {
     }
   }, [isAuthenticated, navigate]);
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
     formData.append("category", category);
     formData.append("image", selectedFile);
 
-    try {
-      const token = localStorage.getItem("token");
-      const response = await axios.post(
-        "http://localhost:3000/shop/",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+    // get userId from localStorage / get userId from localStorage / get userId from localStorage
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const userId = userData ? userData._id : null;
 
-      if (response.status === 200) {
-        console.log(response.data, "Shop created successfully");
-        dispatch(shopCreation(response?.data));
-        setName("");
-        setDescription("");
-        setCategory("");
-        setSelectedFile(null);
+    // get userId from user and includ it in the request payload / get userId from user and includ it in the request payload
+    formData.append("userId", userId);
 
+    // get JWT token from localStorage / get JWT token from localStorage / get JWT token from localStorage
+    const token = localStorage.getItem("token");
+
+    axios;
+    axios
+      .post(`http://localhost:3000/shop/${userId}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log("Shop Created Successfully");
+        dispatch(shopCreation(res.data));
+        // sweet alert success message / sweet alert success message / sweet alert success message
         Swal.fire({
           title: "CONGRATULATIONS!",
-          text: "Your Shop Has Been Created!",
+          text: "Your Shop Has Been Created Successfully!",
           icon: "success",
         });
         navigate("/myShop");
-      } else {
-        setError("Failed to create shop.");
-      }
-    } catch (error) {
-      console.error("Error creating shop:", error);
-      setError("Failed to create shop.");
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong! Please try again",
-        footer: '<a href="#">Why do I have this issue?</a>',
+      })
+      .catch((err) => {
+        console.error("Error creating shop:", err);
+        // sweet alert fail message / sweet alert fail message / sweet alert fail message
+        Swal.fire({
+          icon: "error",
+          title: "Sorry ",
+          text: "Sorry You Already Have A Shop",
+        });
       });
-    }
   };
 
   return (
     <>
       <MyShopSideBar />
       <form onSubmit={handleSubmit} className="add-new-product">
+        {/* shop name / shop name/ shop name/ shop name/ shop name/ shop name/ shop name/ shop name */}
         <label>Shop Name :</label>
         <input
           type="text"
+          name="Name"
           placeholder="Enter Your Shop Name"
           required
           value={name}
-          onChange={(e) => setName(e.target.value)}
           className="add-product-input"
+          onChange={(e) => setName(e.target.value)}
         />
+        {/* / shop Description / shop Description / shop Description / shop Description / shop Description*/}
         <label>Shop Description :</label>
         <input
           type="text"
+          name="Description"
           placeholder="Enter Your Shop Description"
           required
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="add-product-input"
         />
+        {/* shop Category / shop Category / shop Category / shop Category / shop Category / shop Category */}
         <label>Shop Category :</label>
         <select
           id="category"
@@ -127,7 +129,14 @@ const CreatShop = () => {
           <option value="shoes">shoes</option>
           <option value="home decoration">home decoration</option>
         </select>
-        <input type="file" accept="image/*" onChange={handleFileChange} />
+        {/* image upload / image upload / image upload / image upload / image upload / image upload */}
+        <input
+          type="file"
+          accept="image/*"
+          name="image"
+          onChange={handleFileChange}
+        />
+        {/* creat Shop and back buttons / creat Shop and back buttons / creat Shop and back buttons */}
         <div className="my-product-btn">
           <Link to="/myShop">
             <button type="submit" className="cancel-add-product-btn">

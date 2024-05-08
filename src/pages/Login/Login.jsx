@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/slices/AuthSlice";
-
+// login states / login states / login states  / login states  / login states  / login states  / login states
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(true);
   const [email, setEmail] = useState("");
@@ -20,23 +20,28 @@ const Login = () => {
   useEffect(() => {
     document.body.setAttribute("data-theme", userMode);
   }, [userMode]);
-
+  // toggle Password Visibility / toggle Password Visibility / toggle Password Visibility / toggle Password Visibility
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
   const isAuthenticatedState = useSelector(
     (state) => state.auth.isAuthenticated
   );
-  console.log("Is authenticated:", isAuthenticatedState);
-
+  useEffect(() => {
+    const authData = window.localStorage.setItem("authData");
+    console.log(authData);
+  }, [isAuthenticatedState]);
+  // login API call / login API call / login API call / login API call / login API call / login API call
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:3000/auth/login", { email, password })
       .then((res) => {
-        dispatch(login(res.data.user));
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("isAuthenticatedState", true);
+        dispatch(login(res.data)); // Dispatch the entire user object to your Redux store
+        const { user, token } = res.data; // Extract user object and token from response
+        localStorage.setItem("user", JSON.stringify(user)); // Store user object in localStorage
+        localStorage.setItem("token", token); // Store token in localStorage
+        console.log("reeeesrr", token);
         navigate("/home");
       })
       .catch((err) => setError(err.message));
@@ -48,6 +53,7 @@ const Login = () => {
         <div className="login-left">
           <h1>Welcome To CREACY</h1>
           <form onSubmit={handleSubmit}>
+            {/* user email / user email / user email / user email / user email / user email */}
             <label htmlFor="email">E-mail</label>
             <input
               type="email"
@@ -58,6 +64,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <MdOutlineMail className="login-loginEmailIcon" />
+            {/* user password / user password / user password / user password / user password */}
             <label htmlFor="password">Password :</label>
             <input
               type={passwordVisible ? "password" : "text"}
@@ -81,6 +88,7 @@ const Login = () => {
             <button type="submit">Login</button>
           </form>
           <div className="error">{error}</div>
+          {/* link to register / link to register / link to register / link to register / link to register */}
           <h3 className="registertLink">
             Don't Have An Account? <Link to="/register">Sign Up Now</Link>
           </h3>

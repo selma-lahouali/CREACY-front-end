@@ -6,11 +6,10 @@ const initialState = {
 };
 
 const CreatShopSlice = createSlice({
-  name: "shop",
+  name: "shops",
   initialState,
   reducers: {
     shopCreation(state, action) {
-      console.log("test", action.payload, state.isShopCreated);
       state.isShopCreated = true;
       state.shop = action.payload;
     },

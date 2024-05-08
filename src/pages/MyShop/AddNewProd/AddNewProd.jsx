@@ -6,23 +6,22 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddNewProd = () => {
-  // product states
+  // product states / product states / product states / product states / product states
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [quantity, setQuantity] = useState("");
   const [error, setError] = useState("");
-  // image upload states
+  // image upload states / image upload states / image upload states / image upload states
   const [selectedFile, setSelectedFile] = useState(null);
-
+  // image upoad function / image upoad function / image upoad function / image upoad function
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
@@ -52,7 +51,7 @@ const AddNewProd = () => {
         setQuantity("");
         setSelectedFile(null);
 
-        // Display success message
+        // sweet alert success message / sweet alert success message / sweet alert success message
         Swal.fire({
           title: "Good job!",
           text: "Your Product Has Been Created!",

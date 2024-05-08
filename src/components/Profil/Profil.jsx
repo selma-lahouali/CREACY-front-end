@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const Profil = () => {
   // Access user data from the Redux store
   const user = useSelector((state) => state.auth.user);
-  console.log("test",user);
+  // console.log("test",user);
 
   return (
     <div>
