@@ -58,8 +58,6 @@ const CreatShop = () => {
 
     // get JWT token from localStorage / get JWT token from localStorage / get JWT token from localStorage
     const token = localStorage.getItem("token");
-
-    axios;
     axios
       .post(`http://localhost:3000/shop/${userId}`, formData, {
         headers: {

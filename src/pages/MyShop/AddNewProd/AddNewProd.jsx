@@ -30,12 +30,22 @@ const AddNewProd = () => {
     formData.append("quantity", quantity);
     formData.append("image", selectedFile);
 
+    // get userId from localStorage / get userId from localStorage / get userId from localStorage
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const userId = userData ? userData._id : null;
+
+    // get userId from user and includ it in the request payload / get userId from user and includ it in the request payload
+    formData.append("userId", userId);
+
+    // get JWT token from localStorage / get JWT token from localStorage / get JWT token from localStorage
+    const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
-        "http://localhost:3000/products/",
+        `http://localhost:3000/products/${userId}`,
         formData,
         {
           headers: {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
         }

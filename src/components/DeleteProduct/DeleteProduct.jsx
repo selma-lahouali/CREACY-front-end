@@ -2,6 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const deleteProduct = async (_id, setError, navigate) => {
+  const token = localStorage.getItem("token");
   try {
     // Show a confirmation dialog to ensure the user wants to delete the product
     const confirmResult = await Swal.fire({
@@ -17,7 +18,12 @@ const deleteProduct = async (_id, setError, navigate) => {
     // If the user confirms the deletion
     if (confirmResult.isConfirmed) {
       // Proceed with deleting the product
-      const response = await axios.delete(`http://localhost:3000/products/${_id}`);
+      const response = await axios.delete(`http://localhost:3000/products/${_id}`,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
       if (response.status === 200) {
         console.log(response.data, "product deleted successfully");
         navigate("/myShop"); 

@@ -28,8 +28,10 @@ const Login = () => {
     (state) => state.auth.isAuthenticated
   );
   useEffect(() => {
-    const authData = window.localStorage.setItem("authData");
-    console.log(authData);
+    window.localStorage.setItem(
+      "authData",
+      JSON.stringify(isAuthenticatedState)
+    );
   }, [isAuthenticatedState]);
   // login API call / login API call / login API call / login API call / login API call / login API call
   const handleSubmit = (e) => {

@@ -17,18 +17,24 @@ const UpdateProduct = () => {
     image: null,
   });
   const [error, setError] = useState("");
-
+  const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/${_id}`)
+      .get(`http://localhost:3000/products/${_id}`,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
-        setProduct(res.data);
+        setProduct(res.data); // Set the product state with the fetched data
       })
       .catch((err) => {
         console.error(err);
         setError("Failed to load product.");
       });
-  }, [_id]);
+  }, [_id,token]);
+
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,13 +45,14 @@ const UpdateProduct = () => {
     formData.append("category", product.category);
     formData.append("quantity", product.quantity);
     formData.append("image", product.image);
-
+    
     try {
       const response = await axios.put(
         `http://localhost:3000/products/${_id}`,
         formData,
         {
           headers: {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
         }
@@ -87,6 +94,7 @@ const UpdateProduct = () => {
       });
     }
   };
+
   //  delete Product / delete Product / delete Product / delete Product / delete Product / delete Product
   const handleDelete = async () => {
     try {
@@ -107,7 +115,7 @@ const UpdateProduct = () => {
           placeholder="Enter Your Product Name"
           required
           name="name"
-          value={product.name}
+          value={product.name} // Set value attribute to product.name
           onChange={handleChange}
           className="add-product-input"
         />
@@ -117,7 +125,7 @@ const UpdateProduct = () => {
           placeholder="Enter Your Product Description"
           required
           name="description"
-          value={product.description}
+          value={product.description} // Set value attribute to product.description
           onChange={handleChange}
           className="update-product-input"
         />
@@ -127,7 +135,7 @@ const UpdateProduct = () => {
           placeholder="Enter The Price"
           required
           name="price"
-          value={product.price}
+          value={product.price} // Set value attribute to product.price
           onChange={handleChange}
           className="update-product-input"
         />
@@ -135,7 +143,7 @@ const UpdateProduct = () => {
         <select
           id="category"
           name="category"
-          value={product.category}
+          value={product.category} // Set value attribute to product.category
           required
           onChange={handleChange}
         >
@@ -150,7 +158,7 @@ const UpdateProduct = () => {
           placeholder="Enter The Quantity"
           required
           name="quantity"
-          value={product.quantity}
+          value={product.quantity} // Set value attribute to product.quantity
           onChange={handleChange}
           className="update-product-input"
         />

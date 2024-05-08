@@ -15,13 +15,19 @@ const MyShop = () => {
   const handlePageChange = (event, value) => {
     setPage(value);
   };
+ const token = localStorage.getItem("token");
+ useEffect(() => {
+  axios.get(`http://localhost:3000/products?page=${page}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    }
+  }).then((res) => {
+    setProducts(res.data.products);
+    setTotalPages(res.data.totalPages);
+  });
+}, [page,token]);
 
-  useEffect(() => {
-    axios.get(`http://localhost:3000/products?page=${page}`).then((res) => {
-      setProducts(res.data.products);
-      setTotalPages(res.data.totalPages);
-    });
-  }, [page]);
 
   return (
     <>
@@ -48,8 +54,8 @@ const MyShop = () => {
                   </p>
                 </div>
                 <Link to={`/myShop/${product._id}`}>
-                <button>Details</button>
-              </Link>
+                  <button>Details</button>
+                </Link>
               </li>
             </div>
           ))}
