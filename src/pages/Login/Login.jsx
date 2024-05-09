@@ -43,7 +43,6 @@ const Login = () => {
         const { user, token } = res.data; // Extract user object and token from response
         localStorage.setItem("user", JSON.stringify(user)); // Store user object in localStorage
         localStorage.setItem("token", token); // Store token in localStorage
-        console.log("reeeesrr", token);
         navigate("/home");
       })
       .catch((err) => setError(err.message));

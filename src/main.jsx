@@ -17,8 +17,7 @@ import UpdateProduct from "./pages/MyShop/ManageProducts/UpdateProduct/UpdatePro
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import CreatShop from "./pages/MyShop/CreatShop/CreatShop.jsx";
 import ManageProduct from "./pages/MyShop/ManageProducts/ManageProduct/ManageProduct.jsx";
-
-
+import SettingPage from "./pages/SettingPage/SettingPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -57,7 +56,11 @@ const router = createBrowserRouter([
         path: "updateProduct/:_id",
         element: <UpdateProduct></UpdateProduct>,
       },
-     
+      {
+        path: "settings",
+        element: <SettingPage></SettingPage>,
+      },
+
       {
         path: "contactUs",
         element: <ContactUs></ContactUs>,
@@ -77,8 +80,6 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFound></NotFound>,
   },
-
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

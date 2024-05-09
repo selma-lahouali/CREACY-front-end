@@ -1,5 +1,5 @@
 .test{
-    position: relative;
-    top: 30vh;
-    left: 40vw;
+    position: absolute;
+    top: 25vh;
+    left: 10vw;
 }

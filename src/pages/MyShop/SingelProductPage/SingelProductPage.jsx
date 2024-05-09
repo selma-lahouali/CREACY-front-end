@@ -6,14 +6,17 @@ import "./SingelProductPage.css";
 const SingleProductPage = () => {
   const [singleProduct, setSingleProduct] = useState({});
   const { _id } = useParams();
-
+  // get token from local storage / get token from local storage / get token from local storage
+  const token = localStorage.getItem("token");
+  //get products by id / get products by id / get products by id / get products by id
   useEffect(() => {
-    // API url + id / API url + id / API url + id / API url + id / API url + id
-    const apiUrl = `http://localhost:3000/products/${_id}`;
-
-    //get products by id / get products by id / get products by id / get products by id
     axios
-      .get(apiUrl)
+      .get(`http://localhost:3000/products/${_id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
         setSingleProduct(res.data);
       })
@@ -21,7 +24,7 @@ const SingleProductPage = () => {
         console.error(err);
         console.log("Failed to load product.");
       });
-  }, [_id]);
+  }, [_id, token]);
 
   return (
     <>
@@ -44,7 +47,9 @@ const SingleProductPage = () => {
           </div>
         </li>
       </div>
-    <Link to="/myShop"> <button className="back-to-shop-btn">Back To The Shop</button></Link> 
+      <Link to="/myShop">
+        <button className="back-to-shop-btn">Back To The Shop</button>
+      </Link>
     </>
   );
 };

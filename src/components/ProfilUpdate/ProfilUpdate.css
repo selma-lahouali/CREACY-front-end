@@ -1,0 +1,62 @@
+.update-user-profile {
+  position: absolute;
+  top: 15vh;
+  left: 12vw;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--darkBleu);
+  border-radius: 0.8vw;
+  padding: 1vw 2vw;
+}
+.update-user-profile-input {
+  width: 30vw;
+  height: 7vh;
+  border: none;
+  border-radius: 0.5vw;
+  padding-left: 0.5vw;
+  border: 1px solid var(--darkBleu);
+  background-color: var(--searchBareColor);
+  margin-bottom: 3vh;
+  font-size: 1.1vw;
+}
+.update-user-profile-Icon {
+  position: relative;
+  top: -7.98vh;
+  left: 27.5vw;
+  width: 2vw;
+}
+.update-user-profile-input ::placeholder {
+  color: black;
+  font-size: 1vw;
+}
+.update-user-profile-input:focus {
+  outline: 2px solid #adb5bd;
+  border: 1px solid #adb5bd;
+}
+.update-user-profile label {
+  color: var(--fontColor);
+  font-size: 1.2vw;
+  margin-bottom: 1vh;
+  font-weight: bold;
+  font-size: 1.3vw;
+}
+.update-user-profile-image {
+  display: flex;
+  flex-direction: column;
+  margin-top: -2.3vh;
+}
+.update-user-profile-image label {
+  padding-bottom: 0.8vh;
+}
+.update-user-profile-btn {
+  background-color: var(--mainBleu);
+  border: none;
+  border-radius: 0.5vw;
+  width: 17.7vw;
+  height: 4.5vh;
+  color: var(--bodyColor);
+  font-size: 1.1vw;
+  font-weight: bold;
+  letter-spacing: 0.04vw;
+  margin-top: 5vh;
+}
