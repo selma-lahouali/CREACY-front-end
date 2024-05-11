@@ -2,22 +2,15 @@ import logo from "../../assets/logo-navBare .png";
 import { MdEmail } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
 import "./NavBar.css";
-import { useState } from "react";
-import profilImage from "../../assets/logo.png";
 import { Link, Outlet } from "react-router-dom";
 import DarkLightMode from "../DarkLightMode/DarkLightMode";
+import Profil from "../Profil/Profil";
 
 const NavBar = () => {
-  const [profilOptions, setProfilOptions] = useState(true);
-  const toggleProfilOptions = () => {
-    setProfilOptions(!profilOptions);
-  };
-
   return (
     <>
       <div className="navBar">
         <Link to="/home">
-          
           <img src={logo} alt="image not found" className="home-logo" />
         </Link>
         <form className="searchBar">
@@ -37,27 +30,9 @@ const NavBar = () => {
         <h1 className="languag">Eng</h1>
 
         {/* profil button / profil button / profil button / profil button*/}
-        <div className="profil" onClick={toggleProfilOptions}>
-          <img src={profilImage} alt="image not found" className="profil-pic" />
-          <h1>
-            {profilOptions ? (
-              "Profil"
-            ) : (
-              <ul>
-                <Link to="/profil">
-                  <li>Profil</li>
-                </Link>
-                <Link to="/account">
-                  <li>Account</li>
-                </Link>
-                <Link to="/contactUs">
-                  <li>Contac Us</li>
-                </Link>
-              </ul>
-            )}
-          </h1>
-        </div>
+        <Profil></Profil>
       </div>
+      {/* used in parent route elements to render their child route elements. */}
       <Outlet />
     </>
   );
