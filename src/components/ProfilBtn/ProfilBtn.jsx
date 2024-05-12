@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Profil.css";
+import "./ProfilBtn.css";
 import { useState } from "react";
 
 const Profil = () => {
@@ -11,14 +11,14 @@ const Profil = () => {
   };
   return (
     <>
-      <div className="profil-box">
+      <div className="profil-Btn-box">
         {user ? (
           <>
-            <div className="profil" onClick={toggleProfilOptions}>
+            <div className="profil-Btn" onClick={toggleProfilOptions}>
               <img
                 src={user.image}
                 alt="image not found"
-                className="profil-pic"
+                className="profil-Btn-image"
               />
               <h1>
                 {profilOptions ? (

@@ -1,28 +1,18 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./MyShopSideBar.css";
 import { FaPlusCircle } from "react-icons/fa";
 import { RiEdit2Fill } from "react-icons/ri";
 import { ImStatsDots } from "react-icons/im";
 import { PiUserListFill } from "react-icons/pi";
-import shopLogo from "../../assets/logo.png";
+import ShopCard from "../ShopCard/ShopCard";
 
 const MyShopSideBar = () => {
   return (
     <>
       <div className="shop-sideBar">
         <ul>
-          <div className="shop-name">
-            <Link to="/CreatShop">
-              <li>
-                <img
-                  src={shopLogo}
-                  alt="image not found"
-                  className="shop-logo"
-                />
-                Shop Name
-              </li>
-            </Link>
-          </div>
+          <ShopCard></ShopCard>
+
           {/* add New Product / add New Product / add New Product / add New Product  */}
           <div className="sideBar-list">
             <NavLink to="/addNewProduct">

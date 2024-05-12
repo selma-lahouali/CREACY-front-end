@@ -4,7 +4,7 @@ import { IoMdSearch } from "react-icons/io";
 import "./NavBar.css";
 import { Link, Outlet } from "react-router-dom";
 import DarkLightMode from "../DarkLightMode/DarkLightMode";
-import Profil from "../Profil/Profil";
+import ProfilBtn from "../ProfilBtn/ProfilBtn";
 
 const NavBar = () => {
   return (
@@ -30,7 +30,7 @@ const NavBar = () => {
         <h1 className="languag">Eng</h1>
 
         {/* profil button / profil button / profil button / profil button*/}
-        <Profil></Profil>
+        <ProfilBtn></ProfilBtn>
       </div>
       {/* used in parent route elements to render their child route elements. */}
       <Outlet />

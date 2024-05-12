@@ -3,7 +3,7 @@ import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { shopCreation } from "../../../redux/slices/CreatShopSlice";
 import Loader from "../../../components/Loader/Loader";
 
@@ -17,16 +17,17 @@ const CreatShop = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   // loading state / loading state / loading state  / loading state  / loading state
   const [isLoading, setIsLoading] = useState(false);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
+
+  const token = localStorage.getItem("token");
   // navigate to home if not connecter / navigate to home if not connecter
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!token) {
       Swal.fire({
         title: "Create An Account For Free",
         text: "Sorry, you need to create an account",
@@ -44,7 +45,7 @@ const CreatShop = () => {
         }
       });
     }
-  }, [isAuthenticated, navigate]);
+  }, [token, navigate]);
   // creat shop APIcall / creat shop APIcall / creat shop APIcall / creat shop APIcall
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +64,7 @@ const CreatShop = () => {
     formData.append("userId", userId);
 
     // get JWT token from localStorage / get JWT token from localStorage / get JWT token from localStorage
-    const token = localStorage.getItem("token");
+
     axios
       .post(`http://localhost:3000/shop/${userId}`, formData, {
         headers: {

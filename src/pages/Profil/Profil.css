@@ -1,0 +1,59 @@
+.profil-box {
+  position: absolute;
+  top: 15vh;
+  left: 11vw;
+  color: var(--fontColor);
+}
+.profil-box h1 {
+  letter-spacing: 0.05vw;
+}
+.profil {
+  border: 0.2vw solid var(--darkBleu);
+  border-radius: 0.5vw;
+  padding: 5vh 2vw 2vh 2vw;
+  margin-top: 5vh;
+  min-width: 40vw;
+  max-width: 70vw;
+  width: auto;
+}
+.user-profil {
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+}
+.profil-image {
+  max-width: 15vw;
+  max-height: 15vw;
+  width: auto;
+  height: auto;
+  width: 15vw;
+  height: 20vw;
+  border-radius: 50%;
+  border: 0.2vw solid var(--darkBleu);
+}
+.profil-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+.profil-user-info h3 {
+  border: 1px solid var(--darkBleu);
+  border-radius: 0.5vw;
+  padding: 2vh 2vw 2vh 1vw;
+}
+.profil-user-info h3:hover {
+  box-shadow: 1px 1px 2px rgb(163, 159, 159);
+  scale: 1.1;
+}
+.profil button {
+  background-color: var(--mainBleu);
+  border: none;
+  border-radius: 0.5vw;
+  width: 15vw;
+  height: 5vh;
+  color: var(--bodyColor);
+  font-size: 1.1vw;
+  font-weight: bold;
+  letter-spacing: 0.04vw;
+  margin-top: 5vh;
+}

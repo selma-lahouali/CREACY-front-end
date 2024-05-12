@@ -1,0 +1,18 @@
+/* shop name / shop name / shop name / shop name / shop name / shop name  */
+.shop-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--lightBleu);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.284);
+  height: 13vh;
+  background-color: var(--shopBackGroundColor);
+  background-image: var(--shopBackGroundImage);
+  margin-bottom: 9vh;
+}
+.shop-logo {
+  width: 3vw;
+  height: 6.5vh;
+  border: 1px solid var(--darkBleu);
+  border-radius: 50%;
+}

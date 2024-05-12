@@ -1,5 +1,4 @@
 import Products from "../../components/Products/Products";
-
 import SideBar from "../../components/SideBar/SideBar";
 
 const Home = () => {
@@ -7,7 +6,6 @@ const Home = () => {
     <div>
       <SideBar></SideBar>
       <Products></Products>
-    
     </div>
   );
 };

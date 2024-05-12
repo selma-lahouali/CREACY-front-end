@@ -1,9 +1,9 @@
-.profil-box {
+.profil-Btn-box {
   position: absolute;
   right: 3vw;
   top: 0.8vw;
 }
-.profil {
+.profil-Btn {
   display: flex;
   gap: 1vw;
   border: 1px solid var(--darkBleu);
@@ -16,7 +16,7 @@
   background-color: var(--NBbackGroundColor);
   background-image: var(--NBbackGroundImage);
 }
-.profil li,
+.profil-Btn li,
 a {
   list-style: none;
   color: var(--fontColor);
@@ -25,18 +25,18 @@ a {
   padding-top: 0.2vh;
   margin-top: 0.3vh;
 }
-.profil h1 {
+.profil-Btn h1 {
   list-style: none;
   text-decoration: none;
   font-size: 1.3vw;
   padding-top: 0.4vh;
 }
-.profil ul :hover {
+.profil-Btn ul :hover {
   text-decoration: underline;
   border-radius: 0.3vw;
   transition: var(--shortTransition);
 }
-.profil-pic {
+.profil-Btn-image {
   width: 2.5vw;
   height: 5vh;
   border: 1px solid var(--darkBleu);
