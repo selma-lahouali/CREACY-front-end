@@ -6,24 +6,23 @@ import Loader from "../Loader/Loader";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const ProfilUpdate = () => {
+  // user update states / user update states / user update states / user update states
   const [user, setUser] = useState({
     password: "",
     image: null,
   });
   const [error, setError] = useState("");
-  // toggle Password Visibility / toggle Password Visibility / toggle Password Visibility
   const [passwordVisible, setPasswordVisible] = useState(true);
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-  // loading state / loading state / loading state  / loading state  / loading state
   const [isLoading, setIsLoading] = useState(false);
-  //   get user ID from local storage / get user ID from local storage / get user ID from local storage
+  // Track if password is changed / Track if password is changed / Track if password is changed
+  const [passwordChanged, setPasswordChanged] = useState(false); // Track if password is changed
+  // Track if password field is touched / Track if password field is touched
+  const [passwordTouched, setPasswordTouched] = useState(false);
+  // get user id and token from local storage
   const userData = JSON.parse(localStorage.getItem("user"));
   const userId = userData ? userData._id : null;
-  // get token from local storage / get token from local storage / get token from local storage
   const token = localStorage.getItem("token");
-  // get user by ID API call / get user by ID API call / get user by ID API call / get user by ID API call
+  // API call to get user by id / API call to get user by id / API call to get user by id
   useEffect(() => {
     axios
       .get(`http://localhost:3000/auth/${userId}`, {
@@ -40,13 +39,19 @@ const ProfilUpdate = () => {
         setError("Failed to load user.");
       });
   }, [userId, token]);
-  // update user by ID API call / update user by ID API call / update user by ID API call / update user by ID API call
+  // update user image and / or password API call / update user image and / or password API call
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
     const formData = new FormData();
-    formData.append("password", user.password);
+
+    // Check if the user has entered a new password and if the password field has been touched
+    const passwordToSend =
+      passwordChanged && passwordTouched ? user.password : "";
+
+    formData.append("password", passwordToSend);
     formData.append("image", user.image);
+
     try {
       const response = await axios.put(
         `http://localhost:3000/auth/${userId}/update-profile`,
@@ -58,10 +63,11 @@ const ProfilUpdate = () => {
           },
         }
       );
+
       if (response.status === 200) {
         console.log("User profile updated successfully");
         setIsLoading(false);
-        // sweet alert success message / sweet alert success message / sweet alert success message
+        // sweet alet success message / sweet alet success message / sweet alet success message
         Swal.fire({
           title: "Success!",
           text: "Your Profile Has Been Updated!",
@@ -72,7 +78,7 @@ const ProfilUpdate = () => {
       console.error("Error updating user profile:", error);
       setIsLoading(false);
       setError("Failed to update user profile.");
-      // sweet alert fail message / sweet alert fail message / sweet alert fail message
+      // sweet alet faild message / sweet alet faild message / sweet alet faild message
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -81,25 +87,32 @@ const ProfilUpdate = () => {
       });
     }
   };
-
+  // handdle the changes in the inputs / handdle the changes in the inputs
   const handleChange = (e) => {
     if (e.target.name === "image") {
       setUser({
         ...user,
         image: e.target.files[0],
       });
-    } else {
+    } else if (e.target.name === "password") {
       setUser({
         ...user,
-        [e.target.name]: e.target.value,
+        password: e.target.value,
       });
+      setPasswordChanged(true);
     }
+    setPasswordTouched(true);
+  };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
   };
 
   return (
     <>
       {isLoading && <Loader></Loader>}
       <form onSubmit={handleSubmit} className="update-user-profile">
+        {/* user name / user name / user name / user name / user name  */}
         <label>User Name : </label>
         <input
           type="text"
@@ -107,6 +120,7 @@ const ProfilUpdate = () => {
           readOnly
           className="update-user-profile-input"
         />
+        {/*user email / user email / user email / user email / user email  */}
         <label>E.mail : </label>
         <input
           type="email"
@@ -115,11 +129,13 @@ const ProfilUpdate = () => {
           readOnly
           className="update-user-profile-input"
         />
+        {/* user password / user password / user password / user password   */}
         <label>New Password:</label>
         <input
           type={passwordVisible ? "password" : "text"}
           name="password"
           value={user.password}
+          autoComplete="new-password"
           onChange={handleChange}
           className="update-user-profile-input"
         />
@@ -134,6 +150,7 @@ const ProfilUpdate = () => {
             onClick={togglePasswordVisibility}
           />
         )}
+        {/* user image upload / user image upload / user image upload */}
         <div className="update-user-profile-image">
           <label>New Profile Picture:</label>
           <input

@@ -1,0 +1,76 @@
+.shop-box {
+  position: absolute;
+  top: 85vh;
+  left: 11vw;
+  color: var(--fontColor);
+  padding-bottom: 10vh;
+}
+.shop-box h1 {
+  letter-spacing: 0.05vw;
+}
+.shop {
+  border: 0.2vw solid var(--darkBleu);
+  border-radius: 0.5vw;
+  padding: 5vh 2vw 2vh 2vw;
+  margin-top: 5vh;
+  min-width: 40vw;
+  max-width: 70vw;
+  width: auto;
+}
+.shop-profil {
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+}
+.shop-image {
+  max-width: 15vw;
+  max-height: 15vw;
+  width: auto;
+  height: auto;
+  width: 15vw;
+  height: 20vw;
+  border-radius: 50%;
+  border: 0.2vw solid var(--darkBleu);
+}
+.profil-shop-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+.profil-shop-info h3 {
+  border: 1px solid var(--darkBleu);
+  border-radius: 0.5vw;
+  padding: 2vh 2vw 2vh 1vw;
+}
+.profil-shop-info h3:hover {
+  box-shadow: 1px 1px 2px rgb(163, 159, 159);
+  scale: 1.1;
+}
+.shop button {
+  background-color: var(--mainBleu);
+  border: none;
+  border-radius: 0.5vw;
+  width: 15vw;
+  height: 5vh;
+  color: var(--bodyColor);
+  font-size: 1.1vw;
+  font-weight: bold;
+  letter-spacing: 0.04vw;
+  margin-top: 5vh;
+}
+.noShop {
+  border: 0.2vw solid var(--darkBleu);
+  border-radius: 0.5vw;
+  padding: 2vh;
+  margin-top: 5vh;
+  min-width: 40vw;
+  max-width: 70vw;
+}
+.CreatShop-link a {
+  color: rgb(216, 8, 150);
+}
+.CreatShop-link a:hover {
+  text-decoration: underline 2px solid rgb(125, 22, 74);
+  color: rgb(255, 42, 149);
+  text-underline-offset: 0.5vh;
+}

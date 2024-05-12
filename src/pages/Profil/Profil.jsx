@@ -1,5 +1,6 @@
 import "./Profil.css";
 import SideBar from "../../components/SideBar/SideBar";
+import ShopProfil from "../../components/ShopProfil/ShopProfil";
 import { Link } from "react-router-dom";
 const Profil = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -39,6 +40,9 @@ const Profil = () => {
         ) : (
           <p>User not found</p>
         )}
+      </div>
+      <div className="shop-profil">
+        <ShopProfil></ShopProfil>
       </div>
     </>
   );
