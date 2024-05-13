@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./UpdateProduct.css";
-import deleteProduct from "../../../../components/DeleteProduct/DeleteProduct";
 import Loader from "../../../../components/Loader/Loader";
+import DeleteProduct from "../../../../components/DeleteProduct/DeleteProduct";
 
 const UpdateProduct = () => {
   const { _id } = useParams();
@@ -22,9 +22,10 @@ const UpdateProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const API = import.meta.env.VITE_API;
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/${_id}`, {
+      .get(`${API}/products/${_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -37,7 +38,7 @@ const UpdateProduct = () => {
         console.error(err);
         setError("Failed to load product.");
       });
-  }, [_id, token]);
+  }, [_id, token,API]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -100,14 +101,6 @@ const UpdateProduct = () => {
   };
 
   //  delete Product / delete Product / delete Product / delete Product / delete Product / delete Product
-  const handleDelete = async () => {
-    try {
-      await deleteProduct(_id, setError, navigate);
-    } catch (error) {
-      console.error("Error deleting product:", error);
-      setError("Failed to delete product.");
-    }
-  };
 
   return (
     <>
@@ -120,7 +113,7 @@ const UpdateProduct = () => {
           placeholder="Enter Your Product Name"
           required
           name="name"
-          value={product.name} // Set value attribute to product.name
+          value={product.name}
           onChange={handleChange}
           className="add-product-input"
         />
@@ -130,7 +123,7 @@ const UpdateProduct = () => {
           placeholder="Enter Your Product Description"
           required
           name="description"
-          value={product.description} // Set value attribute to product.description
+          value={product.description}
           onChange={handleChange}
           className="update-product-input"
         />
@@ -140,7 +133,7 @@ const UpdateProduct = () => {
           placeholder="Enter The Price"
           required
           name="price"
-          value={product.price} // Set value attribute to product.price
+          value={product.price}
           onChange={handleChange}
           className="update-product-input"
         />
@@ -148,7 +141,7 @@ const UpdateProduct = () => {
         <select
           id="category"
           name="category"
-          value={product.category} // Set value attribute to product.category
+          value={product.category}
           required
           onChange={handleChange}
         >
@@ -163,7 +156,7 @@ const UpdateProduct = () => {
           placeholder="Enter The Quantity"
           required
           name="quantity"
-          value={product.quantity} // Set value attribute to product.quantity
+          value={product.quantity}
           onChange={handleChange}
           className="update-product-input"
         />
@@ -195,9 +188,7 @@ const UpdateProduct = () => {
           reversed. Please ensure that you intend to delete this product before
           proceeding.
         </p>
-        <button className="delete-product-btn" onClick={handleDelete}>
-          Delete Product
-        </button>
+        <DeleteProduct _id={_id}></DeleteProduct>
       </div>
     </>
   );

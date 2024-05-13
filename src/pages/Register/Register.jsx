@@ -30,8 +30,8 @@ const Register = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-
-  // register API call
+  const API = import.meta.env.VITE_API;
+  // register API call / register API call / register API call / register API call
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password.length < 6) {
@@ -41,15 +41,16 @@ const Register = () => {
       setPasswordError("");
     }
     axios
-      .post("http://localhost:3000/auth/register", {
+      .post(`${API}/auth/register`, {
         email,
         username: userName,
         password,
       })
       .then((res) => {
         dispatch(register(res?.data?.user));
-        // localStorage.setItem("token", res.data.token);
-     
+        console.log("re 1",res.data);
+        console.log("rerer2",res.data.user);
+        
         // sweet alert successess message
         Swal.fire({
           title: "Good job!",
@@ -63,8 +64,6 @@ const Register = () => {
         alert("Registration failed. Please try again.");
       });
   };
-
-
 
   return (
     <>
@@ -85,6 +84,7 @@ const Register = () => {
               type="email"
               placeholder="Enter Your Email"
               required
+              autoComplete="new-email"
               onChange={(e) => setEmail(e.target.value)}
             />
             <MdOutlineMail className="emailIcon" />
@@ -93,6 +93,7 @@ const Register = () => {
               type={passwordVisible ? "password" : "text"}
               placeholder="Enter Your Password"
               required
+              autoComplete="new-password"
               onChange={(e) => setPassword(e.target.value)}
             />
             {passwordVisible ? (

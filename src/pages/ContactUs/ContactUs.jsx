@@ -3,6 +3,7 @@ import emailjs from "emailjs-com";
 import "./ContactUs.css";
 import SideBar from "../../components/SideBar/SideBar";
 const ContactUs = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
   const formRef = useRef(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,6 +46,7 @@ const ContactUs = () => {
             required
             placeholder="Enter your email"
             name="email"
+            defaultValue={user.email}
           />
           <label>Your Message :</label>
           <textarea

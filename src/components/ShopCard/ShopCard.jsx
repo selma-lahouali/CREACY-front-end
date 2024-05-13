@@ -9,19 +9,17 @@ const ShopCard = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const ownerId = user ? user._id : null;
   const token = localStorage.getItem("token");
+  const API = import.meta.env.VITE_API;
   //   get shop by user id API call / get shop by user id API call
   useEffect(() => {
     const fetchShop = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/shop/owner/${ownerId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
+        const response = await axios.get(`${API}/shop/owner/${ownerId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        });
         setShop(response.data);
       } catch (error) {
         console.error("Error fetching shop:", error);
@@ -29,7 +27,7 @@ const ShopCard = () => {
     };
 
     fetchShop();
-  }, [token, ownerId]);
+  }, [token, ownerId, API]);
 
   return (
     <>

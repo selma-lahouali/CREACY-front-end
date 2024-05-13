@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import "./ProfilUpdate.css";
 import Loader from "../Loader/Loader";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const ProfilUpdate = () => {
   // user update states / user update states / user update states / user update states
@@ -19,13 +20,15 @@ const ProfilUpdate = () => {
   // Track if password field is touched / Track if password field is touched
   const [passwordTouched, setPasswordTouched] = useState(false);
   // get user id and token from local storage
+  const Navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("user"));
   const userId = userData ? userData._id : null;
   const token = localStorage.getItem("token");
+  const API = import.meta.env.VITE_API;
   // API call to get user by id / API call to get user by id / API call to get user by id
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/auth/${userId}`, {
+      .get(`${API}/auth/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -38,7 +41,7 @@ const ProfilUpdate = () => {
         console.error(err);
         setError("Failed to load user.");
       });
-  }, [userId, token]);
+  }, [userId, token, API]);
   // update user image and / or password API call / update user image and / or password API call
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -67,6 +70,7 @@ const ProfilUpdate = () => {
       if (response.status === 200) {
         console.log("User profile updated successfully");
         setIsLoading(false);
+        Navigate("/home");
         // sweet alet success message / sweet alet success message / sweet alet success message
         Swal.fire({
           title: "Success!",

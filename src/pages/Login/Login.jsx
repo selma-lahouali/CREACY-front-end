@@ -33,11 +33,13 @@ const Login = () => {
       JSON.stringify(isAuthenticatedState)
     );
   }, [isAuthenticatedState]);
+  const API = import.meta.env.VITE_API;
+
   // login API call / login API call / login API call / login API call / login API call / login API call
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/auth/login", { email, password })
+      .post(`${API}/auth/login`, { email, password })
       .then((res) => {
         dispatch(login(res.data)); // Dispatch the entire user object to your Redux store
         const { user, token } = res.data; // Extract user object and token from response

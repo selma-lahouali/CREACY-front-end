@@ -23,7 +23,7 @@ const CreatShop = () => {
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
-
+  const API = import.meta.env.VITE_API;
   const token = localStorage.getItem("token");
   // navigate to home if not connecter / navigate to home if not connecter
   useEffect(() => {
@@ -66,7 +66,7 @@ const CreatShop = () => {
     // get JWT token from localStorage / get JWT token from localStorage / get JWT token from localStorage
 
     axios
-      .post(`http://localhost:3000/shop/${userId}`, formData, {
+      .post(`${API}/shop/${userId}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

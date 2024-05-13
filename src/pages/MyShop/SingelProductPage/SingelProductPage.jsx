@@ -10,10 +10,10 @@ const SingleProductPage = () => {
   // get token from local storage / get token from local storage / get token from local storage
   const token = localStorage.getItem("token");
   //get products by id / get products by id / get products by id / get products by id
-
+const API =import.meta.env.VITE_API
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/${_id}`, {
+      .get(`${API}/products/${_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -26,7 +26,7 @@ const SingleProductPage = () => {
         console.error(err);
         console.log("Failed to load product.");
       });
-  }, [_id, token]);
+  }, [_id, token,API]);
 
   return (
     <>

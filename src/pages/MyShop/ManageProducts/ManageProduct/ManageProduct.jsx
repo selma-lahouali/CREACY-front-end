@@ -16,9 +16,10 @@ const ManageProduct = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const ownerId = user ? user._id : null;
   const token = localStorage.getItem("token");
+  const API = import.meta.env.VITE_API;
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/owner/${ownerId}?page=${page}`, {
+      .get(`${API}/products/owner/${ownerId}?page=${page}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -28,7 +29,7 @@ const ManageProduct = () => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
       });
-  }, [ownerId, page, token]);
+  }, [ownerId, page, token, API]);
 
   return (
     <>
@@ -46,10 +47,17 @@ const ManageProduct = () => {
                 <div className="manag-prod-info">
                   <div className="manag-prod-name-price">
                     <h4 className="manag-prod-name-limit">{product.name}</h4>
-                    <h4 className="manag-prod-price-limit">{product.price} $</h4>
+                    <h4 className="manag-prod-price-limit">
+                      {product.price} $
+                    </h4>
                   </div>
-                  <p className="manag-prod-info-limit">Category : {product.category}</p>
-                  <p className="manag-prod-info-limit"> Quantity {product.quantity}</p>
+                  <p className="manag-prod-info-limit">
+                    Category : {product.category}
+                  </p>
+                  <p className="manag-prod-info-limit">
+                    {" "}
+                    Quantity {product.quantity}
+                  </p>
                   <p className="manag-prod-likes , manag-prod-info-limit">
                     <BiSolidLike className="manag-prod-icon" /> {product.likes}
                   </p>

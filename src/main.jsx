@@ -18,7 +18,6 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import CreatShop from "./pages/MyShop/CreatShop/CreatShop.jsx";
 import ManageProduct from "./pages/MyShop/ManageProducts/ManageProduct/ManageProduct.jsx";
 import SettingPage from "./pages/SettingPage/SettingPage.jsx";
-import Chat from "./pages/Chat/Chat.jsx";
 import Profil from "./pages/Profil/Profil.jsx";
 
 const router = createBrowserRouter([
@@ -87,10 +86,6 @@ const router = createBrowserRouter([
     element: <NotFound></NotFound>,
   },
 
-  {
-    path: "/chat",
-    element: <Chat></Chat>,
-  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

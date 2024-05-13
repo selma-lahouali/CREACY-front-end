@@ -11,7 +11,7 @@ const AddNewProd = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("clothing");
   const [quantity, setQuantity] = useState("");
   const [error, setError] = useState("");
   // image upload states / image upload states / image upload states / image upload states
@@ -42,17 +42,14 @@ const AddNewProd = () => {
 
     // get JWT token from localStorage / get JWT token from localStorage / get JWT token from localStorage
     const token = localStorage.getItem("token");
+    const API = import.meta.env.VITE_API;
     try {
-      const response = await axios.post(
-        `http://localhost:3000/products/${userId}`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`${API}/products/${userId}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       if (response.status === 200) {
         console.log(response.data, "product created successfully");
@@ -84,7 +81,6 @@ const AddNewProd = () => {
       });
     }
   };
-
   return (
     <>
       <MyShopSideBar />

@@ -22,10 +22,9 @@ const authSlice = createSlice({
       state.token = null;
     },
     register(state, action) {
-      const { user, token } = action.payload;
+      const { user } = action.payload;
       state.isAuthenticated = true;
       state.user = user;
-      state.token = token;
     },
   },
 });

@@ -16,8 +16,9 @@ const HomeProducts = () => {
   };
 
   const token = localStorage.getItem("token");
+  const API = import.meta.env.VITE_API;
   useEffect(() => {
-    const url = `http://localhost:3000/products/?page=${page}`;
+    const url = `${API}/products/?page=${page}`;
 
     axios
       .get(url, {
@@ -33,7 +34,7 @@ const HomeProducts = () => {
       .catch((error) => {
         console.error("Error fetching products:", error);
       });
-  }, [page, token]);
+  }, [page, token,API]);
   return (
     <>
       <div className="home-products-position">

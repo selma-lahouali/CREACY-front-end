@@ -9,6 +9,7 @@ const ShopProfil = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const ownerId = user ? user._id : null;
   const token = localStorage.getItem("token");
+  const API = import.meta.env.VITE_API;
   // format creat date / format creat date / format creat date / format creat date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -25,7 +26,7 @@ const ShopProfil = () => {
     const fetchShop = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/shop/owner/${ownerId}`,
+          `${API}/shop/owner/${ownerId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -40,7 +41,7 @@ const ShopProfil = () => {
     };
 
     fetchShop();
-  }, [token, ownerId]);
+  }, [token, ownerId,API]);
 
   return (
     <>
