@@ -35,16 +35,22 @@ const ShopCard = () => {
     <>
       {shop ? (
         <div className="shop-name">
-          <li>
-            <img src={shop.image} alt="image not found" className="shop-logo" />
-            <h>{shop.name}</h>
-          </li>
+          <Link to="/myShop">
+            <li>
+              <img
+                src={shop.image}
+                alt="image not found"
+                className="shop-logo"
+              />
+              <h>{shop.name}</h>
+            </li>
+          </Link>
         </div>
       ) : (
         <div className="shop-name">
           <Link to="/CreatShop">
             <p>Creat A Shop</p>
-          </Link>{" "}
+          </Link>
         </div>
       )}
     </>

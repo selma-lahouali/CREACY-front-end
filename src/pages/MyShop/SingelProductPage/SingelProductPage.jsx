@@ -3,12 +3,14 @@ import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import "./SingelProductPage.css";
+import { BiSolidLike } from "react-icons/bi";
 const SingleProductPage = () => {
   const [singleProduct, setSingleProduct] = useState({});
   const { _id } = useParams();
   // get token from local storage / get token from local storage / get token from local storage
   const token = localStorage.getItem("token");
   //get products by id / get products by id / get products by id / get products by id
+
   useEffect(() => {
     axios
       .get(`http://localhost:3000/products/${_id}`, {
@@ -29,21 +31,31 @@ const SingleProductPage = () => {
   return (
     <>
       <MyShopSideBar />
-      <div className="prod-main">
-        <li className="my-products">
+      <div className="single-prod-position">
+        <li className="single-products">
           {/* Display image */}
           <img
             src={singleProduct.image}
             alt="image not found"
-            className="my-product-image"
+            className="single-prodt-image"
           />
-          <div className="my-product-info">
-            <div className="my-prod-name-price">
-              <h4>{singleProduct.name}</h4>
-              <pattern>{singleProduct.price} $</pattern>
+          <div className="single-prod-info">
+            <div className="single-prod-name-price">
+              <h4 className="single-prod-name-limit">{singleProduct.name}</h4>
+              <h4 className="single-prod-price-limit">
+                {singleProduct.price}$
+              </h4>
             </div>
-            <p>Category : {singleProduct.category}</p>
-            <p> Quantity {singleProduct.quantity}</p>
+            <p className="single-prod-info-limit">
+              Category : {singleProduct.category}
+            </p>
+            <p className="single-prod-info-limit">
+              Quantity {singleProduct.quantity}
+            </p>
+            <p className="single-prod-likes , home-prod-info-limit">
+              <BiSolidLike className="home-product-icon , single-prod-info-limit" />
+              {singleProduct.likes}
+            </p>
           </div>
         </li>
       </div>

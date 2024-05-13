@@ -42,3 +42,7 @@ a {
   border: 1px solid var(--darkBleu);
   border-radius: 50%;
 }
+.profil-Btn .username-name:hover {
+  text-decoration: none;
+ 
+}

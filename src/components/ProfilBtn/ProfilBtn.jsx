@@ -25,8 +25,9 @@ const Profil = () => {
                   <h1>{user.username}</h1>
                 ) : (
                   <ul>
+                    <li className="username-name">{user.username}</li>
                     <Link to="/profil">
-                      <li>{user.username}</li>
+                      <li>Account</li>
                     </Link>
                     <Link to="/contactUs">
                       <li>Contac Us</li>

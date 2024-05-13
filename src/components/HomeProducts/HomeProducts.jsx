@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
-import "./MyShop.css";
 import axios from "axios";
 import { BiSolidLike } from "react-icons/bi";
 import { Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
+import "./HomeProducts.css";
 
 // API call get all product / API call get all product / API call get all product
-const MyShop = () => {
+const HomeProducts = () => {
   const [products, setProducts] = useState([]);
   // pagination / pagination / pagination / pagination /pagination
   const [page, setPage] = useState(1);
@@ -15,12 +14,13 @@ const MyShop = () => {
   const handlePageChange = (event, value) => {
     setPage(value);
   };
-  const user = JSON.parse(localStorage.getItem("user"));
-  const ownerId = user ? user._id : null;
+
   const token = localStorage.getItem("token");
   useEffect(() => {
+    const url = `http://localhost:3000/products/?page=${page}`;
+
     axios
-      .get(`http://localhost:3000/products/owner/${ownerId}?page=${page}`, {
+      .get(url, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -29,35 +29,37 @@ const MyShop = () => {
       .then((res) => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
       });
-  }, [ownerId, page, token]);
-
+  }, [page, token]);
   return (
     <>
-      <MyShopSideBar></MyShopSideBar>
-      <div className="my-products-position">
-        <ul className="my-products-display">
+      <div className="home-products-position">
+        <ul className="home-products-display">
           {products.map((product, index) => (
             <div key={index}>
-              <li className="my-products">
+              <li className="home-products">
                 <img
                   src={product.image}
                   alt="image not found"
-                  className="my-product-image"
+                  className="home-product-image"
                 />
-                <div className="my-product-info">
-                  <div className="my-prod-name-price">
-                    <h4 className="my-prod-name-limit">{product.name}</h4>
-                    <h4 className="my-prod-price-limit">{product.price}$</h4>
+                <div className="home-product-info">
+                  <div className="home-prod-name-price">
+                    <h4 className="home-prod-name-limit">{product.name}</h4>
+                    <h4 className="home-prod-price-limit">{product.price}$</h4>
                   </div>
-                  <p className="my-prod-info-limit">
+                  <p className="home-prod-info-limit">
                     Category : {product.category}
                   </p>
-                  <p className="my-prod-info-limit">
+                  <p className="home-prod-info-limit">
                     Quantity {product.quantity}
                   </p>
-                  <p className="my-product-likes , my-prod-info-limit">
-                    <BiSolidLike className="my-product-icon" /> {product.likes}
+                  <p className="home-product-likes , home-prod-info-limit">
+                    <BiSolidLike className="single-prod-icon" />
+                    {product.likes}
                   </p>
 
                   <Link to={`/myShop/${product._id}`}>
@@ -72,11 +74,11 @@ const MyShop = () => {
           page={page}
           count={totalPages}
           onChange={handlePageChange}
-          className="my-product-pagination"
+          className="home-pagination"
         />
       </div>
     </>
   );
 };
 
-export default MyShop;
+export default HomeProducts;

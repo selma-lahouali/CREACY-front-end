@@ -13,11 +13,12 @@ const ManageProduct = () => {
   const handlePageChange = (event, value) => {
     setPage(value);
   };
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  const ownerId = user ? user._id : null;
   const token = localStorage.getItem("token");
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products?page=${page}`, {
+      .get(`http://localhost:3000/products/owner/${ownerId}?page=${page}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -27,47 +28,48 @@ const ManageProduct = () => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
       });
-  }, [page, token]);
+  }, [ownerId, page, token]);
 
   return (
     <>
       <MyShopSideBar></MyShopSideBar>
-      <div className="my-products-position">
-        <ul className="my-products-display">
+      <div className="manag-prod-position">
+        <ul className="manag-prod-display">
           {products.map((product, index) => (
             <div key={index}>
-              <li className="my-products">
+              <li className="manag-products">
                 <img
                   src={product.image}
                   alt="image not found"
-                  className="my-product-image"
+                  className="manag-prod-image"
                 />
-                <div className="my-product-info">
-                  <div className="my-prod-name-price">
-                    <h4>{product.name}</h4>
-                    <pattern>{product.price} $</pattern>
+                <div className="manag-prod-info">
+                  <div className="manag-prod-name-price">
+                    <h4 className="manag-prod-name-limit">{product.name}</h4>
+                    <h4 className="manag-prod-price-limit">{product.price} $</h4>
                   </div>
-                  <p>Category : {product.category}</p>
-                  <p> Quantity {product.quantity}</p>
-                  <p className="my-product-likes">
-                    <BiSolidLike className="my-product-icon" /> {product.likes}
+                  <p className="manag-prod-info-limit">Category : {product.category}</p>
+                  <p className="manag-prod-info-limit"> Quantity {product.quantity}</p>
+                  <p className="manag-prod-likes , manag-prod-info-limit">
+                    <BiSolidLike className="manag-prod-icon" /> {product.likes}
                   </p>
                   {/* Link to ManageProducts page with product ID as parameter */}
                   <Link
                     to={`/updateProduct/${product._id}`}
-                    className="modify-product-link"
+                    className="manag-prod-link"
                   >
                     {/* update product link / update product link / update product link  */}
                     <h4 className="modify-Product">
-                      <RiEdit2Fill className="my-product-icon" /> Modify Product
+                      <RiEdit2Fill className="manag-prod-icon" /> Modify Product
                     </h4>
+                  </Link>
+
+                  {/* show product detail / show product detail */}
+                  <Link to={`/myShop/${product._id}`}>
+                    <button>Details</button>
                   </Link>
                 </div>
               </li>
-              {/* show product detail / show product detail */}
-              <Link to={`/myShop/${product._id}`}>
-                <button>Details</button>
-              </Link>
             </div>
           ))}
         </ul>
@@ -75,7 +77,7 @@ const ManageProduct = () => {
           page={page}
           count={totalPages}
           onChange={handlePageChange}
-          className="pagination"
+          className="manage-prod-pagination"
         />
       </div>
     </>
