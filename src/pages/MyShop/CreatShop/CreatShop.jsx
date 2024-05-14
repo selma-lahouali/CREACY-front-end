@@ -3,8 +3,6 @@ import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useDispatch } from "react-redux";
-import { shopCreation } from "../../../Redux/Slices/CreatShopSlice";
 import Loader from "../../../components/Loader/Loader";
 
 const CreatShop = () => {
@@ -18,7 +16,7 @@ const CreatShop = () => {
   // loading state / loading state / loading state  / loading state  / loading state
   const [isLoading, setIsLoading] = useState(false);
 
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -73,8 +71,8 @@ const CreatShop = () => {
         },
       })
       .then((res) => {
-        console.log("Shop Created Successfully");
-        dispatch(shopCreation(res.data));
+        console.log("Shop Created Successfully",res);
+    
         setIsLoading(false);
         // sweet alert success message / sweet alert success message / sweet alert success message
         Swal.fire({
