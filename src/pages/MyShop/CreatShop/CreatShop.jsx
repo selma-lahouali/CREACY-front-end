@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
-import { shopCreation } from "../../../redux/slices/CreatShopSlice";
+import { shopCreation } from "../../../Redux/Slices/CreatShopSlice";
 import Loader from "../../../components/Loader/Loader";
 
 const CreatShop = () => {

@@ -6,7 +6,7 @@ import { MdLogout } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import "./SideBar.css";
 import { useDispatch } from "react-redux";
-import { logout } from "../../redux/slices/AuthSlice";
+import { logout } from "../../Redux/Slices/AuthSlice";
 const SideBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

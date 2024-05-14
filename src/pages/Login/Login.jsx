@@ -6,7 +6,7 @@ import "./Login.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/slices/AuthSlice";
+import { login } from "../../Redux/Slices/AuthSlice";
 // login states / login states / login states  / login states  / login states  / login states  / login states
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(true);

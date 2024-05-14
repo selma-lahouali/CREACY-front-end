@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { store } from "./redux/Store";
+import { store } from "./Redux/store";
 import { Provider } from "react-redux";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -85,7 +85,6 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFound></NotFound>,
   },
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
