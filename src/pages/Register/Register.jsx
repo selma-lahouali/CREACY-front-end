@@ -6,7 +6,7 @@ import registerImage from "../../assets/register-image.webp";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { register } from "../../Redux/Slices/AuthSlice";
+import { register } from "../../redux/slices/AuthSlice";
 import Swal from "sweetalert2";
 
 const Register = () => {
