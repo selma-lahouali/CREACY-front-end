@@ -1,10 +1,10 @@
-import logo from "../../assets/logo-navBare .png";
+import logo from "../../assets/logo-navBare.png";
 import { MdEmail } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
 import "./NavBar.css";
 import { Link, Outlet } from "react-router-dom";
-import DarkLightMode from "../DarkLightMode/DarkLightMode";
-import ProfilBtn from "../ProfilBtn/ProfilBtn";
+import DarkLightMode from "../../components/DarkLightMode/DarkLightMode";
+import ProfilBtn from "../../components/ProfilBtn/ProfilBtn";
 
 const NavBar = () => {
   return (

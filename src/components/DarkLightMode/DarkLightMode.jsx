@@ -1,5 +1,3 @@
-// DarkLightMode.js
-
 import { useState, useEffect } from "react";
 import "./DarkLightMode.css";
 

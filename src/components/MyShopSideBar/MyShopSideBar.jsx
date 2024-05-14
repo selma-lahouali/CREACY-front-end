@@ -4,7 +4,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import { RiEdit2Fill } from "react-icons/ri";
 import { ImStatsDots } from "react-icons/im";
 import { PiUserListFill } from "react-icons/pi";
-import ShopCard from "../ShopCard/ShopCard";
+import ShopCard from "../../components/ShopCard/ShopCard";
 
 const MyShopSideBar = () => {
   return (

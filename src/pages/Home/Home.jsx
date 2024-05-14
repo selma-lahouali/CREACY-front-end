@@ -7,7 +7,6 @@ const Home = () => {
     <div>
       <SideBar></SideBar>
       <HomeProducts></HomeProducts>
-      {/* <Products></Products> */}
     </div>
   );
 };
