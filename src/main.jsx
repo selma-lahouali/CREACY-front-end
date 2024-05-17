@@ -19,6 +19,7 @@ import CreatShop from "./pages/MyShop/CreatShop/CreatShop.jsx";
 import ManageProduct from "./pages/MyShop/ManageProducts/ManageProduct/ManageProduct.jsx";
 import SettingPage from "./pages/SettingPage/SettingPage.jsx";
 import Profil from "./pages/Profil/Profil.jsx";
+import Cart from "./pages/Cart/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <Home></Home>,
+      },
+      {
+        path: "cart",
+        element: <Cart></Cart>,
       },
       {
         path: "myShop",

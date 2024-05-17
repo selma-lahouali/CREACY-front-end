@@ -18,9 +18,10 @@ const MyShop = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const ownerId = user ? user._id : null;
   const token = localStorage.getItem("token");
+  const API = import.meta.env.VITE_API;
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/owner/${ownerId}?page=${page}`, {
+      .get(`${API}/products/owner/${ownerId}?page=${page}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -30,7 +31,7 @@ const MyShop = () => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
       });
-  }, [ownerId, page, token]);
+  }, [ownerId, page, token, API]);
 
   return (
     <>

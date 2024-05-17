@@ -4,6 +4,7 @@ import { BiSolidLike } from "react-icons/bi";
 import { Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./HomeProducts.css";
+import AddToCart from "../AddToCart/AddToCart";
 
 // API call get all product / API call get all product / API call get all product
 const HomeProducts = () => {
@@ -34,7 +35,7 @@ const HomeProducts = () => {
       .catch((error) => {
         console.error("Error fetching products:", error);
       });
-  }, [page, token,API]);
+  }, [page, token, API]);
   return (
     <>
       <div className="home-products-position">
@@ -66,6 +67,7 @@ const HomeProducts = () => {
                   <Link to={`/myShop/${product._id}`}>
                     <button>Detail</button>
                   </Link>
+                  <AddToCart product={product}></AddToCart>
                 </div>
               </li>
             </div>

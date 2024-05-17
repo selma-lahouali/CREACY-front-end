@@ -16,15 +16,15 @@ const authSlice = createSlice({
       state.user = user;
       state.token = token;
     },
+     register(state, action) {
+      const { user } = action.payload;
+      state.isAuthenticated = true;
+      state.user = user;
+    },
     logout(state) {
       state.isAuthenticated = false;
       state.user = null;
       state.token = null;
-    },
-    register(state, action) {
-      const { user } = action.payload;
-      state.isAuthenticated = true;
-      state.user = user;
     },
   },
 });

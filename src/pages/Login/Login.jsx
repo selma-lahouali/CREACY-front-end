@@ -47,7 +47,7 @@ const Login = () => {
         localStorage.setItem("token", token); // Store token in localStorage
         navigate("/home");
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => {setError(err.message),console.log(err.messag)});
   };
 
   return (
