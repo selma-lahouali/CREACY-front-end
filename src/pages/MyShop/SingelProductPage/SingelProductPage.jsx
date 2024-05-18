@@ -52,8 +52,8 @@ const API =import.meta.env.VITE_API
             <p className="single-prod-info-limit">
               Quantity {singleProduct.quantity}
             </p>
-            <p className="single-prod-likes , home-prod-info-limit">
-              <BiSolidLike className="home-product-icon , single-prod-info-limit" />
+            <p className="single-prod-likes home-prod-info-limit">
+              <BiSolidLike className="home-product-icon single-prod-info-limit" />
               {singleProduct.likes}
             </p>
           </div>

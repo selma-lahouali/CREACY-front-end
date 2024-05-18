@@ -51,7 +51,7 @@ const HomeProducts = () => {
                 <div className="home-product-info">
                   <div className="home-prod-name-price">
                     <h4 className="home-prod-name-limit">{product.name}</h4>
-                    <h4 className="home-prod-price-limit">{product.price}$</h4>
+                    <h4 className="home-prod-price-limit">${product.price}</h4>
                   </div>
                   <p className="home-prod-info-limit">
                     Category : {product.category}
@@ -59,13 +59,12 @@ const HomeProducts = () => {
                   <p className="home-prod-info-limit">
                     Quantity {product.quantity}
                   </p>
-                  <p className="home-product-likes , home-prod-info-limit">
-                    <BiSolidLike className="single-prod-icon" />
-                    {product.likes}
+                  <p className="home-prod-likes home-prod-info-limit">
+                    <BiSolidLike className="home-prod-icon" /> {product.likes}
                   </p>
 
                   <Link to={`/myShop/${product._id}`}>
-                    <button>Detail</button>
+                    <button className="home-prod-detail-btn">Detail</button>
                   </Link>
                   <AddToCart product={product}></AddToCart>
                 </div>

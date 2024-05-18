@@ -47,18 +47,15 @@ const ManageProduct = () => {
                 <div className="manag-prod-info">
                   <div className="manag-prod-name-price">
                     <h4 className="manag-prod-name-limit">{product.name}</h4>
-                    <h4 className="manag-prod-price-limit">
-                      {product.price} $
-                    </h4>
+                    <h4 className="manag-prod-price-limit">${product.price}</h4>
                   </div>
                   <p className="manag-prod-info-limit">
                     Category : {product.category}
                   </p>
                   <p className="manag-prod-info-limit">
-                    {" "}
                     Quantity {product.quantity}
                   </p>
-                  <p className="manag-prod-likes , manag-prod-info-limit">
+                  <p className="manag-prod-likes  manag-prod-info-limit">
                     <BiSolidLike className="manag-prod-icon" /> {product.likes}
                   </p>
                   {/* Link to ManageProducts page with product ID as parameter */}

@@ -31,7 +31,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 0.5vh;
-  margin: 1vh 0px 1vh -1.6vw;
+  margin: 1vh 0vh 1vh;
   font-size: 1.3vw;
   font-weight: lighter;
   padding-left: 0.4vw;
@@ -39,32 +39,35 @@
 .home-prod-name-price {
   display: flex;
   justify-content: space-between;
+  gap: 2vw;
   font-weight: lighter;
 }
-.home-product-likes {
+.home-prod-likes {
   display: flex;
   align-items: center;
   gap: 0.5vw;
 }
-.home-product-icon {
+.home-prod-icon {
   color: var(--darkBleu);
 }
 .home-pagination {
   margin-top: 3vh;
 }
-.home-product-info button {
+.home-prod-detail-btn {
   background-color: var(--mainBleu);
   border: none;
   border-radius: 0.4vw;
   width: 6.5vw;
-  height: 3.5vh;
+  height: 3.2vh;
   color: var(--bodyColor);
   font-size: 1vw;
   letter-spacing: 0.08vw;
-  margin-left: 3.8vw;
+  margin-left: 3.6vw;
+  margin-bottom: 1vh;
 }
+/* limit product info size to  ot ruin the css */
 .home-products .home-prod-name-limit {
-  max-width: 8vw;
+  max-width: 7.5vw;
   overflow: hidden;
 }
 .home-products .home-prod-info-limit {

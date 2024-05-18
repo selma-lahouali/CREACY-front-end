@@ -36,6 +36,7 @@
 .single-prod-name-price {
   display: flex;
   justify-content: space-between;
+  gap: 2vw;
   font-weight: lighter;
 }
 .single-prod-likes {
@@ -59,12 +60,13 @@
   font-size: 1.1vw;
   letter-spacing: 0.04vw;
 }
+/* limit product info size to  ot ruin the css */
 .single-products .single-prod-name-limit {
-  max-width: 8vw;
+  max-width: 7.5vw;
   overflow: hidden;
 }
 .single-products .single-prod-info-limit {
-  max-width: 12.8vw;
+  max-width: 8vw;
   overflow: hidden;
 }
 .single-products .single-prod-price-limit {

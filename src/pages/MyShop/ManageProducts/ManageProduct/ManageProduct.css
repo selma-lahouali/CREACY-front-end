@@ -39,6 +39,7 @@
 .manag-prod-name-price {
   display: flex;
   justify-content: space-between;
+  gap: 2vw;
   font-weight: lighter;
 }
 .manag-prod-likes {
@@ -49,6 +50,7 @@
 .manag-prod-icon {
   color: var(--darkBleu);
 }
+/* modify product */
 .modify-Product {
   display: flex;
   align-items: center;
@@ -59,9 +61,6 @@
 .modify-Product:hover {
   text-decoration: underline 2px solid rgb(125, 22, 74);
   color: rgb(255, 42, 149);
-}
-.manag-prod-icon {
-  color: var(--darkBleu);
 }
 .manage-prod-pagination {
   margin-top: 3vh;
@@ -77,15 +76,16 @@
   letter-spacing: 0.08vw;
   margin-left: 3.8vw;
 }
-.manag-products .manag-prod-name-price {
+/* limit product info size to  ot ruin the css */
+.manag-products .manag-prod-name-limit {
+  max-width: 7.5vw;
+  overflow: hidden;
+}
+.manag-products .manag-prod-info-limit {
   max-width: 8vw;
   overflow: hidden;
 }
-.manag-products .manag-prod-name-limit {
-  max-width: 12.8vw;
-  overflow: hidden;
-}
 .manag-products .manag-prod-price-limit {
-  max-width: 3.9vw;
+  max-width: 3.6vw;
   overflow: hidden;
 }
