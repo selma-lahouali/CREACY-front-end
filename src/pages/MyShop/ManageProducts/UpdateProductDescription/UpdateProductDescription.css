@@ -1,0 +1,6 @@
+.ProductDescription{
+    position: absolute;
+    top: 25vh;
+    left: 16vw;
+    color: var(--fontColor);
+  }

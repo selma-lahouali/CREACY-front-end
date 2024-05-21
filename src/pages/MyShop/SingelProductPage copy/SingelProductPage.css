@@ -1,0 +1,75 @@
+.single-prod-position {
+  position: absolute;
+  top: 25vh;
+  left: 16vw;
+  color: var(--fontColor);
+}
+.single-prodt-image {
+  width: 100%;
+  height: 22vh;
+  border-bottom: 1px solid var(--darkBleu);
+}
+.single-products {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  border: 1px solid var(--darkBleu);
+  width: 14vw;
+  max-width: 14vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.single-prod-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5vh;
+  margin: 1vh 0px 1vh -1.6vw;
+  font-size: 1.3vw;
+  font-weight: lighter;
+  padding-left: 0.4vw;
+}
+
+.single-prod-name-price {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+  font-weight: lighter;
+}
+.single-prod-likes {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+.single-prod-icon {
+  color: var(--darkBleu);
+}
+.back-to-shop-btn {
+  position: relative;
+  top: 71vh;
+  left: 16vw;
+  background-color: var(--mainBleu);
+  border: none;
+  border-radius: 0.5vw;
+  width: 13vw;
+  height: 5vh;
+  color: var(--bodyColor);
+  font-size: 1.1vw;
+  letter-spacing: 0.04vw;
+}
+/* limit product info size to  ot ruin the css */
+.single-products .single-prod-name-limit {
+  max-width: 7.5vw;
+  overflow: hidden;
+}
+.single-products .single-prod-info-limit {
+  max-width: 8vw;
+  overflow: hidden;
+}
+.single-products .single-prod-price-limit {
+  max-width: 3.6vw;
+  overflow: hidden;
+}

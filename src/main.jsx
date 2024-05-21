@@ -20,6 +20,7 @@ import ManageProduct from "./pages/MyShop/ManageProducts/ManageProduct/ManagePro
 import SettingPage from "./pages/SettingPage/SettingPage.jsx";
 import Profil from "./pages/Profil/Profil.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
+import UpdateProductDescription from "./pages/MyShop/ManageProducts/UpdateProductDescription/UpdateProductDescription.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "updateProduct/:_id",
         element: <UpdateProduct></UpdateProduct>,
+      },
+      {
+        path: "UpdateProductDescription/:_id",
+        element: <UpdateProductDescription></UpdateProductDescription>,
       },
       {
         path: "settings",

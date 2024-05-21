@@ -38,7 +38,7 @@ const UpdateProduct = () => {
         console.error(err);
         setError("Failed to load product.");
       });
-  }, [_id, token,API]);
+  }, [_id, token, API]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -52,16 +52,12 @@ const UpdateProduct = () => {
     formData.append("image", product.image);
 
     try {
-      const response = await axios.put(
-        `http://localhost:3000/products/${_id}`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.put(`${API}/products/${_id}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       if (response.status === 200) {
         console.log("product updated successfully");
