@@ -1,15 +1,22 @@
-.update-user-profile {
+.update-user-profile-position {
   position: absolute;
   top: 15vh;
-  left: 12vw;
+  left: 15vw;
+}
+.update-user-profile-position h1{
+  color: var(--fontColor);
+  font-size: 1.8vw;
+  margin-bottom: 2vh;
+}
+.update-user-profile {
   display: flex;
   flex-direction: column;
   border: 2px solid var(--darkBleu);
   border-radius: 0.8vw;
-  padding: 1vw 2vw;
+  padding: 2vw 2vw;
 }
 .update-user-profile-input {
-  width: 30vw;
+  width: 40vw;
   height: 7vh;
   border: none;
   border-radius: 0.5vw;
@@ -22,7 +29,7 @@
 .update-user-profile-Icon {
   position: relative;
   top: -7.98vh;
-  left: 27.5vw;
+  left: 37.5vw;
   width: 2vw;
 }
 .update-user-profile-input ::placeholder {
@@ -53,10 +60,13 @@
   border: none;
   border-radius: 0.5vw;
   width: 17.7vw;
-  height: 4.5vh;
+  height: 6vh;
   color: var(--bodyColor);
   font-size: 1.1vw;
   font-weight: bold;
   letter-spacing: 0.04vw;
   margin-top: 5vh;
+}
+.update-user-profile-btn:hover{
+  scale: 1.1;
 }

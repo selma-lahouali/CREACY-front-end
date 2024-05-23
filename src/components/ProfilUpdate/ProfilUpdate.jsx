@@ -57,7 +57,7 @@ const ProfilUpdate = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/auth/${userId}/update-profile`,
+        `${API}/auth/${userId}/update-profile`,
         formData,
         {
           headers: {
@@ -68,7 +68,7 @@ const ProfilUpdate = () => {
       );
 
       if (response.status === 200) {
-        console.log("User profile updated successfully");
+        console.log("User's profile updated successfully");
         setIsLoading(false);
         Navigate("/home");
         // sweet alet success message / sweet alet success message / sweet alet success message
@@ -79,9 +79,9 @@ const ProfilUpdate = () => {
         });
       }
     } catch (error) {
-      console.error("Error updating user profile:", error);
+      console.error("Error updating user's profile:", error);
       setIsLoading(false);
-      setError("Failed to update user profile.");
+      setError("Failed to update user's profile.");
       // sweet alet faild message / sweet alet faild message / sweet alet faild message
       Swal.fire({
         icon: "error",
@@ -114,61 +114,64 @@ const ProfilUpdate = () => {
 
   return (
     <>
-      {isLoading && <Loader></Loader>}
-      <form onSubmit={handleSubmit} className="update-user-profile">
-        {/* user name / user name / user name / user name / user name  */}
-        <label>User Name : </label>
-        <input
-          type="text"
-          value={userData ? userData.username : ""}
-          readOnly
-          className="update-user-profile-input"
-        />
-        {/*user email / user email / user email / user email / user email  */}
-        <label>E.mail : </label>
-        <input
-          type="email"
-          name="email"
-          defaultValue={userData ? userData.email : ""}
-          readOnly
-          className="update-user-profile-input"
-        />
-        {/* user password / user password / user password / user password   */}
-        <label>New Password:</label>
-        <input
-          type={passwordVisible ? "password" : "text"}
-          name="password"
-          value={user.password}
-          autoComplete="new-password"
-          onChange={handleChange}
-          className="update-user-profile-input"
-        />
-        {passwordVisible ? (
-          <FaRegEye
-            className="update-user-profile-Icon"
-            onClick={togglePasswordVisibility}
-          />
-        ) : (
-          <FaRegEyeSlash
-            className="update-user-profile-Icon"
-            onClick={togglePasswordVisibility}
-          />
-        )}
-        {/* user image upload / user image upload / user image upload */}
-        <div className="update-user-profile-image">
-          <label>New Profile Picture:</label>
+      <div className="update-user-profile-position">
+        <h1>Edit Your Profil :</h1>
+        {isLoading && <Loader></Loader>}
+        <form onSubmit={handleSubmit} className="update-user-profile">
+          {/* user name / user name / user name / user name / user name  */}
+          <label>User Name : </label>
           <input
-            type="file"
-            accept="image/*"
-            name="image"
-            onChange={handleChange}
+            type="text"
+            value={userData ? userData.username : ""}
+            readOnly
+            className="update-user-profile-input"
           />
-        </div>
-        <button type="submit" className="update-user-profile-btn">
-          Update Profile
-        </button>
-      </form>
-      <div className="error">{error}</div>
+          {/*user email / user email / user email / user email / user email  */}
+          <label>E.mail : </label>
+          <input
+            type="email"
+            name="email"
+            defaultValue={userData ? userData.email : ""}
+            readOnly
+            className="update-user-profile-input"
+          />
+          {/* user password / user password / user password / user password   */}
+          <label>New Password:</label>
+          <input
+            type={passwordVisible ? "password" : "text"}
+            name="password"
+            value={user.password}
+            autoComplete="new-password"
+            onChange={handleChange}
+            className="update-user-profile-input"
+          />
+          {passwordVisible ? (
+            <FaRegEye
+              className="update-user-profile-Icon"
+              onClick={togglePasswordVisibility}
+            />
+          ) : (
+            <FaRegEyeSlash
+              className="update-user-profile-Icon"
+              onClick={togglePasswordVisibility}
+            />
+          )}
+          {/* user image upload / user image upload / user image upload */}
+          <div className="update-user-profile-image">
+            <label>New Profile Picture:</label>
+            <input
+              type="file"
+              accept="image/*"
+              name="image"
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit" className="update-user-profile-btn">
+            Update Profile
+          </button>
+        </form>
+        <div className="error">{error}</div>
+      </div>
     </>
   );
 };

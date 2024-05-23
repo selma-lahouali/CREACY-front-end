@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const DeleteProduct = ({ _id }) => {
-  // Accept _id as prop
-  const [setError] = useState("");
+    const [setError] = useState("");
   const API = import.meta.env.VITE_API;
   const navigate = useNavigate();
   const deleteProd = async () => {
