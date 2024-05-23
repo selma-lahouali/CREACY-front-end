@@ -51,7 +51,7 @@
   color: var(--darkBleu);
 }
 .single-prod-add-to-cart-btn {
-  background-color: var(--mainBleu) ;
+  background-color: var(--mainBleu);
   border: none;
   border-radius: 0.5vw;
   width: 17.7vw;
@@ -61,6 +61,30 @@
   letter-spacing: 0.04vw;
 }
 /* 2nd part of the description with the extra images and details */
+/* toggle description info button / toggle description info button  */
+.signle-prod-extra-info-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12vw;
+  font-size: 1vw;
+  cursor: pointer;
+}
+.signle-prod-extra-info-toggle button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.6vw;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  letter-spacing: 0.06vw;
+  margin-bottom: 4vh;
+  color: var(--fontColor);
+  text-underline-offset:1vh;
+ 
+}
+.signle-prod-extra-info-toggle button:focus {
+  text-decoration: underline 0.2vw var(--darkBleu);
+}
 .signle-prod-extra-info {
   display: flex;
   flex-direction: column;

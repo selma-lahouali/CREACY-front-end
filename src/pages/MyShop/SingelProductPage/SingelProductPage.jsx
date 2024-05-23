@@ -7,6 +7,10 @@ import { BiSolidLike } from "react-icons/bi";
 import AddToCart from "../../../components/AddToCart/AddToCart";
 const SingleProductPage = () => {
   const [singleProduct, setSingleProduct] = useState({});
+  // states to toggle description parts / states to toggle description parts
+  const [description, setDescription] = useState(true);
+  const [details, setDetails] = useState(false);
+  const [links, setLinks] = useState(false);
   const { _id } = useParams();
   // get token from local storage / get token from local storage / get token from local storage
   const token = localStorage.getItem("token");
@@ -28,6 +32,22 @@ const SingleProductPage = () => {
         console.log("Failed to load product.");
       });
   }, [_id, token, API]);
+  // functions to toggle description parts / functions to toggle description parts
+  const toggleDescription = () => {
+    setDescription(true);
+    setDetails(false);
+    setLinks(false);
+  };
+  const toggleDetails = () => {
+    setDescription(false);
+    setDetails(true);
+    setLinks(false);
+  };
+  const toggleLinks = () => {
+    setDescription(false);
+    setDetails(false);
+    setLinks(true);
+  };
   return (
     <>
       <MyShopSideBar />
@@ -66,37 +86,65 @@ const SingleProductPage = () => {
           </div>
         </div>
         <div className="signle-prod-extra-info">
-          <h1>Description</h1>
-          {/* <p>
-            <a
-              href={singleProduct.linkDescription}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {singleProduct.linkDescription}
-            </a>
-          </p> */}
-          <p>{singleProduct.extraInfo}</p>
-          {/* map to get all the descritption images / map to get all the descritption images */}
-          <div className="extra-info-img">
-            {singleProduct.imageDescription &&
-              singleProduct.imageDescription.map((descImage, index) => (
-                <img
-                  key={index}
-                  src={descImage}
-                  alt={`Description Image ${index + 1}`}
-                />
-              ))}
+          <div className="signle-prod-extra-info-toggle">
+            <button onClick={toggleDescription}>Description</button>
+            <button onClick={toggleDetails}>Details</button>
+            <button onClick={toggleLinks}>Links</button>
+          </div>
+          <div className="signle-prod-extra-info-desc">
+            {description && (
+              <>
+                <p>{singleProduct.extraInfo}</p>
+                <div className="extra-info-img">
+                  {singleProduct.imageDescription &&
+                    singleProduct.imageDescription.map((descImage, index) => (
+                      <img
+                        key={index}
+                        src={descImage}
+                        alt={`Description Image ${index + 1}`}
+                      />
+                    ))}
+                </div>
+              </>
+            )}
+          </div>
+          <div className="signle-prod-extra-info-detail">
+            {details && (
+              <>
+                <h2>{singleProduct.color}</h2>
+                <h2>{singleProduct.size}</h2>
+              </>
+            )}
+          </div>
+          <div className="signle-prod-extra-info-link">
+            {links && (
+              <div className="social">
+                <a
+                  href={singleProduct.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {singleProduct.tiktok}
+                </a>
+                <a
+                  href={singleProduct.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {singleProduct.instagram}
+                </a>
+              </div>
+            )}
           </div>
         </div>
-        {/* <Link to="/myShop">
+        <Link to="/myShop">
           <button className="back-to-shop-btn">Back To The Shop</button>
         </Link>
         <Link to={`/UpdateProductDescription/${_id}`}>
           <button className="modify-prod-description-btn">
             Modify Product Description
           </button>
-        </Link> */}
+        </Link>
       </div>
     </>
   );

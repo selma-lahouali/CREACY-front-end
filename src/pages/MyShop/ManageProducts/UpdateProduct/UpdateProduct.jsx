@@ -11,7 +11,6 @@ const UpdateProduct = () => {
   const { _id } = useParams();
   const [product, setProduct] = useState({
     name: "",
-    description: "",
     price: "",
     category: "",
     quantity: "",
@@ -45,7 +44,6 @@ const UpdateProduct = () => {
     setIsLoading(true);
     const formData = new FormData();
     formData.append("name", product.name);
-    formData.append("description", product.description);
     formData.append("price", product.price);
     formData.append("category", product.category);
     formData.append("quantity", product.quantity);
@@ -113,16 +111,7 @@ const UpdateProduct = () => {
           onChange={handleChange}
           className="add-product-input"
         />
-        <label>Product Description :</label>
-        <input
-          type="text"
-          placeholder="Enter Your Product Description"
-          required
-          name="description"
-          value={product.description}
-          onChange={handleChange}
-          className="update-product-input"
-        />
+
         <label>Product Price :</label>
         <input
           type="number"

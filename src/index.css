@@ -5,6 +5,7 @@
 body {
   height: 100vh;
   background-color: var(--bodyColor);
+  font-family:'Times New Roman', Times, serif;
 }
 
 button,select {

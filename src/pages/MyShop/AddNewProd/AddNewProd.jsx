@@ -9,7 +9,6 @@ import Loader from "../../../components/Loader/Loader";
 const AddNewProd = () => {
   // product states / product states / product states / product states / product states
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("clothing");
   const [quantity, setQuantity] = useState("");
@@ -27,7 +26,6 @@ const AddNewProd = () => {
     setIsLoading(true);
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("description", description);
     formData.append("price", price);
     formData.append("category", category);
     formData.append("quantity", quantity);
@@ -55,7 +53,6 @@ const AddNewProd = () => {
         console.log(response.data, "product created successfully");
         // Reset input fields after successful product creation
         setName("");
-        setDescription("");
         setPrice("");
         setCategory("");
         setQuantity("");
@@ -94,16 +91,6 @@ const AddNewProd = () => {
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="add-product-input"
-        />
-        {/* Product description */}
-        <label>Product Description :</label>
-        <input
-          type="text"
-          placeholder="Enter Your Product Description"
-          required
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
           className="add-product-input"
         />
         {/* Product price */}
