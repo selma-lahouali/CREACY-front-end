@@ -93,7 +93,7 @@ const Login = () => {
           <div className="error">{error}</div>
           {/* link to register / link to register / link to register / link to register / link to register */}
           <h3 className="registertLink">
-            Dont Have An Account? <Link to="/register">Sign Up Now</Link>
+            Don&apos;t Have An Account? <Link to="/register">Sign Up Now</Link>
           </h3>
         </div>
         <div className="login-right">

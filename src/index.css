@@ -15,7 +15,8 @@ button,select {
   /* colors / colors / colors / colors / colors */
   --bodyColor: #ffffff;
   --fontColor: #000000;
-  --mainBleu: #6c757d;
+  /* --mainBleu: #6c757d; */
+  --mainBleu: #7a848c;
   --mediumBleu: #adb5bd;
   --darkBleu: #4b5257;
   --lightBleu: #dee5ec;

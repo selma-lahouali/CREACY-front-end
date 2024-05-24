@@ -1,6 +1,6 @@
 .home-products-position {
   position: absolute;
-  top: 25vh;
+  top: 18vh;
   left: 13vw;
   color: var(--fontColor);
 }
@@ -77,4 +77,34 @@
 .home-products .home-prod-price-limit {
   max-width: 3.6vw;
   overflow: hidden;
+}
+/* categories filter button */
+.home-category-dropdown {
+  margin-left: 68.1vw;
+  margin-bottom: 3vh;
+}
+.home-categry-btn {
+  background-color: var(--mainBleu);
+  border: 0.1vw solid var(--darkBleu);
+  border-radius: 0.5vw;
+  color: var(--bodyColor);
+  padding: 1.2vh 1vw;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1vw;
+}
+.home-categry-btn-content {
+  position: absolute;
+  background-color: var(--searchBareColor);
+  color: black;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.home-categry-checkbox {
+  padding: 0.8vh 1vw;
+}
+.home-categry-checkbox input,
+label {
+  cursor: pointer;
 }

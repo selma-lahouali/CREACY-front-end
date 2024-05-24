@@ -6,28 +6,29 @@ import { Link } from "react-router-dom";
 import "./HomeProducts.css";
 import AddToCart from "../AddToCart/AddToCart";
 
-// API call get all product / API call get all product / API call get all product
 const HomeProducts = () => {
   const [products, setProducts] = useState([]);
-  // pagination / pagination / pagination / pagination /pagination
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const token = localStorage.getItem("token");
   const API = import.meta.env.VITE_API;
-  useEffect(() => {
-    const url = `${API}/products/?page=${page}`;
 
+  useEffect(() => {
     axios
-      .get(url, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .get(
+        `${API}/products/?page=${page}&categories=${selectedCategories.join(
+          ","
+        )}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
       .then((res) => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
@@ -35,10 +36,79 @@ const HomeProducts = () => {
       .catch((error) => {
         console.error("Error fetching products:", error);
       });
-  }, [page, token, API]);
+  }, [page, selectedCategories, token, API]);
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+  const handleCategoryChange = (category) => {
+    // Toggle selected category
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(
+        selectedCategories.filter((cat) => cat !== category)
+      );
+    } else {
+      setSelectedCategories([...selectedCategories, category]);
+    }
+  };
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   return (
     <>
       <div className="home-products-position">
+        {/* Category filter dropdown with checkboxes */}
+        <div className="home-category-dropdown">
+          <button className="home-categry-btn" onClick={toggleDropdown}>
+            Select Categories <span>&#9662;</span>
+          </button>
+          {showDropdown && (
+            <div className="home-categry-btn-content">
+              <div className="home-categry-checkbox">
+                <input
+                  type="checkbox"
+                  id="clothing"
+                  value="clothing"
+                  checked={selectedCategories.includes("clothing")}
+                  onChange={() => handleCategoryChange("clothing")}
+                />
+                <label htmlFor="clothing">Clothing</label>
+              </div>
+              <div className="home-categry-checkbox">
+                <input
+                  type="checkbox"
+                  id="accessory"
+                  value="accessory"
+                  checked={selectedCategories.includes("accessory")}
+                  onChange={() => handleCategoryChange("accessory")}
+                />
+                <label htmlFor="accessory">Accessory</label>
+              </div>
+              <div className="home-categry-checkbox">
+                <input
+                  type="checkbox"
+                  id="shoes"
+                  value="shoes"
+                  checked={selectedCategories.includes("shoes")}
+                  onChange={() => handleCategoryChange("shoes")}
+                />
+                <label htmlFor="shoes">Shoes</label>
+              </div>
+              <div className="home-categry-checkbox">
+                <input
+                  type="checkbox"
+                  id="home-decoration"
+                  value="home decoration"
+                  checked={selectedCategories.includes("home decoration")}
+                  onChange={() => handleCategoryChange("home decoration")}
+                />
+                <label htmlFor="home-decoration">Home Decoration</label>
+              </div>
+            </div>
+          )}
+        </div>
+
         <ul className="home-products-display">
           {products.map((product, index) => (
             <div key={index}>
@@ -62,7 +132,6 @@ const HomeProducts = () => {
                   <p className="home-prod-likes home-prod-info-limit">
                     <BiSolidLike className="home-prod-icon" /> {product.likes}
                   </p>
-
                   <Link to={`/myShop/${product._id}`}>
                     <button className="home-prod-detail-btn">Detail</button>
                   </Link>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "./ShopEditing.css";
 import Loader from "../Loader/Loader";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ShopEditing = () => {
   // shop update states / shop update states / shop update states / shop update states
@@ -14,7 +14,7 @@ const ShopEditing = () => {
     image: null,
   });
   const [shopId, setShopId] = useState("");
-  const [error, setError] = useState("");
+  const [setError] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ const ShopEditing = () => {
         console.error(err);
         setError("Failed to load Shop.");
       });
-  }, [ownerId, token, API]);
+  }, [ownerId, token, API,setError]);
   // update shop / update shop / update shop / update shop
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -163,58 +163,65 @@ const ShopEditing = () => {
       {isLoading && <Loader></Loader>}
       <div className="update-shop-position">
         <h1>Edit Your Shop :</h1>
-        <div className="update-shop-profile">
-          <form onSubmit={handleSubmit} className="update-shop-profile-form">
-            <label>Shop Name : </label>
-            <input
-              type="text"
-              value={shop ? shop.name : ""}
-              name="name"
-              onChange={handleChange}
-              className="update-shop-profile-input"
-            />
-            <label>Shop Description : </label>
-            <input
-              type="text"
-              name="description"
-              value={shop ? shop.description : ""}
-              onChange={handleChange}
-              className="update-shop-profile-input"
-            />
-            {/* shop Category / shop Category / shop Category / shop Category / shop Category / shop Category */}
-            <label>Shop Category :</label>
-            <select
-              id="category"
-              name="category"
-              value={shop ? shop.category : ""}
-              onChange={handleChange}
-              className="update-shop-category"
-            >
-              <option value="cloth">clothing</option>
-              <option value="accessory">accessory</option>
-              <option value="shoes">shoes</option>
-              <option value="home decoration">home decoration</option>
-            </select>
-            {/* shop image upload / shop image upload / shop image upload */}
-            <div className="update-shop-profile-image">
-              <label>New Shop Picture:</label>
+        {shopId ? (
+          <div className="update-shop-profile">
+            <form onSubmit={handleSubmit} className="update-shop-profile-form">
+              <label>Shop Name : </label>
               <input
-                type="file"
-                accept="image/*"
-                name="image"
+                type="text"
+                value={shop ? shop.name : ""}
+                name="name"
                 onChange={handleChange}
+                className="update-shop-profile-input"
               />
-            </div>
-            <button type="submit" className="update-shop-profile-btn">
-              Update Shop
+              <label>Shop Description : </label>
+              <input
+                type="text"
+                name="description"
+                value={shop ? shop.description : ""}
+                onChange={handleChange}
+                className="update-shop-profile-input"
+              />
+              {/* shop Category / shop Category / shop Category / shop Category / shop Category / shop Category */}
+              <label>Shop Category :</label>
+              <select
+                id="category"
+                name="category"
+                value={shop ? shop.category : ""}
+                onChange={handleChange}
+                className="update-shop-category"
+              >
+                <option value="cloth">clothing</option>
+                <option value="accessory">accessory</option>
+                <option value="shoes">shoes</option>
+                <option value="home decoration">home decoration</option>
+              </select>
+              {/* shop image upload / shop image upload / shop image upload */}
+              <div className="update-shop-profile-image">
+                <label>New Shop Picture:</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  name="image"
+                  onChange={handleChange}
+                />
+              </div>
+              <button type="submit" className="update-shop-profile-btn">
+                Update Shop
+              </button>
+            </form>
+            <button className="delete-shop-btn" onClick={deleteProd}>
+              Delete Shop
             </button>
-          </form>
-          <button className="delete-shop-btn" onClick={deleteProd}>
-            Delete Shop
-          </button>
-        </div>
-
-        <div className="error">{error}</div>
+          </div>
+        ) : (
+            <h3 className="updat-shop-noShop">
+            Your Don&apos;t Have A Shop!
+            <span className="updat-shop-creatShop-link">
+              <Link to="/CreatShop">  Creat A Shop.</Link>
+            </span>
+          </h3>
+        )}
       </div>
     </>
   );

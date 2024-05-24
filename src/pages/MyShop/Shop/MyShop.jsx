@@ -7,22 +7,23 @@ import { Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
 import AddToCart from "../../../components/AddToCart/AddToCart";
 
-// API call get all product / API call get all product / API call get all product
 const MyShop = () => {
   const [products, setProducts] = useState([]);
-  // pagination / pagination / pagination / pagination /pagination
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
+  const [selectedCategories, setSelectedCategories] = useState([]); 
+  const [showDropdown, setShowDropdown] = useState(false); 
+
   const user = JSON.parse(localStorage.getItem("user"));
   const ownerId = user ? user._id : null;
   const token = localStorage.getItem("token");
   const API = import.meta.env.VITE_API;
+
   useEffect(() => {
+    const url = `${API}/products/owner/${ownerId}?page=${page}&categories=${selectedCategories.join(",")}`; 
+
     axios
-      .get(`${API}/products/owner/${ownerId}?page=${page}`, {
+      .get(url, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -31,13 +32,87 @@ const MyShop = () => {
       .then((res) => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
       });
-  }, [ownerId, page, token, API]);
+  }, [ownerId, page, selectedCategories, token, API]);
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  const handleCategoryChange = (category) => {
+    // Toggle selected category
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(selectedCategories.filter((cat) => cat !== category));
+    } else {
+      setSelectedCategories([...selectedCategories, category]);
+    }
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   return (
     <>
-      <MyShopSideBar></MyShopSideBar>
+      <MyShopSideBar
+        selectedCategories={selectedCategories}
+        handleCategoryChange={handleCategoryChange}
+      />
       <div className="my-products-position">
+        {/* Category filter dropdown with checkboxes */}
+        <div className="shop-category-dropdown">
+          <button className="shop-categry-btn" onClick={toggleDropdown}>
+            Select Categories <span>&#9662;</span>
+          </button>
+          {showDropdown && (
+            <div className="shop-categry-btn-content">
+              <div className="shop-categry-checkbox">
+                <input
+                  type="checkbox"
+                  id="clothing"
+                  value="clothing"
+                  checked={selectedCategories.includes("clothing")}
+                  onChange={() => handleCategoryChange("clothing")}
+                />
+                <label htmlFor="clothing">Clothing</label>
+              </div>
+              <div className="shop-categry-checkbox">
+                <input
+                  type="checkbox"
+                  id="accessory"
+                  value="accessory"
+                  checked={selectedCategories.includes("accessory")}
+                  onChange={() => handleCategoryChange("accessory")}
+                />
+                <label htmlFor="accessory">Accessory</label>
+              </div>
+              <div className="shop-categry-checkbox">
+                <input
+                  type="checkbox"
+                  id="shoes"
+                  value="shoes"
+                  checked={selectedCategories.includes("shoes")}
+                  onChange={() => handleCategoryChange("shoes")}
+                />
+                <label htmlFor="shoes">Shoes</label>
+              </div>
+              <div className="shop-categry-checkbox">
+                <input
+                  type="checkbox"
+                  id="home-decoration"
+                  value="home decoration"
+                  checked={selectedCategories.includes("home decoration")}
+                  onChange={() => handleCategoryChange("home decoration")}
+                />
+                <label htmlFor="home-decoration">Home Decoration</label>
+              </div>
+            </div>
+          )}
+        </div>
+
         <ul className="my-products-display">
           {products.map((product, index) => (
             <div key={index}>

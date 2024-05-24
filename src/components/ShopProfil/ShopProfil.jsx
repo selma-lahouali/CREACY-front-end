@@ -68,7 +68,7 @@ const ShopProfil = () => {
           </div>
         ) : (
           <h3 className="noShop">
-            Your Dont Have A Shop!
+            Your Don&apos;t Have A Shop!
             <span className="CreatShop-link">
               <Link to="/CreatShop">  Creat A Shop.</Link>
             </span>
