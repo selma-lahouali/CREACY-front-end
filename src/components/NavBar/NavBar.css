@@ -14,30 +14,6 @@
   width: 11vw;
   height: 8.6vh;
 }
-.searchBar input {
-  width: 25vw;
-  height: 5vh;
-  border: none;
-  border-radius: 7px;
-  padding-left: 2.4vw;
-  border: 1px solid var(--darkBleu);
-  margin-right: 1.5vw;
-  background-color: var(--searchBareColor);
-}
-.searchBar  input::placeholder {
-  color: black;
-  font-size: 1vw;
-  letter-spacing: 0.05vw;
-}
-.searchIcon {
-  position: absolute;
-  left: 22.8vw;
-  top: 3.8vh;
-  color: black;
-}
-.searchBar input:focus {
-  outline: 1px solid var(--darkBleu);
-}
 
 .home-messangerie {
   border: 1px solid var(--darkBleu);

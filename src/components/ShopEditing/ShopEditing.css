@@ -13,7 +13,7 @@
 .update-shop-profile {
   border: 2px solid var(--darkBleu);
   border-radius: 0.8vw;
-  padding: 2vw 2vw;
+  padding: 2vw 2vw 0vw;
   margin-bottom: 6vh;
 }
 .update-shop-profile-form {
@@ -75,13 +75,12 @@
   letter-spacing: 0.04vw;
   margin-top: 5vh;
   position: relative;
-
   left: 23vw;
 }
 .delete-shop-btn {
   position: relative;
   top: -6vh;
-  left: -1vw;
+  left: 0.3vw;
   background-color: red;
   border: none;
   border-radius: 0.5vw;
@@ -91,14 +90,14 @@
   font-size: 1.1vw;
   font-weight: bold;
   letter-spacing: 0.04vw;
-  margin-left: 1vw;
 }
 .update-shop-profile-btn:hover,
 .delete-shop-btn:hover {
   scale: 1.1;
 }
-.update-shop-position h2{
-padding-bottom: 4vh;
+/* no shop part */
+.update-shop-position h2 {
+  padding-bottom: 4vh;
 }
 .updat-shop-noShop {
   border: 0.2vw solid var(--darkBleu);

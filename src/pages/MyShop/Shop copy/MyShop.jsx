@@ -13,8 +13,6 @@ const MyShop = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
-  // to refresh product after a like
-  const [key, setKey] = useState(0);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchTerm = searchParams.get("search");
@@ -47,78 +45,27 @@ const MyShop = () => {
       .catch((error) => {
         console.error("Error fetching products:", error);
       });
-  }, [ownerId, page, selectedCategories, searchTerm, token, API, key]);
+  }, [ownerId, page, selectedCategories, searchTerm, token, API]);
 
   const handlePageChange = (event, value) => {
     setPage(value);
   };
 
-  // Handle category filter
   const handleCategoryChange = (category) => {
+    // Toggle selected category
     if (selectedCategories.includes(category)) {
-      setSelectedCategories(selectedCategories.filter((cat) => cat !== category));
+      setSelectedCategories(
+        selectedCategories.filter((cat) => cat !== category)
+      );
     } else {
       setSelectedCategories([...selectedCategories, category]);
     }
   };
-  useEffect(() => {
-  
-    setPage(1);
-  }, [selectedCategories]);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
-// Handle like/unlike
-const handleLike = async (productId) => {
-  try {
-    const response = await axios.put(
-      `${API}/products/like/${ownerId}/${productId}`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    const updatedProducts = products.map((product) =>
-      product._id === productId
-        ? { ...product, likes: response.data.likes }
-        : product
-    );
-    setProducts(updatedProducts);
-    setKey((prevKey) => prevKey + 1);
-  } catch (error) {
-    console.error("Error liking the product", error);
-  }
-};
-// Conditionally render like icon based on whether the user has liked the product
-const likeIcon = (productId) => {
-  
-  const product = products.find((product) => product._id === productId);
-  // Check if the product is defined and has a 'likes' array
-  if (product && Array.isArray(product.likes)) {
-    const liked = product.likes.includes(ownerId);
-    return liked ? (
-      <BiSolidLike
-        className="my-shop-prod-like-icon-liked"
-        onClick={() => handleLike(productId)}
-      />
-    ) : (
-      <BiSolidLike
-        className="my-shop-prod-unlike-icon"
-        onClick={() => handleLike(productId)}
-      />
-    );
-  } else {
-    return (
-      <BiSolidLike
-        className="my-shop-prod-icon"
-        onClick={() => handleLike(productId)}
-      />
-    );
-  }
-};
+
   return (
     <>
       <MyShopSideBar
@@ -197,10 +144,8 @@ const likeIcon = (productId) => {
                   <p className="my-prod-info-limit">
                     Quantity {product.quantity}
                   </p>
-                   {/* Render the like icon */}
-                   <p className="shop-prod-likes my-prod-info-limit">
-                    {likeIcon(product._id)}
-                    {product.likes ? product.likes.length : 0}
+                  <p className="my-product-likes my-prod-info-limit">
+                    <BiSolidLike className="my-product-icon" /> {product.likes}
                   </p>
 
                   <Link to={`/myShop/${product._id}`}>

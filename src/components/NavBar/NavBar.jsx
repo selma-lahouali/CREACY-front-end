@@ -1,10 +1,10 @@
 import logo from "../../assets/logo-navBare.png";
 import { MdEmail } from "react-icons/md";
-import { IoMdSearch } from "react-icons/io";
 import "./NavBar.css";
 import { Link, Outlet } from "react-router-dom";
 import DarkLightMode from "../../components/DarkLightMode/DarkLightMode";
 import ProfilBtn from "../../components/ProfilBtn/ProfilBtn";
+import SearchBar from "../SearchBar/SearchBar";
 
 const NavBar = () => {
   return (
@@ -13,16 +13,8 @@ const NavBar = () => {
         <Link to="/home">
           <img src={logo} alt="image not found" className="home-logo" />
         </Link>
-        <form className="searchBar">
-          <input
-            type="search"
-            name="searchBar"
-            id="searchBar"
-            placeholder="Search"
-          />
-          <IoMdSearch className="searchIcon" />
-        </form>
-
+        {/* search bar  / / /  / /  search bar */}
+        <SearchBar></SearchBar>
         {/* dark mode / dark mode / dark mode / dark mode / dark mode / dark mode   */}
         <DarkLightMode></DarkLightMode>
         {/* Messenger */}

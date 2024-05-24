@@ -44,10 +44,13 @@
 }
 .home-prod-likes {
   display: flex;
-  align-items: center;
   gap: 0.5vw;
+  font-size: 1.5vw;
 }
-.home-prod-icon {
+.home-prod-like-icon-liked {
+  color: rgb(30, 99, 228);
+}
+.home-prod-unlike-icon {
   color: var(--darkBleu);
 }
 .home-pagination {
