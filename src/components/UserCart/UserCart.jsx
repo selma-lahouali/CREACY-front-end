@@ -4,14 +4,17 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { ImBin2 } from "react-icons/im";
 import SuccessNotification from "../Notification/SuccessNotification";
 import FailNotification from "../Notification/FailNotification";
+import Swal from "sweetalert2";
 import "./UserCart.css";
 import { Link } from "react-router-dom";
 
 const UserCart = () => {
   const [cart, setCart] = useState([]);
+  const [cartId, setCartId] = useState(null);
   // success or fail to delet product notifications
   const [successNotification, setSuccessNotification] = useState(null);
   const [failNotification, setFailNotification] = useState(null);
+
   // retrive user id and token from local storage
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user ? user._id : null;
@@ -28,6 +31,7 @@ const UserCart = () => {
         })
         .then((res) => {
           setCart(res.data.products);
+          setCartId(res.data._id);
         })
         .catch((error) => {
           console.error("Error fetching user cart:", error);
@@ -103,6 +107,64 @@ const UserCart = () => {
     }
   }, [failNotification]);
 
+  // creat an order
+  const handleCheckout = () => {
+    if (!userId || !token) {
+      return;
+    }
+    axios
+      .post(
+        `${API}/order/${userId}`,
+        {
+          products: cart,
+          amount: cart.reduce(
+            (total, product) => total + product.price * product.quantity,
+            0
+          ),
+          address: {},
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then(() => {
+        console.log("Order placed successfully:");
+        setCart([]);
+        emptyingCart();
+        // sweet alert success message
+        Swal.fire({
+          title: "Good job!",
+          text: "Your Order Has Been Created!",
+          icon: "success",
+        });
+      })
+      .catch((error) => {
+        console.error("Error placing order:", error);
+        //  sweet alert error message
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
+      });
+  };
+  // empty cart after checkout
+  const emptyingCart = () => {
+    axios
+      .delete(`${API}/cart/${userId}/${cartId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        console.log("cart deleted successfully");
+      })
+      .catch((error) => {
+        console.error("Error deleting cart:", error);
+      });
+  };
   return (
     <div className="cart-box">
       {successNotification && (
@@ -169,7 +231,7 @@ const UserCart = () => {
                 )
                 .toFixed(2)}
             </h2>
-            <button>Proceed To Checkout</button>
+            <button onClick={handleCheckout}>Proceed To Checkout</button>
           </div>
         </>
       ) : (
