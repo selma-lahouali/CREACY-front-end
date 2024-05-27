@@ -1,0 +1,129 @@
+/* order position */
+.order-box {
+  position: absolute;
+  top: 20vh;
+  left: 12vw;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5vw;
+  padding-bottom: 3vh;
+  color: var(--fontColor);
+}
+.order-payment {
+  display: flex;
+  align-items: end;
+  gap: 2vw;
+}
+.order-prod-info-img {
+  display: flex;
+  gap: 2vw;
+  flex-grow: 1;
+  padding: 2vh 0;
+}
+.order-prod-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2vw;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1.6vh;
+  width: 24vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.order-product img {
+  width: 9vw;
+  height: 21vh;
+}
+/* dispay product name / dispay product name / dispay product name  */
+.order-prod-name-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.order-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  padding-left: 5.8vw;
+  padding-right: 5.8vw;
+}
+.order-quantity h1 {
+  text-align: right;
+  font-size: 1.7vw;
+}
+.order-product {
+  width: 100%;
+  border-collapse: collapse;
+}
+.Subtotal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+/* header of the table */
+.order-product th {
+  padding: 8px;
+  text-align: center;
+  background-color: #adb5bd;
+  font-weight: bold;
+  color: black;
+}
+/* table row */
+.order-product td {
+  border-bottom: 0.2vw solid var(--darkBleu);
+  padding: 8px;
+  text-align: center;
+}
+/* order totat amount */
+.order-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  gap: 1.05vh;
+  border: 0.2vw solid var(--darkBleu);
+  border-radius: 0.4vw;
+  min-width: 10vw;
+  max-width: 20vw;
+  height: 100%;
+  font-size: 0.8vw;
+}
+.order-total h1 {
+  border-bottom: 0.2vw solid var(--darkBleu);
+}
+.order-total h2 {
+  font-size: 1.6vw;
+}
+/* checkout button */
+.order-total button {
+  background-color: var(--mainBleu);
+  border: none;
+  border-radius: 0.5vw;
+  width: 10vw;
+  height: 5vh;
+  color: var(--bodyColor);
+  font-size: 1vw;
+  font-weight: bold;
+}
+/* if order is empty */
+.empty-order {
+  display: flex;
+  gap: 1vw;
+  font-size: 0.9vw;
+}
+.empty-order h2 {
+  color: rgb(216, 8, 150);
+}
+.empty-order h2:hover {
+  text-decoration: underline 2px solid rgb(125, 22, 74);
+  color: rgb(255, 42, 149);
+}

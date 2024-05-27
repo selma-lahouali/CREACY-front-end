@@ -1,0 +1,67 @@
+.checkout-form {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translate(-50%, -50%);
+}
+.checkout-form form {
+  width: 30vw;
+  max-width: 50vw;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.checkout-form .card-element {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #a01919;
+  border-radius: 5px;
+}
+
+.StripeElement {
+  width: 25vw;
+  padding: 10px;
+  border: 1px solid #16d07f;
+  border-radius: 5px;
+}
+
+.checkout-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6772e5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.checkout-form button:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+.checkout-form .error-message {
+  margin-top: 10px;
+  color: #e74c3c;
+  font-size: 14px;
+}
+.checkout-form .success-message {
+  margin-top: 10px;
+  color: #2ecc71;
+  font-size: 14px;
+}
+/* display stripe componets on top of the order page */
+.stripe-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 50vw;
+  z-index: 999;
+}

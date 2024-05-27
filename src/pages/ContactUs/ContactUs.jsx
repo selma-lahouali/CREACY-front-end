@@ -29,7 +29,7 @@ const ContactUs = () => {
         <div className="contactUs-intro">
           <h1>CONTACT US : </h1>
           <p>
-            Have questions, feedback, or inquiries? We're here to help! Contact
+            Have questions, feedback, or inquiries? We&apos;re here to help! Contact
             us using the iform below, and our team will get back to you as soon
             as possible.
           </p>

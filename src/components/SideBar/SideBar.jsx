@@ -1,5 +1,5 @@
 import { FaShoppingCart } from "react-icons/fa";
-import { IoMdHeart } from "react-icons/io";
+import { GiShoppingBag } from "react-icons/gi";
 import { FaShop } from "react-icons/fa6";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdLogout } from "react-icons/md";
@@ -28,10 +28,10 @@ const SideBar = () => {
                 My Cart
               </li>
             </Link>
-            <Link to="/favorit">
+            <Link to="/order">
               <li>
-                <IoMdHeart className="sideBar-icon" />
-                Favorites
+                <GiShoppingBag className="sideBar-icon" />
+              My Order
               </li>
             </Link>
             <Link to="/myShop">

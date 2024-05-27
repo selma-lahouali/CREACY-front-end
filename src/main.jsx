@@ -21,6 +21,8 @@ import SettingPage from "./pages/SettingPage/SettingPage.jsx";
 import Profil from "./pages/Profil/Profil.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
 import UpdateProductDescription from "./pages/MyShop/ManageProducts/UpdateProductDescription/UpdateProductDescription.jsx";
+import Stripe from "./pages/Stripe/Stripe.jsx";
+import Order from "./pages/Order/Order.jsx";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +81,14 @@ const router = createBrowserRouter([
       {
         path: "profil",
         element: <Profil></Profil>,
+      },
+      {
+        path: "order",
+        element: <Order></Order>,
+      },
+      {
+        path: "payment",
+        element: <Stripe></Stripe>,
       },
     ],
   },

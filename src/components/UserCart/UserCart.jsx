@@ -6,7 +6,7 @@ import SuccessNotification from "../Notification/SuccessNotification";
 import FailNotification from "../Notification/FailNotification";
 import Swal from "sweetalert2";
 import "./UserCart.css";
-import { Link } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 
 const UserCart = () => {
   const [cart, setCart] = useState([]);
@@ -14,7 +14,7 @@ const UserCart = () => {
   // success or fail to delet product notifications
   const [successNotification, setSuccessNotification] = useState(null);
   const [failNotification, setFailNotification] = useState(null);
-
+  const navigate = useNavigate();
   // retrive user id and token from local storage
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user ? user._id : null;
@@ -34,7 +34,7 @@ const UserCart = () => {
           setCartId(res.data._id);
         })
         .catch((error) => {
-          console.error("Error fetching user cart:", error);
+          console.error("Error fetching user's cart:", error);
         });
     }
   }, [userId, token, API]);
@@ -68,7 +68,7 @@ const UserCart = () => {
     setCart(updatedCart);
     updateProductQuantity(updatedCart);
   };
-  // API call to delet product from cart  /API call to delet product from cart
+  //  delet product from cart  /API call to delet product from cart
   const deleteProductFromCart = (productId) => {
     axios
       .delete(`${API}/cart/${productId}`, {
@@ -129,8 +129,10 @@ const UserCart = () => {
           },
         }
       )
-      .then(() => {
+      .then((res) => {
         console.log("Order placed successfully:");
+        const orderId = res.data._id; 
+        localStorage.setItem('orderId', orderId);
         setCart([]);
         emptyingCart();
         // sweet alert success message
@@ -139,6 +141,8 @@ const UserCart = () => {
           text: "Your Order Has Been Created!",
           icon: "success",
         });
+          // Navigate to the order page
+      navigate("/order");
       })
       .catch((error) => {
         console.error("Error placing order:", error);
