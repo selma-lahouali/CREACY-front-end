@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import Swal from "sweetalert2";
 
-const CheckoutForm = ({ amount, orderId }) => {
+const CheckoutForm = ({ amount, orderId, productId, productQuantity }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -45,7 +45,7 @@ const CheckoutForm = ({ amount, orderId }) => {
       const response = await axios.post(
         `${API}/payment/${userId}/${orderId}`,
         {
-          amount: amount 
+          amount: amount,
         },
         {
           headers: {
@@ -81,11 +81,13 @@ const CheckoutForm = ({ amount, orderId }) => {
           icon: "success",
         });
         console.log("stripe payment successfull");
-        navigate("/home")
-        deleteOrderAfterPayment()
+        navigate("/home");
+        deleteOrderAfterPayment();
+        updateProdtQuantity(productId, productQuantity);
       } else {
         setError("Payment failed. Please try again.");
-        setIsLoading(false);Swal.fire({
+        setIsLoading(false);
+        Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "Something went wrong!",
@@ -96,21 +98,55 @@ const CheckoutForm = ({ amount, orderId }) => {
       setIsLoading(false);
     }
   };
-const deleteOrderAfterPayment=()=>{
-  axios
-  .delete(`${API}/order/${userId}/${orderId}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
-  .then(() => {
-    console.log("order deleted successfully");
-   
-  })
-  .catch((error) => {
-    console.error("Error deleting order:", error);
-  });
-}
+  const deleteOrderAfterPayment = () => {
+    axios
+      .delete(`${API}/order/${userId}/${orderId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        console.log("order deleted successfully");
+      })
+      .catch((error) => {
+        console.error("Error deleting order:", error);
+      });
+  };
+
+  const updateProdtQuantity = (productIds, productQuantity) => {
+    productIds.forEach((productId, index) => {
+      const quantity = productQuantity[index];
+      axios
+        .get(`${API}/products/${productId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          const currentQuantity = res.data.quantity;
+          const newQuantity = currentQuantity - quantity;
+          return axios.put(
+            `${API}/products/quantity/${userId}/${productId}`,
+            { quantity: newQuantity },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+        })
+        .then(() => {
+          console.log(`Quantity for product ${productId} updated successfully`);
+        })
+        .catch((error) => {
+          console.error(
+            `Error updating quantity for product ${productId}:`,
+            error
+          );
+        });
+    });
+  };
+  
   return (
     <>
       <SideBar />

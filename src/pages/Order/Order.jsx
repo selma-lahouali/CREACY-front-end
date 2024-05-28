@@ -2,12 +2,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar/SideBar";
 import "./Order.css";
-import { ImBin2 } from "react-icons/im";
 import Stripe from "../Stripe/Stripe";
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [selectedProductId, setSelectedProductId] = useState([]);
+  const [selectedProductQuantity, setSelectedProductQuantity] = useState([]);
   // Retrieve user ID and token from local storage
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user ? user._id : null;
@@ -32,8 +33,15 @@ const Order = () => {
     }
   }, [userId, token, API]);
   // Function to handle confirmation of purchase
-  const handlePurchaseConfirmation = (orderId, total) => {
+  const handlePurchaseConfirmation = (
+    orderId,
+    total,
+    productIds,
+    productQuantity
+  ) => {
     setSelectedOrder({ orderId, total });
+    setSelectedProductId(productIds);
+    setSelectedProductQuantity(productQuantity);
   };
   return (
     <>
@@ -47,7 +55,6 @@ const Order = () => {
                   <th>Product</th>
                   <th>Quantity</th>
                   <th>Subtotal</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -76,9 +83,7 @@ const Order = () => {
                         </h3>
                       </div>
                     </td>
-                    <td>
-                      <ImBin2 />
-                    </td>
+                    <td></td>
                   </tr>
                 ))}
               </tbody>
@@ -102,14 +107,24 @@ const Order = () => {
                       total + product.price * product.quantity,
                     0
                   );
-                  // Check if total amount is at least 0.50 cents
+
                   if (totalAmount < 0.5) {
                     alert("Amount must be at least 50 cents.");
                     return; // Prevent further execution
                   }
 
-                  // Proceed with purchase confirmation if total amount is 0.50 cents or more
-                  handlePurchaseConfirmation(order._id, totalAmount);
+                  const productIds = order.products.map(
+                    (product) => product.productId
+                  );
+                  const productQuantity = order.products.map(
+                    (product) => product.quantity
+                  );
+                  handlePurchaseConfirmation(
+                    order._id,
+                    totalAmount,
+                    productIds,
+                    productQuantity
+                  );
                 }}
               >
                 Confirm Purchase
@@ -118,8 +133,13 @@ const Order = () => {
           </div>
         ))}
       </div>
-      {selectedOrder && (
-        <Stripe orderId={selectedOrder.orderId} total={selectedOrder.total} />
+      {selectedOrder && selectedProductId && (
+        <Stripe
+          orderId={selectedOrder.orderId}
+          total={selectedOrder.total}
+          productId={selectedProductId}
+          productQuantity={selectedProductQuantity}
+        />
       )}
     </>
   );

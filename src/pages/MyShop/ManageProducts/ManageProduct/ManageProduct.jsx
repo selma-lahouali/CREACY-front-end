@@ -56,7 +56,8 @@ const ManageProduct = () => {
                     Quantity {product.quantity}
                   </p>
                   <p className="manag-prod-likes  manag-prod-info-limit">
-                    <BiSolidLike className="manag-prod-icon" /> {product.likes}
+                    <BiSolidLike className="manag-prod-icon" />{" "}
+                    {product.likes ? product.likes.length : 0}
                   </p>
                   {/* Link to ManageProducts page with product ID as parameter */}
                   <Link
