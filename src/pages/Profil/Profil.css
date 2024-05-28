@@ -57,3 +57,6 @@
   letter-spacing: 0.04vw;
   margin-top: 5vh;
 }
+.profil button:hover{
+  scale: 1.1;
+ }

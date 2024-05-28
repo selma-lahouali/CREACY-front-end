@@ -1,12 +1,15 @@
-.update-product {
+.update-product-position {
   position: absolute;
   top: 15vh;
   left: 15vw;
+}
+.update-product {
   display: flex;
   flex-direction: column;
   border: 2px solid var(--darkBleu);
   border-radius: 0.8vw;
   padding: 1vw 2vw;
+  margin-bottom: 5vh;
 }
 .update-product-input {
   width: 30vw;
@@ -26,6 +29,10 @@
 .update-product-input:focus {
   outline: 1px solid #adb5bd;
   box-shadow: 1px 1px 5px rgb(38, 38, 38);
+}
+.update-product-image {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 .update-product select {
   width: 30.7vw;
@@ -93,7 +100,7 @@
 .delet-product p {
   font-size: 1.4vw;
   color: red;
-  margin-bottom: 50vh;
+  margin-bottom: 45vh;
   font-weight: bold;
   text-decoration: underline;
 }

@@ -5,8 +5,10 @@ import { Pagination } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import "./HomeProducts.css";
 import AddToCart from "../AddToCart/AddToCart";
+import { useTranslation } from "react-i18next";
 
 const HomeProducts = () => {
+  const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -127,7 +129,7 @@ const HomeProducts = () => {
         {/* Category filter dropdown with checkboxes */}
         <div className="home-category-dropdown">
           <button className="home-categry-btn" onClick={toggleDropdown}>
-            Select Categories <span>&#9662;</span>
+              {t("homeProducts.selectCategories")} <span>&#9662;</span>
           </button>
           {showDropdown && (
             <div className="home-categry-btn-content">
@@ -139,7 +141,7 @@ const HomeProducts = () => {
                   checked={selectedCategories.includes("clothing")}
                   onChange={() => handleCategoryChange("clothing")}
                 />
-                <label htmlFor="clothing">Clothing</label>
+                <label htmlFor="clothing">{t("homeProducts.clothing")}</label>
               </div>
               <div className="home-categry-checkbox">
                 <input
@@ -149,7 +151,7 @@ const HomeProducts = () => {
                   checked={selectedCategories.includes("accessory")}
                   onChange={() => handleCategoryChange("accessory")}
                 />
-                <label htmlFor="accessory">Accessory</label>
+               <label htmlFor="accessory">{t("homeProducts.accessory")}</label>
               </div>
               <div className="home-categry-checkbox">
                 <input
@@ -159,7 +161,7 @@ const HomeProducts = () => {
                   checked={selectedCategories.includes("shoes")}
                   onChange={() => handleCategoryChange("shoes")}
                 />
-                <label htmlFor="shoes">Shoes</label>
+               <label htmlFor="shoes">{t("homeProducts.shoes")}</label>
               </div>
               <div className="home-categry-checkbox">
                 <input
@@ -169,7 +171,7 @@ const HomeProducts = () => {
                   checked={selectedCategories.includes("home decoration")}
                   onChange={() => handleCategoryChange("home decoration")}
                 />
-                <label htmlFor="home-decoration">Home Decoration</label>
+                 <label htmlFor="home-decoration">{t("homeProducts.homeDecoration")}</label>
               </div>
             </div>
           )}
@@ -189,10 +191,10 @@ const HomeProducts = () => {
                     <h4 className="home-prod-price-limit">${product.price}</h4>
                   </div>
                   <p className="home-prod-info-limit">
-                    Category : {product.category}
+                  {t("homeProducts.category")} : {product.category}
                   </p>
                   <p className="home-prod-info-limit">
-                    Quantity {product.quantity}
+                  {t("homeProducts.quantity")} : {product.quantity}
                   </p>
                   {/* Render the like icon */}
                   <p className="home-prod-likes home-prod-info-limit">

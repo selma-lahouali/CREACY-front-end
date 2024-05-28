@@ -1,0 +1,206 @@
+
+{
+  "sweetAler": {
+    "GoodJob": "Good job!",
+    "failedToAddProductToCart": "Failed To Add Product To Cart! Please Try Again",
+    "addToCart": "Add to Cart"
+  },
+  "home": {
+    "addToCartSuccess": "Product Added To Cart Successfully!",
+    "addToCartFail": "Failed To Add Product To Cart! Please Try Again",
+    "addToCart": "Add to Cart"
+  },
+  "checkoutForm": {
+    "payment": "Payment",
+    "paymentSuccessful": "Payment Successful!",
+    "paymentError": "Something went wrong!",
+    "paymentConfirmation": "Your Payment Has Been Done Successfully!"
+  },
+ 
+  "deleteProduct": "Delete Product",
+
+  "homeProducts": {
+    "selectCategories": "Select Categories",
+    "clothing": "Clothing",
+    "accessory": "Accessory",
+    "shoes": "Shoes",
+    "homeDecoration": "Home Deco",
+    "imageNotFound": "Image not found",
+    "category": "Category ",
+    "quantity": "Quantity"
+   },
+
+  "myShopSideBar": {
+    "addProduct": "Add A Product",
+    "manageProducts": "Manage Products",
+    "salesStatistic": "Sales Statistic",
+    "customersList": "Customers List"
+  },
+  "homePage":{
+    "myCart": "My Cart",
+    "myOrder": "My Order",
+    "myShop": "My Shop",
+    "settings": "Settings",
+    "logOut": "Log Out"
+  },
+
+  "profileButton": {
+    "account": "Account",
+    "contactUs": "Contact Us",
+    "noUserData": "User data not available",
+    "imageNotFound": "Image not found"
+  },
+  "profileUpdate": {
+    "editYourProfile": "Edit Your Profile:",
+    "userName": "User Name:",
+    "email": "E.mail:",
+    "newPassword": "New Password:",
+    "newProfilePicture": "New Profile Picture:",
+    "updateProfileButton": "Update Profile",
+    "errorLoadingUser": "Failed to load user.",
+    "errorUpdatingProfile": "Failed to update user's profile.",
+    "profileUpdatedSuccess": "Your Profile Has Been Updated!",
+    "profileUpdatedFail": "Something went wrong!"
+  },
+  "shopCard": {
+    "CreatAShop": "Creat A Shop"
+  },
+  "shopEditing": {
+    "editYourShop": "Edit Your Shop:",
+    "shopName": "Shop Name:",
+    "shopDescription": "Shop Description:",
+    "shopCategory": "Shop Category:",
+    "newShopPicture": "New Shop Picture:",
+    "updateShopButton": "Update Shop",
+    "deleteShopButton": "Delete Shop",
+    "deletShopTitle":"Are you sure?",
+    "deletShopText":"You won't be able to revert this!",
+    "confirmButtonText": "Yes, delete it !",
+    "errorUpdatingShop": "Failed to update Shop.",
+    "errorDeletingShop": "Failed to delete Shop.",
+    "shopUpdatedSuccess": "Your Shop Has Been Updated!",
+    "shopDeletedSuccess": "Your Shop Has Been Deleted!",
+    "shopNotFound": "You Don't Have A Shop!",
+    "createShopLink": "Create A Shop."
+  },
+  "ShopProfil": {
+    "yourShop": "Your Shop ",
+    "shopName": "Shop Name ",
+    "description": "Description",
+    "category": "Category",
+    "createdOn": "Created On",
+    "editShop": "Edit Shop",
+    "noShop": "You Don't Have A Shop!",
+    "createShop": "Create A Shop."
+  },
+  "UserCart": {
+    "product": "Product",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "action": "Action",
+    "name": "Name",
+    "price": "Price",
+    "color": "Color",
+    "size": "Size",
+    "cartTotal": "Cart Total",
+    "proceedToCheckout": "Proceed To Checkout",
+    "emptyCart": "Your cart is empty !",
+    "addProductsToCart": "Add products To Cart ?",
+    "orderCreatedTitle":"well done !",
+    "orderCreatedText":"Your Order Has Been Created!",
+    "failOrderText":"Something Went Wrong ! Please Try Again",
+    "productDeletedSuccessfully": "Product deleted successfully",
+    "failedToDeleteProduct": "Failed To Delete Product! Please Try Again"
+  },
+  "ContactUs": {
+    "contactUs": "CONTACT US :",
+    "paragraphe1": "Have questions, feedback, or inquiries? We're here to help! Contact us using the form below, and our team will get back to you as soon as possible. ",
+    "paragraphe2": "Feel free to reach out to us for assistance with orders, products, or any other queries you may have. Your satisfaction is our priority, and we look forward to hearing from you!",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "message": "Your Message:",
+    "messagePlaceholder": "Please enter your message",
+    "send": "Send",
+    "successMessageTitle":"Great !",
+    "successMessageTesxt":"Your Message Has Been Successfully !"
+  },
+  "AddNewProd": {
+    "productName": "Product Name",
+    "productNamePlaceholder": "Enter Your Product Name",
+    "productPrice": "Product Price",
+    "productPricePlaceholder": "Enter The Price",
+    "productCategory": "Product Category",
+    "productQuantity": "Product Quantity",
+    "productQuantityPlaceholder": "Enter The Quantity",
+    "productImage": "Product Image",
+    "cancelButton": "Back",
+    "addButton": "Add Product",
+    "productCreatedTitle": "Good job!",
+    "productCreatedText": "Your Product Has Been Created!",
+    "failedToCreateProduct": "Failed to create product.",
+    "somethingWentWrong": "Something went wrong!"
+  },
+  "CreatShop": {
+    "createAccountTitle": "Create An Account For Free",
+    "createAccountText": "Sorry, you need to create an account",
+    "login": "Login",
+    "cancel": "Cancel",
+    "congratulationsTitle": "CONGRATULATIONS!",
+    "congratulationsText": "Your Shop Has Been Created Successfully!",
+    "sorryTitle": "Sorry",
+    "sorryText": "Sorry You Already Have A Shop",
+    "shopName": "Shop Name:",
+    "shopNamePlaceholder": "Enter Your Shop Name",
+    "shopDescription": "Shop Description:",
+    "shopDescriptionPlaceholder": "Enter Your Shop Description",
+    "shopCategory": "Shop Category:",
+    "backButton": "Back",
+    "createShopButton": "Create My Shop"
+  },
+ "manageProducts":{
+  "ModifyProduct":"Modify Product"
+ },
+ "updateProduct":{
+  "UpdateProduct":"Update Product",
+  "DeleteYourProduct":"Delete Your Product",
+  "Caution":"Caution",
+  "warningMessage":"Once you delete this product, it will be permanently removed from our inventory. This action cannot be reversed. Please ensure that you intend to delete this product before proceeding."
+ },
+ "UpdateProductDescription": {
+  "productDescriptionsTitle": "Product Descriptions:",
+  "descriptionLabel": "Description:",
+  "descriptionPlaceholder": "Enter Your Product Description",
+  "moreInformationLabel": "More Information:",
+  "productDetails": "Product Details :",
+  "colorsLabel": "Colors:",
+  "colorsPlaceholder": "Enter Your Product Colors",
+  "sizeLabel": "Size:",
+  "sizePlaceholder": "Enter Your Product Sizes",
+  "socialsTitle": "Socials:",
+  "tiktokPlaceholder": "Enter Your Product Related Video",
+  "instagramPlaceholder": "Enter Your Product Related Video",
+  "photosTitle": "Photos",
+  "updateProductDescriptionButton": "Update Product Description"
+},
+"singleProduct":{
+  "quantity":"quantity",
+  "category":"category",
+  "link":"Links",
+  "BackToShop":"Back To The Shop",
+  " ModifyProductDescription":" Modify Product Description"
+  },
+  "order":{
+    "OrderTotal":"Order Total",
+    "ConfirmPurchase":"Confirm Purchase"
+  },
+  "profil":{
+    "WelcomeToYourProfile":"Welcome To Your Profile",
+    "UserName ":"User Name ",
+    "E.mail ":"E.mail ",
+    "JoinedOn ":"Joined On",
+    "EditProfil":"Edit Profil",
+    "UserNotFound ":"User not found"
+  }
+
+}
+

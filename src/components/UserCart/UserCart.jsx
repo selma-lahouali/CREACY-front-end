@@ -7,8 +7,10 @@ import FailNotification from "../Notification/FailNotification";
 import Swal from "sweetalert2";
 import "./UserCart.css";
 import {Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const UserCart = () => {
+  const { t } = useTranslation();
   const [cart, setCart] = useState([]);
   const [cartId, setCartId] = useState(null);
   // success or fail to delet product notifications
@@ -81,11 +83,11 @@ const UserCart = () => {
         setCart((prevCart) =>
           prevCart.filter((product) => product.productId !== productId)
         );
-        setSuccessNotification("Product deleted successfully!");
+        setSuccessNotification(t("UserCart.productDeletedSuccessfully"));
       })
       .catch((error) => {
         console.error("Error deleting product:", error);
-        setFailNotification("Failed To Delete Product! Please Try Again");
+        setFailNotification(t("UserCart.failedToDeleteProduct"));
       });
   };
   // reset notification message / reset notification message / reset notification message
@@ -137,8 +139,8 @@ const UserCart = () => {
         emptyingCart();
         // sweet alert success message
         Swal.fire({
-          title: "Good job!",
-          text: "Your Order Has Been Created!",
+          title: t("UserCart.orderCreatedTitle"),
+          text: t("UserCart.orderCreatedText"),
           icon: "success",
         });
           // Navigate to the order page
@@ -150,7 +152,7 @@ const UserCart = () => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Something went wrong!",
+          text: t("UserCart.failOrderText"),
         });
       });
   };
@@ -180,10 +182,10 @@ const UserCart = () => {
           <table className="cart-product">
             <thead>
               <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th>Action</th>
+              <th>{t("UserCart.product")}</th>
+                <th>{t("UserCart.quantity")}</th>
+                <th>{t("UserCart.subtotal")}</th>
+                <th>{t("UserCart.action")}</th>
               </tr>
             </thead>
             <tbody>
@@ -194,11 +196,11 @@ const UserCart = () => {
                       <img src={product.image} alt="image not found" />
                       <div className="cart-prod-info">
                         <h3 className="cart-prod-name-limit">
-                          Name: {product.name}
+                        {t("UserCart.name")} : {product.name}
                         </h3>
-                        <h3>Price: ${product.price?.toFixed(2)}</h3>
-                        <h3>Color: {product.color}</h3>
-                        <h3>Size: {product.size}</h3>
+                        <h3>{t("UserCart.price")} : ${product.price?.toFixed(2)}</h3>
+                        <h3>{t("UserCart.color")} : {product.color}</h3>
+                        <h3>{t("UserCart.size")} : {product.size}</h3>
                       </div>
                     </div>
                   </td>
@@ -225,7 +227,7 @@ const UserCart = () => {
           </table>
           {/* user cart total amount / user cart total amount / user cart total amount */}
           <div className="cart-total">
-            <h1>Cart Total</h1>
+            <h1>{t("UserCart.cartTotal")}</h1>
             <h2>
               $
               {cart
@@ -235,14 +237,14 @@ const UserCart = () => {
                 )
                 .toFixed(2)}
             </h2>
-            <button onClick={handleCheckout}>Proceed To Checkout</button>
+            <button onClick={handleCheckout}>{t("UserCart.proceedToCheckout")}</button>
           </div>
         </>
       ) : (
         <div className="empty-cart">
-          <h1>Your cart is empty !</h1>
+          <h1>{t("UserCart.emptyCart")}</h1>
           <Link to="/home">
-            <h2>Add products To Car ?</h2>
+            <h2>{t("UserCart.addProductsToCart")}</h2>
           </Link>
         </div>
       )}

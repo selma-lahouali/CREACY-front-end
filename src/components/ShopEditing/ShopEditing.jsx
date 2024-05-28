@@ -4,8 +4,10 @@ import Swal from "sweetalert2";
 import "./ShopEditing.css";
 import Loader from "../Loader/Loader";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ShopEditing = () => {
+  const { t } = useTranslation();
   // shop update states / shop update states / shop update states / shop update states
   const [shop, setShop] = useState({
     name: "",
@@ -45,7 +47,7 @@ const ShopEditing = () => {
         console.error(err);
         setError("Failed to load Shop.");
       });
-  }, [ownerId, token, API,setError]);
+  }, [ownerId, token, API, setError]);
   // update shop / update shop / update shop / update shop
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -75,7 +77,7 @@ const ShopEditing = () => {
         // sweet alet success message / sweet alet success message / sweet alet success message
         Swal.fire({
           title: "Success!",
-          text: "Your Shop Has Been Updated!",
+          text: t("shopEditing.shopUpdatedSuccess"),
           icon: "success",
         });
       }
@@ -87,8 +89,7 @@ const ShopEditing = () => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>',
+        text: t("shopEditing.errorUpdatingShop"),
       });
     }
   };
@@ -121,13 +122,13 @@ const ShopEditing = () => {
   const deleteProd = async () => {
     try {
       const confirmResult = await Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: t("shopEditing.deletShopTitle"),
+        text: t("shopEditing.deletShopText"),
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonText: t("shopEditing.confirmButtonText"),
       });
 
       if (confirmResult.isConfirmed) {
@@ -145,16 +146,22 @@ const ShopEditing = () => {
           navigate("/myShop");
           Swal.fire({
             title: "Success!",
-            text: "Your Shop Has Been Deleted!",
+            text:  t("shopEditing.shopDeletedSuccess"),
             icon: "success",
           });
         } else {
           setError("Failed to delete Shop.");
+          
         }
       }
     } catch (error) {
       console.error("Error deleting Shop:", error);
       setError("Failed to delete Shop.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: t("shopEditing.errorDeletingShop"),
+      });
     }
   };
 
@@ -162,11 +169,11 @@ const ShopEditing = () => {
     <>
       {isLoading && <Loader></Loader>}
       <div className="update-shop-position">
-        <h1>Edit Your Shop :</h1>
+      <h1>{t("shopEditing.editYourShop")}</h1>
         {shopId ? (
           <div className="update-shop-profile">
             <form onSubmit={handleSubmit} className="update-shop-profile-form">
-              <label>Shop Name : </label>
+            <label>{t("shopEditing.shopName")}</label>
               <input
                 type="text"
                 value={shop ? shop.name : ""}
@@ -174,7 +181,7 @@ const ShopEditing = () => {
                 onChange={handleChange}
                 className="update-shop-profile-input"
               />
-              <label>Shop Description : </label>
+             <label>{t("shopEditing.shopDescription")}</label>
               <input
                 type="text"
                 name="description"
@@ -183,7 +190,7 @@ const ShopEditing = () => {
                 className="update-shop-profile-input"
               />
               {/* shop Category / shop Category / shop Category / shop Category / shop Category / shop Category */}
-              <label>Shop Category :</label>
+              <label>{t("shopEditing.shopCategory")}</label>
               <select
                 id="category"
                 name="category"
@@ -198,7 +205,7 @@ const ShopEditing = () => {
               </select>
               {/* shop image upload / shop image upload / shop image upload */}
               <div className="update-shop-profile-image">
-                <label>New Shop Picture:</label>
+              <label>{t("shopEditing.newShopPicture")}</label>
                 <input
                   type="file"
                   accept="image/*"
@@ -207,18 +214,18 @@ const ShopEditing = () => {
                 />
               </div>
               <button type="submit" className="update-shop-profile-btn">
-                Update Shop
+              {t("shopEditing.updateShopButton")}
               </button>
             </form>
             <button className="delete-shop-btn" onClick={deleteProd}>
-              Delete Shop
+            {t("shopEditing.deleteShopButton")}
             </button>
           </div>
         ) : (
-            <h3 className="updat-shop-noShop">
-            Your Don&apos;t Have A Shop!
+          <h3 className="updat-shop-noShop">
+             {t("shopEditing.shopNotFound")}
             <span className="updat-shop-creatShop-link">
-              <Link to="/CreatShop">  Creat A Shop.</Link>
+            <Link to="/CreateShop">{t("shopEditing.createShopLink")}</Link>
             </span>
           </h3>
         )}

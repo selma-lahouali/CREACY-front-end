@@ -2,7 +2,10 @@ import { useRef } from "react";
 import emailjs from "emailjs-com";
 import "./ContactUs.css";
 import SideBar from "../../components/SideBar/SideBar";
+import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 const ContactUs = () => {
+  const { t } = useTranslation();
   const user = JSON.parse(localStorage.getItem("user"));
   const formRef = useRef(null);
   const handleSubmit = async (e) => {
@@ -18,8 +21,18 @@ const ContactUs = () => {
         "I29Z7G8tFAi6eRmzN"
       );
       formRef.current.reset();
+      Swal.fire({
+        title: t("ContactUs.successMessageTitle"),
+        text: t("ContactUs.successMessageTesxt"),
+        icon: "success",
+      });
     } catch (error) {
       console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: t("UserCart.failOrderText"),
+      });
     }
   };
   return (
@@ -27,35 +40,31 @@ const ContactUs = () => {
       <SideBar></SideBar>
       <div className="contactUs">
         <div className="contactUs-intro">
-          <h1>CONTACT US : </h1>
+          <h1>{t("ContactUs.contactUs")}</h1>
           <p>
-            Have questions, feedback, or inquiries? We&apos;re here to help! Contact
-            us using the iform below, and our team will get back to you as soon
-            as possible.
+            {t("ContactUs.paragraphe1")}.
           </p>
           <p>
-            Feel free to reach out to us for assistance with orders, product ,
-            or any other queries you may have. Your satisfaction is our
-            priority, and we look forward to hearing from you!
+            {t("ContactUs.paragraphe2")}
           </p>
         </div>
         <form className="contactUs-form" ref={formRef} onSubmit={handleSubmit}>
-          <label>Email : </label>
+          <label> {t("ContactUs.email")} : </label>
           <input
             type="email"
             required
-            placeholder="Enter your email"
+            placeholder={t("ContactUs.emailPlaceholder")}
             name="email"
             defaultValue={user.email}
           />
-          <label>Your Message :</label>
+          <label>{t("ContactUs.message")} :</label>
           <textarea
             type="text"
             required
-            placeholder="Please Enter your message"
+            placeholder={t("ContactUs.messagePlaceholder")}
             name="message"
           />
-          <button type="submit">Send</button>
+          <button type="submit">{t("ContactUs.send")}</button>
         </form>
       </div>
     </>

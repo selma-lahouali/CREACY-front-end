@@ -2,8 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 
 const DeleteProduct = ({ _id }) => {
+  const { t } = useTranslation();
     const [setError] = useState("");
   const API = import.meta.env.VITE_API;
   const navigate = useNavigate();
@@ -51,7 +53,7 @@ const DeleteProduct = ({ _id }) => {
   return (
     <>
       <button className="delete-product-btn" onClick={deleteProd}>
-        Delete Product
+      {t("deleteProduct")}
       </button>
     </>
   );

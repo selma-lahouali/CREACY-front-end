@@ -6,8 +6,9 @@ import Swal from "sweetalert2";
 import "./UpdateProduct.css";
 import Loader from "../../../../components/Loader/Loader";
 import DeleteProduct from "../../../../components/DeleteProduct/DeleteProduct";
-
+import { useTranslation } from "react-i18next";
 const UpdateProduct = () => {
+  const { t } = useTranslation();
   const { _id } = useParams();
   const [product, setProduct] = useState({
     name: "",
@@ -100,11 +101,12 @@ const UpdateProduct = () => {
     <>
       <MyShopSideBar />
       {isLoading && <Loader></Loader>}
+      <div className="update-product-position">
       <form onSubmit={handleSubmit} className="update-product">
-        <label>Product Name :</label>
+        <label>{t("AddNewProd.productName")}:</label>
         <input
           type="text"
-          placeholder="Enter Your Product Name"
+          placeholder={t("AddNewProd.productNamePlaceholder")}
           required
           name="name"
           value={product.name}
@@ -112,17 +114,17 @@ const UpdateProduct = () => {
           className="add-product-input"
         />
 
-        <label>Product Price :</label>
+        <label>{t("AddNewProd.productPrice")} :</label>
         <input
           type="number"
-          placeholder="Enter The Price"
+          placeholder={t("AddNewProd.productPricePlaceholder")}
           required
           name="price"
           value={product.price}
           onChange={handleChange}
           className="update-product-input"
         />
-        <label>Product Category :</label>
+        <label>{t("AddNewProd.productCategory")} :</label>
         <select
           id="category"
           name="category"
@@ -135,43 +137,41 @@ const UpdateProduct = () => {
           <option value="shoes">shoes</option>
           <option value="home decoration">home decoration</option>
         </select>
-        <label>Product Quantity :</label>
+        <label>{t("AddNewProd.productQuantity")} :</label>
         <input
           type="number"
-          placeholder="Enter The Quantity"
+          placeholder={t("AddNewProd.productQuantityPlaceholder")}
           required
           name="quantity"
           value={product.quantity}
           onChange={handleChange}
           className="update-product-input"
         />
-        <label>Product Image :</label>
+        <label>{t("AddNewProd.productImage")} :</label>
         <input
           type="file"
           accept="image/*"
           onChange={handleChange}
           name="image"
-          className="update-product-input"
+          className="update-product-image"
         />
         <div className="my-product-btn">
           <Link to="/myShop">
             <button type="button" className="back-update-product-btn">
-              Back
+            {t("AddNewProd.cancelButton")}
             </button>
           </Link>
           <button type="submit" className="update-product-btn">
-            Update Product
+          {t("updateProduct.UpdateProduct")}
           </button>
         </div>
       </form>
+      </div>
       <div className="error">{error}</div>
       <div className="delet-product">
-        <h3>Delete Your Product :</h3>
+        <h3>{t("updateProduct.DeleteYourProduct")} :</h3>
         <p>
-          <span>Caution:</span> Once you delete this product, it will be
-          permanently removed from our inventory. This action cannot be
-          reversed. Please ensure that you intend to delete this product before
-          proceeding.
+          <span>{t("updateProduct.Caution")} :</span> {t("updateProduct.warningMessage")}
         </p>
         <DeleteProduct _id={_id}></DeleteProduct>
       </div>

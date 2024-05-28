@@ -6,7 +6,9 @@ import { BiSolidLike } from "react-icons/bi";
 import { RiEdit2Fill } from "react-icons/ri";
 import { Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const ManageProduct = () => {
+  const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -50,10 +52,10 @@ const ManageProduct = () => {
                     <h4 className="manag-prod-price-limit">${product.price}</h4>
                   </div>
                   <p className="manag-prod-info-limit">
-                    Category : {product.category}
+                  {t("homeProducts.category")}: {product.category}
                   </p>
                   <p className="manag-prod-info-limit">
-                    Quantity {product.quantity}
+                  {t("homeProducts.quantity")} : {product.quantity}
                   </p>
                   <p className="manag-prod-likes  manag-prod-info-limit">
                     <BiSolidLike className="manag-prod-icon" />{" "}
@@ -66,7 +68,7 @@ const ManageProduct = () => {
                   >
                     {/* update product link / update product link / update product link  */}
                     <h4 className="modify-Product">
-                      <RiEdit2Fill className="manag-prod-icon" /> Modify Product
+                      <RiEdit2Fill className="manag-prod-icon" /> {t("manageProducts.ModifyProduct")} 
                     </h4>
                   </Link>
 

@@ -3,8 +3,10 @@ import "./UpdateProductDescription.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import MyShopSideBar from "../../../../components/MyShopSideBar/MyShopSideBar";
+import { useTranslation } from "react-i18next";
 
 const UpdateProductDescription = () => {
+  const { t } = useTranslation();
   const [productDescription, setProductDescription] = useState({
     description: "",
     extraInfo: "",
@@ -84,60 +86,60 @@ const UpdateProductDescription = () => {
       <div className="ProductDescription">
         <form onSubmit={updateDescription}>
           <div className="update-prod-descs">
-            <h1>Product Descriptions :</h1>
-            <label>Description : </label>
+          <h1>{t("UpdateProductDescription.productDescriptionsTitle")}</h1>
+            <label>{t("UpdateProductDescription.descriptionLabel")}</label>
             <textarea
               type="text"
-              placeholder="Enter Your Product Description"
+              placeholder={t("UpdateProductDescription.descriptionPlaceholder")}
               name="description"
               value={productDescription.description}
               onChange={handleChange}
             />
-            <label>More Information : </label>
+            <label>{t("UpdateProductDescription.moreInformationLabel")}</label>
             <textarea
               type="text"
-              placeholder="Enter Your Product Description"
+              placeholder={t("UpdateProductDescription.descriptionPlaceholder")}
               name="extraInfo"
               value={productDescription.extraInfo}
               onChange={handleChange}
             />
           </div>
           <div className="update-prod-desc-details">
-            <h1>Product Detail :</h1>
-            <label>Colors : </label>
+          <h1>{t("UpdateProductDescription.productDetails")}</h1>
+            <label>{t("UpdateProductDescription.colorsLabel")}</label>
             <input
               type="text"
-              placeholder="Enter Your Product Colors"
+              placeholder={t("UpdateProductDescription.colorsPlaceholder")}
               name="color"
               onChange={handleChange}
             />
-            <label>Size : </label>
+           <label>{t("UpdateProductDescription.sizeLabel")}</label>
             <input
               type="text"
-              placeholder="Enter Your Product Sizes"
+              placeholder={t("UpdateProductDescription.sizePlaceholder")}
               name="size"
               onChange={handleChange}
             />
           </div>
           <div className="updat-prod-desc-socials">
-            <h1>Socials :</h1>
-            <label>TikTok : </label>
+          <h1>{t("UpdateProductDescription.socialsTitle")}</h1>
+            <label>TikTok :</label>
             <input
               type="text"
-              placeholder="Enter Your Product Related Video"
+              placeholder={t("UpdateProductDescription.tiktokPlaceholder")}
               name="tiktok"
               onChange={handleChange}
             />
-            <label>Instagram :</label>
+             <label>Instagram :</label>
             <input
               type="text"
-              placeholder="Enter Your Product Related Vide"
+              placeholder={t("UpdateProductDescription.instagramPlaceholder")}
               name="instagram"
               onChange={handleChange}
             />
           </div>
           <div className="update-prod-desc-image">
-            <h1>Photos</h1>
+          <h1>{t("UpdateProductDescription.photosTitle")} :</h1>
             <input
               type="file"
               accept="image/*"
@@ -146,7 +148,7 @@ const UpdateProductDescription = () => {
             />
           </div>
           <button type="submit" className="update-product-desc-btn">
-            Update Product Description
+          {t("UpdateProductDescription.updateProductDescriptionButton")}
           </button>
         </form>
       </div>

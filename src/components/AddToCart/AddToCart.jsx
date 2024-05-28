@@ -1,11 +1,14 @@
 import axios from "axios";
-import "./AddToCart.css"
+import { useTranslation } from "react-i18next";
+import "./AddToCart.css";
 import SuccessNotification from "../Notification/SuccessNotification";
 import FailNotification from "../Notification/FailNotification";
 
 import { useEffect, useState } from "react";
+
 const AddToCart = ({ product }) => {
-  // success or fail to delet product notifications
+  const { t } = useTranslation();
+
   const [successNotification, setSuccessNotification] = useState(null);
   const [failNotification, setFailNotification] = useState(null);
   const API = import.meta.env.VITE_API;
@@ -34,25 +37,25 @@ const AddToCart = ({ product }) => {
         },
       });
       console.log("Response data:", response.data);
-      setSuccessNotification("Product Added To Cart Successfully!");
+      setSuccessNotification(t('home.addToCartSuccess')); 
     } catch (error) {
       console.error(
         "Error adding to cart:",
         error.response ? error.response.data : error.message
       );
-      setFailNotification("Failed To Add Product To Cart! Please Try Again");
+      setFailNotification(t('home.addToCartFail')); 
     }
   };
-    // reset notification message / reset notification message / reset notification message
-    useEffect(() => {
-      if (successNotification) {
-        const timer = setTimeout(() => {
-          setSuccessNotification(null);
-        }, 1000);
-        return () => clearTimeout(timer);
-      }
-    }, [successNotification]);
-    // if the prodcut deletion fail / if the prodcut deletion fail / if the prodcut deletion fail
+
+  useEffect(() => {
+    if (successNotification) {
+      const timer = setTimeout(() => {
+        setSuccessNotification(null);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [successNotification]);
+
   useEffect(() => {
     if (failNotification) {
       const timer = setTimeout(() => {
@@ -61,13 +64,16 @@ const AddToCart = ({ product }) => {
       return () => clearTimeout(timer);
     }
   }, [failNotification]);
+
   return (
     <>
       {successNotification && (
         <SuccessNotification message={successNotification} />
       )}
       {failNotification && <FailNotification message={failNotification} />}
-      <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
+      <button className="add-to-cart" onClick={handleAddToCart}>
+        {t('home.addToCart')} {/* Access translation using 't' function */}
+      </button>
     </>
   );
 };

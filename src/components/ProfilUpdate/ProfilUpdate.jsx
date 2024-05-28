@@ -5,8 +5,10 @@ import "./ProfilUpdate.css";
 import Loader from "../../components/Loader/Loader";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ProfilUpdate = () => {
+  const { t } = useTranslation();
   // user update states / user update states / user update states / user update states
   const [user, setUser] = useState({
     password: "",
@@ -73,21 +75,21 @@ const ProfilUpdate = () => {
         Navigate("/home");
         // sweet alet success message / sweet alet success message / sweet alet success message
         Swal.fire({
-          title: "Success!",
-          text: "Your Profile Has Been Updated!",
+          title: t("profileUpdate.profileUpdatedSuccess"),
+          text: t("profileUpdate.profileUpdatedSuccess"),
+
           icon: "success",
         });
       }
     } catch (error) {
       console.error("Error updating user's profile:", error);
       setIsLoading(false);
-      setError("Failed to update user's profile.");
+      setError(t("profileUpdate.errorUpdatingProfile"));
       // sweet alet faild message / sweet alet faild message / sweet alet faild message
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>',
+        text: t("profileUpdate.profileUpdatedFail"),
       });
     }
   };
@@ -115,11 +117,11 @@ const ProfilUpdate = () => {
   return (
     <>
       <div className="update-user-profile-position">
-        <h1>Edit Your Profil :</h1>
+      <h1>{t("profileUpdate.editYourProfile")}</h1>
         {isLoading && <Loader></Loader>}
         <form onSubmit={handleSubmit} className="update-user-profile">
           {/* user name / user name / user name / user name / user name  */}
-          <label>User Name : </label>
+          <label>{t("profileUpdate.userName")}</label>
           <input
             type="text"
             value={userData ? userData.username : ""}
@@ -127,7 +129,7 @@ const ProfilUpdate = () => {
             className="update-user-profile-input"
           />
           {/*user email / user email / user email / user email / user email  */}
-          <label>E.mail : </label>
+          <label>{t("profileUpdate.email")}</label>
           <input
             type="email"
             name="email"
@@ -136,7 +138,7 @@ const ProfilUpdate = () => {
             className="update-user-profile-input"
           />
           {/* user password / user password / user password / user password   */}
-          <label>New Password:</label>
+          <label>{t("profileUpdate.newPassword")}</label>
           <input
             type={passwordVisible ? "password" : "text"}
             name="password"
@@ -158,7 +160,7 @@ const ProfilUpdate = () => {
           )}
           {/* user image upload / user image upload / user image upload */}
           <div className="update-user-profile-image">
-            <label>New Profile Picture:</label>
+          <label>{t("profileUpdate.newProfilePicture")}</label>
             <input
               type="file"
               accept="image/*"
@@ -167,7 +169,7 @@ const ProfilUpdate = () => {
             />
           </div>
           <button type="submit" className="update-user-profile-btn">
-            Update Profile
+          {t("profileUpdate.updateProfileButton")}
           </button>
         </form>
         <div className="error">{error}</div>

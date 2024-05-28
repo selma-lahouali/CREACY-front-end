@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import "./ProfilBtn.css";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Profil = () => {
+  const { t } = useTranslation();
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [profilOptions, setProfilOptions] = useState(true);
@@ -27,10 +29,10 @@ const Profil = () => {
                   <ul>
                     <li className="username-name">{user.username}</li>
                     <Link to="/profil">
-                      <li>Account</li>
+                    <li>{t("profileButton.account")}</li>
                     </Link>
                     <Link to="/contactUs">
-                      <li>Contac Us</li>
+                    <li>{t("profileButton.contactUs")}</li>
                     </Link>
                   </ul>
                 )}
@@ -38,7 +40,7 @@ const Profil = () => {
             </div>
           </>
         ) : (
-          <p>User data not available</p>
+          <p>{t("profileButton.noUserData")}</p>
         )}
       </div>
     </>

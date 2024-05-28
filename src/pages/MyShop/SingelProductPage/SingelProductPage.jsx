@@ -5,7 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import "./SingelProductPage.css";
 import { BiSolidLike } from "react-icons/bi";
 import AddToCart from "../../../components/AddToCart/AddToCart";
+import { useTranslation } from "react-i18next";
+
 const SingleProductPage = () => {
+  const { t } = useTranslation();
   const [singleProduct, setSingleProduct] = useState({});
   // states to toggle description parts / states to toggle description parts
   const [description, setDescription] = useState(true);
@@ -62,20 +65,20 @@ const SingleProductPage = () => {
           <div className="single-prod-info">
             <div className="single-prod-name-price">
               <h4 className="single-prod-name-limit">
-                Name : {singleProduct.name}
+              {t("UserCart.name")} : {singleProduct.name}
               </h4>
               <h4 className="single-prod-price-limit">
-                Price : $ {singleProduct.price}
+              {t("UserCart.price")} : $ {singleProduct.price}
               </h4>
               <p className="single-prod-likes home-prod-info-limit">
                 <BiSolidLike className="single-product-icon single-prod-info-limit" />
-                {singleProduct.likes}
+                {singleProduct.likes?.length}
               </p>
               <h4 className="single-prod-info-limit">
-                Category : {singleProduct.category}
+              {t("singleProduct.category")} : {singleProduct.category}
               </h4>
               <h4 className="single-prod-info-limit">
-                Quantity : {singleProduct.quantity}
+              {t("singleProduct.quantity")} : {singleProduct.quantity}
               </h4>
               <p>{singleProduct.description}</p>
             </div>
@@ -89,7 +92,7 @@ const SingleProductPage = () => {
           <div className="signle-prod-extra-info-toggle">
             <button onClick={toggleDescription}>Description</button>
             <button onClick={toggleDetails}>Details</button>
-            <button onClick={toggleLinks}>Links</button>
+            <button onClick={toggleLinks}>{t("singleProduct.link")}</button>
           </div>
           <div className="signle-prod-extra-info-desc">
             {description && (
@@ -138,11 +141,11 @@ const SingleProductPage = () => {
           </div>
         </div>
         <Link to="/myShop">
-          <button className="back-to-shop-btn">Back To The Shop</button>
+          <button className="back-to-shop-btn">{t("singleProduct.BackToShop")}</button>
         </Link>
         <Link to={`/UpdateProductDescription/${_id}`}>
           <button className="modify-prod-description-btn">
-            Modify Product Description
+          {t("singleProduct.ModifyProductDescription")}
           </button>
         </Link>
       </div>

@@ -23,14 +23,3 @@
   cursor: pointer;
   color: var(--darkBleu);
 }
-
-.languag {
-  border: 1px solid var(--darkBleu);
-  background-color: var(--lightBleu);
-  border-radius: 50%;
-  padding: 0.5vw;
-  font-size: 1.3vw;
-  margin-right: 15vw;
-  cursor: pointer;
-  /* color: var(--darkBleu); */
-}

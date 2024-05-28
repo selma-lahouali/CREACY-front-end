@@ -1,0 +1,35 @@
+.language {
+  position: absolute;
+  top: 2.2vh;
+  border: 1px solid var(--darkBleu);
+  background-color: var(--lightBleu);
+  border-radius: 1vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+  color: var(--fontColor);
+}
+.language h1 {
+  font-size: 1.2vw;
+  padding: 0.65vw 1.3vw;
+}
+.language ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.language button {
+  background-color: transparent;
+  border: none;
+  color: var(--fontColor);
+  font-weight: bold;
+  font-size: 1.2vw;
+  font-family: "Times New Roman", Times, serif;
+  padding: 0.1vw 1.3vw;
+}
+.language button:hover {
+  background-color: var(--NBbackGroundColor);
+  background-image: var(--NBbackGroundImage);
+  border-radius: 0.3vw;
+}

@@ -5,8 +5,10 @@ import { RiEdit2Fill } from "react-icons/ri";
 import { ImStatsDots } from "react-icons/im";
 import { PiUserListFill } from "react-icons/pi";
 import ShopCard from "../../components/ShopCard/ShopCard";
+import { useTranslation } from "react-i18next";
 
 const MyShopSideBar = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="shop-sideBar">
@@ -17,7 +19,7 @@ const MyShopSideBar = () => {
           <div className="sideBar-list">
             <NavLink to="/addNewProduct">
               <li>
-                <FaPlusCircle className="shop-icon" /> Add A Product
+              <FaPlusCircle className="shop-icon" /> {t("myShopSideBar.addProduct")}
               </li>
             </NavLink>
           </div>
@@ -26,7 +28,7 @@ const MyShopSideBar = () => {
             <NavLink to="/manageProducts">
               <li>
                 <RiEdit2Fill className="shop-icon" />
-                Manage Products
+                {t("myShopSideBar.manageProducts")}
               </li>
             </NavLink>
           </div>
@@ -35,7 +37,7 @@ const MyShopSideBar = () => {
             <NavLink to="/salesStatistic">
               <li>
                 <ImStatsDots className="shop-icon" />
-                Sales statistic
+                {t("myShopSideBar.salesStatistic")}
               </li>
             </NavLink>
           </div>
@@ -43,7 +45,7 @@ const MyShopSideBar = () => {
           <div className="sideBar-list">
             <NavLink to="/customersList">
               <li>
-                <PiUserListFill className="shop-icon" /> Customers List
+              <PiUserListFill className="shop-icon" /> {t("myShopSideBar.customersList")}
               </li>
             </NavLink>
           </div>

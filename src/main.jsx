@@ -4,6 +4,8 @@ import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./components/i18n/i18n.js";
 import App from "./App.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Login from "./pages/Login/Login.jsx";
@@ -108,9 +110,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+<React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <I18nextProvider i18n={i18n}>
+        <RouterProvider router={router} />
+      </I18nextProvider>
     </Provider>
   </React.StrictMode>
 );

@@ -2,7 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./ShopCard.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const ShopCard = () => {
+  const { t } = useTranslation();
   // shop states / shop states / shop states / shop states
   const [shop, setShop] = useState(null);
   //   retrive user id / retrive user id / retrive user id / retrive user id
@@ -47,7 +49,7 @@ const ShopCard = () => {
       ) : (
         <div className="shop-name">
           <Link to="/CreatShop">
-            <p>Creat A Shop</p>
+            <p>{t("shopCard.CreatAShop")}</p>
           </Link>
         </div>
       )}

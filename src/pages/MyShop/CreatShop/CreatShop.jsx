@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Loader from "../../../components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const CreatShop = () => {
+  const { t } = useTranslation();
   // shop states / shop states / shop states / shop states / shop states / shop states
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -27,14 +29,14 @@ const CreatShop = () => {
   useEffect(() => {
     if (!token) {
       Swal.fire({
-        title: "Create An Account For Free",
-        text: "Sorry, you need to create an account",
+        title: t("CreatShop.createAccountTitle"),
+        text: t("CreatShop.createAccountText"),
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Login",
-        cancelButtonText: "Cancel",
+        confirmButtonText: t("CreatShop.login"),
+        cancelButtonText: t("CreatShop.cancel"),
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/login");
@@ -43,7 +45,7 @@ const CreatShop = () => {
         }
       });
     }
-  }, [token, navigate]);
+  }, [token, navigate,t]);
   // creat shop APIcall / creat shop APIcall / creat shop APIcall / creat shop APIcall
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -76,8 +78,8 @@ const CreatShop = () => {
         setIsLoading(false);
         // sweet alert success message / sweet alert success message / sweet alert success message
         Swal.fire({
-          title: "CONGRATULATIONS!",
-          text: "Your Shop Has Been Created Successfully!",
+          title: t("CreatShop.congratulationsTitle"),
+          text: t("CreatShop.congratulationsText"),
           icon: "success",
         });
         navigate("/myShop");
@@ -88,8 +90,8 @@ const CreatShop = () => {
         // sweet alert fail message / sweet alert fail message / sweet alert fail message
         Swal.fire({
           icon: "error",
-          title: "Sorry ",
-          text: "Sorry You Already Have A Shop",
+          title: t("CreatShop.sorryTitle"),
+          text: t("CreatShop.sorryText"),
         });
       });
   };
@@ -100,29 +102,29 @@ const CreatShop = () => {
       {isLoading && <Loader></Loader>}
       <form onSubmit={handleSubmit} className="add-new-product">
         {/* shop name / shop name/ shop name/ shop name/ shop name/ shop name/ shop name/ shop name */}
-        <label>Shop Name :</label>
+        <label>{t("CreatShop.shopName")}</label>
         <input
           type="text"
           name="Name"
-          placeholder="Enter Your Shop Name"
+          placeholder={t("CreatShop.shopNamePlaceholder")}
           required
           value={name}
           className="add-product-input"
           onChange={(e) => setName(e.target.value)}
         />
         {/* / shop Description / shop Description / shop Description / shop Description / shop Description*/}
-        <label>Shop Description :</label>
+        <label>{t("CreatShop.shopDescription")}</label>
         <input
           type="text"
           name="Description"
-          placeholder="Enter Your Shop Description"
+          placeholder={t("CreatShop.shopDescriptionPlaceholder")}
           required
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="add-product-input"
         />
         {/* shop Category / shop Category / shop Category / shop Category / shop Category / shop Category */}
-        <label>Shop Category :</label>
+        <label>{t("CreatShop.shopCategory")}</label>
         <select
           id="category"
           name="category"
@@ -146,11 +148,11 @@ const CreatShop = () => {
         <div className="my-product-btn">
           <Link to="/myShop">
             <button type="submit" className="cancel-add-product-btn">
-              Back
+            {t("CreatShop.backButton")}
             </button>
           </Link>
           <button type="submit" className="add-product-btn">
-            Create My Shop
+          {t("CreatShop.createShopButton")}
           </button>
         </div>
       </form>

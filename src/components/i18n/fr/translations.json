@@ -1,0 +1,198 @@
+{
+  "home": {
+    "addToCartSuccess": "Produit ajouté au panier avec succès !",
+    "addToCartFail": "Échec de l'ajout du produit au panier ! Veuillez réessayer",
+    "addToCart": "Ajouter au panier"
+  },
+
+  "checkoutForm": {
+    "payment": "Paiement",
+    "paymentSuccessful": "Paiement réussi !",
+    "paymentError": "Quelque chose s'est mal passé !",
+    "paymentConfirmation": "Votre paiement a été effectué avec succès !"
+  },
+
+  "deleteProduct": "Supprimer le produit",
+
+  "homeProducts": {
+    "selectCategories": "catégories",
+    "clothing": "Vêtements",
+    "accessory": "Accessoire",
+    "shoes": "Chaussures",
+    "homeDecoration": "Déco d'intérieur",
+    "imageNotFound": "Image non trouvée",
+    "category": "Catégorie",
+    "quantity": "Quantité"
+     },
+
+  "myShopSideBar": {
+    "addProduct": "Ajouter un produit",
+    "manageProducts": "Gérer les produits",
+    "salesStatistic": "Statistiques de vente",
+    "customersList": "Liste des clients"
+  },
+"homePage":{
+"myCart": "Panier",
+"myOrder": "Commandes",
+"myShop": "Boutique",
+"settings": "Paramètres",
+"logOut": "Déconnection"
+},
+  "profileButton": {
+  "account": "Compte",
+  "contactUs": "Contactez-nous",
+   "noUserData": "Données utilisateur non disponibles",
+  "imageNotFound": "Image non trouvée"
+  },
+  "profileUpdate": {
+    "editYourProfile": "Modifiez votre profil :",
+    "userName": "Nom d'utilisateur :",
+    "email": "E.mail :",
+    "newPassword": "Nouveau mot de passe :",
+    "newProfilePicture": "Nouvelle photo de profil :",
+    "updateProfileButton": "Mettre à jour le profil",
+    "errorLoadingUser": "Échec du chargement de l'utilisateur.",
+    "errorUpdatingProfile": "Échec de la mise à jour du profil de l'utilisateur.",
+    "profileUpdatedSuccess": "Votre profil a été mis à jour!",
+    "profileUpdatedFail": "Quelque chose s'est mal passé!"
+  },
+  "shopCard": {
+    "CreatAShop": "Crée Une Boutique"
+  },
+  "shopEditing": {
+    "editYourShop": "Modifiez votre boutique :",
+    "shopName": "Nom de la boutique :",
+    "shopDescription": "Description de la boutique :",
+    "shopCategory": "Catégorie de la boutique :",
+    "newShopPicture": "Nouvelle image de la boutique :",
+    "updateShopButton": "Mettre à jour la boutique",
+    "deleteShopButton": "Supprimer la boutique",
+    "deletShopTitle": "Êtes-vous sûr ?",
+    "deletShopText": "Vous ne pourrez pas annuler cela !",
+    "confirmButtonText": "Oui, supprimer le !",
+    "errorUpdatingShop": "Échec de la mise à jour de la boutique.",
+    "errorDeletingShop": "Échec de la suppression de la boutique.",
+    "shopUpdatedSuccess": "Votre boutique a été mise à jour !",
+    "shopDeletedSuccess": "Votre boutique a été supprimée !",
+    "shopNotFound": "Vous n'avez pas de boutique !",
+    "createShopLink": "Créer une boutique."
+  },
+  "ShopProfil": {
+    "yourShop": "Votre boutique ",
+    "shopName": "Nom de la boutique ",
+    "description": "Description ",
+    "category": "Catégorie ",
+    "createdOn": "Créé le ",
+    "editShop": "Modifier la boutique",
+    "noShop": "Vous n'avez pas de boutique !",
+    "createShop": "Créer une boutique."
+  },
+  "UserCart": {
+    "product": "Produit",
+    "quantity": "Quantité",
+    "subtotal": "Sous-total",
+    "action": "Action",
+    "name": "Nom",
+    "price": "Prix",
+    "color": "Couleur",
+    "size": "Taille",
+    "cartTotal": "Total du panier",
+    "proceedToCheckout": "Procéder au paiement",
+    "emptyCart": "Votre panier est vide !",
+    "addProductsToCart": "Ajouter des produits au panier ?",
+    "orderCreatedTitle": "Bien joué !",
+    "orderCreatedText": "Votre commande a été créée !",
+    "failOrderText": "Quelque chose s'est mal passé ! Veuillez réessayer",
+    "productDeletedSuccessfully": "Produit supprimé avec succès",
+    "failedToDeleteProduct": "Échec de la suppression du produit ! Veuillez réessayer"
+    },
+    "ContactUs": {
+      "contactUs": "NOUS CONTACTER :",
+      "paragraphe1": "Vous avez des questions, des commentaires ou des demandes de renseignements ? Nous sommes là pour vous aider ! Contactez-nous en utilisant le formulaire ci-dessous et notre équipe vous répondra dès que possible.",
+      "paragraphe2": "N'hésitez pas à nous contacter pour obtenir de l'aide concernant les commandes, les produits ou toute autre question que vous pourriez avoir. Votre satisfaction est notre priorité et nous sommes impatients de vous entendre !",
+      "email": "Email :",
+      "emailPlaceholder": "Entrez votre email",
+      "message": "Votre message :",
+      "messagePlaceholder": "Veuillez saisir votre message",
+      "send": "Envoyer",
+      "successMessageTitle":"Bien Joué !",
+      "successMessageTesxt":"Votre message a était envoyé avec success !"
+    },
+    "AddNewProd": {
+      "productName": "Nom du produit",
+      "productNamePlaceholder": "Entrez le nom de votre produit",
+      "productPrice": "Prix du produit",
+      "productPricePlaceholder": "Entrez le prix",
+      "productCategory": "Catégorie du produit",
+      "productQuantity": "Quantité du produit",
+      "productQuantityPlaceholder": "Entrez la quantité",
+      "productImage": "Image Du Produit",
+      "cancelButton": "Retour",
+      "addButton": "Ajouter le produit",
+      "productCreatedTitle": "Bien joué !",
+      "productCreatedText": "Votre produit a été créé !",
+      "failedToCreateProduct": "Échec de la création du produit.",
+      "somethingWentWrong": "Quelque chose s'est mal passé !"
+    },
+    "CreatShop": {
+      "createAccountTitle": "Créez un compte gratuitement",
+      "createAccountText": "Désolé, vous devez créer un compte",
+      "login": "Connexion",
+      "cancel": "Annuler",
+      "congratulationsTitle": "FÉLICITATIONS !",
+      "congratulationsText": "Votre boutique a été créée avec succès !",
+      "sorryTitle": "Désolé",
+      "sorryText": "Désolé, vous avez déjà une boutique",
+      "shopName": "Nom de la boutique :",
+      "shopNamePlaceholder": "Entrez le nom de votre boutique",
+      "shopDescription": "Description de la boutique :",
+      "shopDescriptionPlaceholder": "Entrez la description de votre boutique",
+      "shopCategory": "Catégorie de la boutique :",
+      "backButton": "Retour",
+      "createShopButton": "Créer ma boutique"
+    },
+    "manageProducts":{
+      "ModifyProduct":"Modifier Le Produit"
+     },
+      "updateProduct":{
+        "UpdateProduct": "Mettre à jour le produit",
+        "DeleteYourProduct": "Supprimer votre produit",
+        "Caution": "Attention",
+        "warningMessage": "Une fois que vous supprimez ce produit, il sera définitivement retiré de notre inventaire. Cette action ne peut pas être annulée. Veuillez vous assurer que vous avez l'intention de supprimer ce produit avant de continuer."
+ },
+ "UpdateProductDescription": {
+  "productDescriptionsTitle": "Descriptions de produit :",
+  "descriptionLabel": "Description :",
+  "descriptionPlaceholder": "Entrez la description de votre produit",
+  "moreInformationLabel": "Plus d'informations :",
+  "productDetails": "Details Du Produit :",
+  "colorsLabel": "Couleurs :",
+  "colorsPlaceholder": "Entrez les couleurs de votre produit",
+  "sizeLabel": "Taille :",
+  "sizePlaceholder": "Entrez les tailles de votre produit",
+  "socialsTitle": "Réseaux sociaux :",
+  "tiktokPlaceholder": "Entrez la vidéo liée à votre produit",
+  "instagramPlaceholder": "Entrez la vidéo liée à votre produit",
+  "photosTitle": "Photos",
+  "updateProductDescriptionButton": "Mettre à jour la description du produit"
+},
+"singleProduct": {
+  "quantity": "quantité",
+  "category": "catégorie",
+  "link":"Liens",
+  "BackToShop": "Retour à la boutique",
+  "ModifyProductDescription": "Modifier la description du produit"
+},
+"order": {
+  "OrderTotal": "Total",
+  "ConfirmPurchase": "Confirmer l'achat"
+},
+"profil": {
+  "WelcomeToYourProfile": "Bienvenue dans votre profil",
+  "UserName": "Nom d'utilisateur",
+  "E.mail": "E-mail",
+  "JoinedOn": "Inscrit le",
+  "EditProfil": "Modifier le profil",
+  "UserNotFound": "Utilisateur introuvable"
+}
+}

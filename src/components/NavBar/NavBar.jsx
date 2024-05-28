@@ -5,7 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 import DarkLightMode from "../../components/DarkLightMode/DarkLightMode";
 import ProfilBtn from "../../components/ProfilBtn/ProfilBtn";
 import SearchBar from "../SearchBar/SearchBar";
-
+import LanguageSelector from "../i18n/Languages";
 const NavBar = () => {
   return (
     <>
@@ -13,15 +13,16 @@ const NavBar = () => {
         <Link to="/home">
           <img src={logo} alt="image not found" className="home-logo" />
         </Link>
-        {/* search bar  / / /  / /  search bar */}
         <SearchBar></SearchBar>
-        {/* dark mode / dark mode / dark mode / dark mode / dark mode / dark mode   */}
-        <DarkLightMode></DarkLightMode>
-        {/* Messenger */}
-        <MdEmail className="home-messangerie" />
-        <h1 className="languag">Eng</h1>
 
-        {/* profil button / profil button / profil button / profil button*/}
+        <DarkLightMode></DarkLightMode>
+
+        <MdEmail className="home-messangerie" />
+
+        <h1>
+          <LanguageSelector />
+        </h1>
+
         <ProfilBtn></ProfilBtn>
       </div>
       {/* used in parent route elements to render their child route elements. */}

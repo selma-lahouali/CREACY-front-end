@@ -5,8 +5,10 @@ import "./AddNewProd.css";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loader from "../../../components/Loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const AddNewProd = () => {
+  const { t } = useTranslation();
   // product states / product states / product states / product states / product states
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -60,8 +62,8 @@ const AddNewProd = () => {
         setIsLoading(false);
         // sweet alert success message / sweet alert success message / sweet alert success message
         Swal.fire({
-          title: "Good job!",
-          text: "Your Product Has Been Created!",
+          title: t("AddNewProd.productCreatedTitle"),
+          text: t("AddNewProd.productCreatedText"),
           icon: "success",
         });
       }
@@ -73,7 +75,7 @@ const AddNewProd = () => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Something went wrong!",
+        text: t("AddNewProd.somethingWentWrong"),
       });
     }
   };
@@ -83,27 +85,27 @@ const AddNewProd = () => {
       {isLoading && <Loader></Loader>}
       <form onSubmit={handleSubmit} className="add-new-product">
         {/* Product name */}
-        <label>Product Name :</label>
+        <label>{t("AddNewProd.productName")} : </label>
         <input
           type="text"
-          placeholder="Enter Your Product Name"
+          placeholder={t("AddNewProd.productNamePlaceholder")}
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="add-product-input"
         />
         {/* Product price */}
-        <label>Product Price :</label>
+        <label>{t("AddNewProd.productPrice")} : </label>
         <input
           type="number"
-          placeholder="Enter The Price"
+          placeholder={t("AddNewProd.productPricePlaceholder")}
           required
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           className="add-product-input"
         />
         {/* Product category */}
-        <label>Product Category :</label>
+        <label>{t("AddNewProd.productCategory")} : </label>
         <select
           id="category"
           name="category"
@@ -117,16 +119,17 @@ const AddNewProd = () => {
           <option value="home decoration">home decoration</option>
         </select>
         {/* Product quantity */}
-        <label>Product Quantity :</label>
+        <label>{t("AddNewProd.productQuantity")} : </label>
         <input
           type="number"
-          placeholder="Enter The Quantity"
+          placeholder={t("AddNewProd.productQuantityPlaceholder")}
           required
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
           className="add-product-input"
         />
         {/* Image upload */}
+        <label>{t("AddNewProd.productImage")} :</label>
         <input
           type="file"
           accept="image/*"
@@ -136,11 +139,11 @@ const AddNewProd = () => {
         <div className="my-product-btn">
           <Link to="/myShop">
             <button type="submit" className="cancel-add-product-btn">
-              Back
+            {t("AddNewProd.cancelButton")}
             </button>
           </Link>
           <button type="submit" className="add-product-btn">
-            Add Product
+          {t("AddNewProd.addButton")}
           </button>
         </div>
       </form>

@@ -2,8 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ShopProfil.css";
+import { useTranslation } from "react-i18next";
 
 const ShopProfil = () => {
+  const { t } = useTranslation();
   const [shop, setShop] = useState(null);
   // retrive user id from local storage / retrive user id from local storage
   const user = JSON.parse(localStorage.getItem("user"));
@@ -46,7 +48,7 @@ const ShopProfil = () => {
   return (
     <>
       <div className="shop-box">
-        <h2>Your Shop : </h2>
+      <h2>{t("ShopProfil.yourShop")}</h2>
         {shop ? (
           <div className="shop">
             <div className="shop-profil">
@@ -56,21 +58,21 @@ const ShopProfil = () => {
                 className="shop-image"
               />
               <div className="profil-shop-info">
-                <h3>Shop Name : {shop.name}</h3>
-                <h3>Description: {shop.description}</h3>
-                <h3>Category: {shop.category}</h3>
-                <h3> Created On: {formatDate(shop.createdAt)} </h3>
+              <h3>{t("ShopProfil.shopName")}: {shop.name}</h3>
+                <h3>{t("ShopProfil.description")}: {shop.description}</h3>
+                <h3>{t("ShopProfil.category")}: {shop.category}</h3>
+                <h3>{t("ShopProfil.createdOn")}: {formatDate(shop.createdAt)} </h3>
               </div>
             </div>
             <Link to="/settings">
-              <button>Edit Shop</button>
+            <button>{t("ShopProfil.editShop")}</button>
             </Link>
           </div>
         ) : (
           <h3 className="noShop">
-            Your Don&apos;t Have A Shop!
+             {t("ShopProfil.noShop")}
             <span className="CreatShop-link">
-              <Link to="/CreatShop">  Creat A Shop.</Link>
+            <Link to="/CreatShop">{t("ShopProfil.createShop")}</Link>
             </span>
           </h3>
         )}

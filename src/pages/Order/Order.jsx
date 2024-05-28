@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar/SideBar";
 import "./Order.css";
 import Stripe from "../Stripe/Stripe";
+import { useTranslation } from "react-i18next";
 
 const Order = () => {
+  const { t } = useTranslation();
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [selectedProductId, setSelectedProductId] = useState([]);
@@ -52,9 +54,9 @@ const Order = () => {
             <table className="order-product">
               <thead>
                 <tr>
-                  <th>Product</th>
-                  <th>Quantity</th>
-                  <th>Subtotal</th>
+                <th>{t("UserCart.product")}</th>
+                <th>{t("UserCart.quantity")}</th>
+                <th>{t("UserCart.subtotal")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -65,9 +67,9 @@ const Order = () => {
                         <img src={product.image} alt="image not found" />
                         <div className="order-prod-info">
                           <h3 className="order-prod-name-limit">
-                            Name: {product.name}
+                          {t("UserCart.name")} : {product.name}
                           </h3>
-                          <h3>Price: ${product.price?.toFixed(2)}</h3>
+                          <h3>{t("UserCart.price")}  : ${product.price?.toFixed(2)}</h3>
                         </div>
                       </div>
                     </td>
@@ -89,7 +91,7 @@ const Order = () => {
               </tbody>
             </table>
             <div className="order-total">
-              <h1>Order Total</h1>
+              <h1>{t("order.OrderTotal")}</h1>
               <h2>
                 $
                 {order.products
@@ -127,7 +129,7 @@ const Order = () => {
                   );
                 }}
               >
-                Confirm Purchase
+                {t("order.ConfirmPurchase")}
               </button>
             </div>
           </div>

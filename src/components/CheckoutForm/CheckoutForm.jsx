@@ -6,10 +6,12 @@ import "./CheckoutForm.css";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 
 const CheckoutForm = ({ amount, orderId, productId, productQuantity }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const { t } = useTranslation();
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -158,11 +160,11 @@ const CheckoutForm = ({ amount, orderId, productId, productQuantity }) => {
               <CardElement className="StripeElement" />
             </div>
             <button type="submit" disabled={!stripe}>
-              Payment
+            {t('checkoutForm.payment')}
             </button>
             {error && <div className="error-message">{error}</div>}
             {success && (
-              <div className="success-message">Payment Successful!</div>
+               <div className="success-message">{t('checkoutForm.paymentSuccessful')}</div>
             )}
           </form>
         </div>

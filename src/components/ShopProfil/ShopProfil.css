@@ -57,7 +57,10 @@
   font-weight: bold;
   letter-spacing: 0.04vw;
   margin-top: 5vh;
-}
+ }
+ .shop button:hover{
+  scale: 1.1;
+ }
 .noShop {
   border: 0.2vw solid var(--darkBleu);
   border-radius: 0.5vw;

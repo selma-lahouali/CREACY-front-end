@@ -2,7 +2,9 @@ import "./Profil.css";
 import SideBar from "../../components/SideBar/SideBar";
 import ShopProfil from "../../components/ShopProfil/ShopProfil";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const Profil = () => {
+  const { t } = useTranslation();
   const user = JSON.parse(localStorage.getItem("user"));
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -18,7 +20,7 @@ const Profil = () => {
     <>
       <SideBar></SideBar>
       <div className="profil-box">
-        <h1>Welcome To Your Profile </h1>
+        <h1>{t("profil.WelcomeToYourProfile")} </h1>
         {user ? (
           <div className="profil">
             <div className="user-profil">
@@ -28,17 +30,17 @@ const Profil = () => {
                 className="profil-image"
               />
               <div className="profil-user-info">
-                <h3>User Name : {user.username}</h3>
-                <h3>E.mail : {user.email}</h3>
-                <h3> Joined On: {formatDate(user.createdAt)} </h3>
+                <h3>{t("profil.UserName")} : {user.username}</h3>
+                <h3>{t("profil.E.mail")} : {user.email}</h3>
+                <h3> {t("profil.JoinedOn")} : {formatDate(user.createdAt)} </h3>
               </div>
             </div>
             <Link to="/settings">
-              <button>Edit Profil</button>
+              <button>{t("profil.EditProfil")}</button>
             </Link>
           </div>
         ) : (
-          <p>User not found</p>
+          <p>{t("profil.UserNotFound")}</p>
         )}
       </div>
       <div className="shop-profil">
