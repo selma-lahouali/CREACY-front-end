@@ -16,8 +16,15 @@
     "paymentError": "Something went wrong!",
     "paymentConfirmation": "Your Payment Has Been Done Successfully!"
   },
+ "deleteProduct":{
+ "deleteProduct": "Delete Product",
+ "deleteProdConfirmationTitle": "Are you sure ?",
+ "deleteProdConfirmationText": "You won't be able to revert this!", 
+ "deleteProdConfirmationBtn": "Yes, delete it !", 
+ "deleteProdSuccessText": "Your Product Has Been Deleted !"
  
-  "deleteProduct": "Delete Product",
+ },
+ 
 
   "homeProducts": {
     "selectCategories": "Select Categories",

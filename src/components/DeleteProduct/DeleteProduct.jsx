@@ -14,13 +14,13 @@ const DeleteProduct = ({ _id }) => {
     try {
       // Show a confirmation dialog to ensure the user wants to delete the product
       const confirmResult = await Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: t("deleteProduct.deleteProdConfirmationTitle"),
+        text: t("deleteProduct.deleteProdConfirmationText"),
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonText:  t("deleteProduct.deleteProdConfirmationBtn"),
       });
 
       // If the user confirms the deletion
@@ -38,7 +38,7 @@ const DeleteProduct = ({ _id }) => {
           navigate("/myShop");
           Swal.fire({
             title: "Success!",
-            text: "Your Product Has Been Deleted!",
+            text: t("deleteProduct.deleteProdSuccessText"),
             icon: "success",
           });
         } else {
@@ -53,7 +53,7 @@ const DeleteProduct = ({ _id }) => {
   return (
     <>
       <button className="delete-product-btn" onClick={deleteProd}>
-      {t("deleteProduct")}
+      {t("deleteProduct.deleteProduct")}
       </button>
     </>
   );

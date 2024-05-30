@@ -17,7 +17,7 @@ const NavBar = () => {
 
         <DarkLightMode></DarkLightMode>
 
-        <MdEmail className="home-messangerie" />
+       <Link to="./chat"><MdEmail className="home-messangerie" /></Link> 
 
         <h1>
           <LanguageSelector />

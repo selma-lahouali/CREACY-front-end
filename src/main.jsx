@@ -25,6 +25,7 @@ import Cart from "./pages/Cart/Cart.jsx";
 import UpdateProductDescription from "./pages/MyShop/ManageProducts/UpdateProductDescription/UpdateProductDescription.jsx";
 import Stripe from "./pages/Stripe/Stripe.jsx";
 import Order from "./pages/Order/Order.jsx";
+import Chat from "./pages/Chat/Chat.jsx";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,7 @@ const router = createBrowserRouter([
         path: "payment",
         element: <Stripe></Stripe>,
       },
+      
     ],
   },
   {
@@ -107,6 +109,12 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFound></NotFound>,
   },
+
+  {
+    path: "chat",
+    element: <Chat></Chat>,
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

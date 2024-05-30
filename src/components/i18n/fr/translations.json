@@ -12,7 +12,13 @@
     "paymentConfirmation": "Votre paiement a été effectué avec succès !"
   },
 
-  "deleteProduct": "Supprimer le produit",
+  "deleteProduct": {
+    "deleteProduct": "Supprimer le produit",
+    "deleteProdConfirmationTitle": "Êtes-vous sûr ?",
+    "deleteProdConfirmationText": "Vous ne pourrez pas revenir en arrière !",
+    "deleteProdConfirmationBtn": "Oui, supprimez-le !",
+    "deleteProdSuccessText": "Votre produit a été supprimé !"
+  },
 
   "homeProducts": {
     "selectCategories": "catégories",
