@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import "./Chat.css";
 import axios from "axios";
 import Conversation from "../../components/Conversation/Conversation";
-import { IoIosNotifications } from "react-icons/io";
 import ChatBox from "../../components/ChatBox/ChatBox";
 import "../../components/ChatBox/ChatStyle.css";
 import { io } from "socket.io-client";
@@ -38,7 +37,7 @@ const Chat = () => {
   // Connect to Socket.io
   useEffect(() => {
     if (userId) {
-      socket.current = io("ws://localhost:3000");
+      socket.current = io(API);
       socket.current.emit("new-user-add", user._id);
       socket.current.on("get-users", (users) => {
         setOnlineUsers(users);
@@ -98,9 +97,7 @@ const Chat = () => {
 
         <div className="Right-side-chat">
           <div style={{ width: "20rem", alignSelf: "flex-end" }}>
-            <div className="navIcons">
-              <IoIosNotifications />
-            </div>
+            <div className="navIcons"></div>
           </div>
 
           <ChatBox
