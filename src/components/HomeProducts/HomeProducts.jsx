@@ -10,6 +10,8 @@ import { useTranslation } from "react-i18next";
 const HomeProducts = () => {
   const { t } = useTranslation();
   const [products, setProducts] = useState([]);
+  const [owners, setOwners] = useState([]);
+  const [shops, setShops] = useState({});
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -25,30 +27,54 @@ const HomeProducts = () => {
   const ownerId = user ? user._id : null;
   const token = localStorage.getItem("token");
   const API = import.meta.env.VITE_API;
-
+  // get all products from all shops
   useEffect(() => {
-    let apiUrl = `${API}/products/?page=${page}&categories=${selectedCategories.join(
-      ","
-    )}`;
-
-    if (searchTerm && searchTerm.trim() !== "") {
-      apiUrl += `&search=${searchTerm}`;
-    }
-
-    axios
-      .get(apiUrl, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res) => {
-        setProducts(res.data.products);
+    const fetchProducts = async () => {
+      let apiUrl = `${API}/products/?page=${page}&categories=${selectedCategories.join(
+        ","
+      )}`;
+      if (searchTerm && searchTerm.trim() !== "") {
+        apiUrl += `&search=${searchTerm}`;
+      }
+      try {
+        const res = await axios.get(apiUrl, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        const products = res.data.products;
+        setProducts(products);
         setTotalPages(res.data.totalPages);
-      })
-      .catch((error) => {
+
+        // Extract owners and set state
+        const ownerList = products.map((product) => product.owner);
+        setOwners(ownerList);
+
+        // Get shops data
+        const newShopsData = {};
+        for (const owner of ownerList) {
+          const response = await axios.get(`${API}/shop/owner/${owner}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          newShopsData[owner] = response.data;
+        }
+        setShops(newShopsData);
+
+        // Associate products with their respective shops
+        const productsWithShops = products.map((product) => {
+          const shop = newShopsData[product.owner];
+          return { ...product, shop };
+        });
+        setProducts(productsWithShops);
+      } catch (error) {
         console.error("Error fetching products:", error);
-      });
+      }
+    };
+
+    fetchProducts();
   }, [page, selectedCategories, searchTerm, token, API, key]);
 
   // Change the page
@@ -59,13 +85,14 @@ const HomeProducts = () => {
   // Handle category filter
   const handleCategoryChange = (category) => {
     if (selectedCategories.includes(category)) {
-      setSelectedCategories(selectedCategories.filter((cat) => cat !== category));
+      setSelectedCategories(
+        selectedCategories.filter((cat) => cat !== category)
+      );
     } else {
       setSelectedCategories([...selectedCategories, category]);
     }
   };
   useEffect(() => {
-  
     setPage(1);
   }, [selectedCategories]);
 
@@ -129,7 +156,7 @@ const HomeProducts = () => {
         {/* Category filter dropdown with checkboxes */}
         <div className="home-category-dropdown">
           <button className="home-categry-btn" onClick={toggleDropdown}>
-              {t("homeProducts.selectCategories")} <span>&#9662;</span>
+            {t("homeProducts.selectCategories")} <span>&#9662;</span>
           </button>
           {showDropdown && (
             <div className="home-categry-btn-content">
@@ -151,7 +178,7 @@ const HomeProducts = () => {
                   checked={selectedCategories.includes("accessory")}
                   onChange={() => handleCategoryChange("accessory")}
                 />
-               <label htmlFor="accessory">{t("homeProducts.accessory")}</label>
+                <label htmlFor="accessory">{t("homeProducts.accessory")}</label>
               </div>
               <div className="home-categry-checkbox">
                 <input
@@ -161,7 +188,7 @@ const HomeProducts = () => {
                   checked={selectedCategories.includes("shoes")}
                   onChange={() => handleCategoryChange("shoes")}
                 />
-               <label htmlFor="shoes">{t("homeProducts.shoes")}</label>
+                <label htmlFor="shoes">{t("homeProducts.shoes")}</label>
               </div>
               <div className="home-categry-checkbox">
                 <input
@@ -171,7 +198,9 @@ const HomeProducts = () => {
                   checked={selectedCategories.includes("home decoration")}
                   onChange={() => handleCategoryChange("home decoration")}
                 />
-                 <label htmlFor="home-decoration">{t("homeProducts.homeDecoration")}</label>
+                <label htmlFor="home-decoration">
+                  {t("homeProducts.homeDecoration")}
+                </label>
               </div>
             </div>
           )}
@@ -186,15 +215,22 @@ const HomeProducts = () => {
                   className="home-product-image"
                 />
                 <div className="home-product-info">
+                <Link to={`/singleShop/${product.shop ? product.shop.owner : ''}`}>
+                    <img
+                      className="home-product-shop"
+                      src={product.shop ? product.shop.image : "Unknown"}
+                      alt=""
+                    />
+                  </Link>
                   <div className="home-prod-name-price">
                     <h4 className="home-prod-name-limit">{product.name}</h4>
                     <h4 className="home-prod-price-limit">${product.price}</h4>
                   </div>
                   <p className="home-prod-info-limit">
-                  {t("homeProducts.category")} : {product.category}
+                    {t("homeProducts.category")} : {product.category}
                   </p>
                   <p className="home-prod-info-limit">
-                  {t("homeProducts.quantity")} : {product.quantity}
+                    {t("homeProducts.quantity")} : {product.quantity}
                   </p>
                   {/* Render the like icon */}
                   <p className="home-prod-likes home-prod-info-limit">

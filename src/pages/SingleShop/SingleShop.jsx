@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import MyShopSideBar from "../../../components/MyShopSideBar/MyShopSideBar";
-import "./MyShop.css";
+import SideBar from "../../components/SideBar/SideBar";
+import "./SingleShop.css";
 import axios from "axios";
 import { BiSolidLike } from "react-icons/bi";
 import { Pagination } from "@mui/material";
 import { MdEmail } from "react-icons/md";
-import { Link, useLocation } from "react-router-dom";
-import AddToCart from "../../../components/AddToCart/AddToCart";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import AddToCart from "../../components/AddToCart/AddToCart";
 import { useTranslation } from "react-i18next";
 
-const MyShop = () => {
+const SingleShop = () => {
   const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
@@ -20,21 +20,22 @@ const MyShop = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchTerm = searchParams.get("search");
-
+  const { _id } = useParams();
+  const navigate = useNavigate()
   const user = JSON.parse(localStorage.getItem("user"));
   const ownerId = user ? user._id : null;
   const token = localStorage.getItem("token");
   const API = import.meta.env.VITE_API;
+
   // get shop by user id
   useEffect(() => {
-    let apiUrl = `${API}/products/owner/${ownerId}?page=${page}&categories=${selectedCategories.join(
+    let apiUrl = `${API}/products/owner/${_id}?page=${page}&categories=${selectedCategories.join(
       ","
     )}`;
 
     if (searchTerm && searchTerm.trim() !== "") {
       apiUrl += `&search=${searchTerm}`;
     }
-
     axios
       .get(apiUrl, {
         headers: {
@@ -45,12 +46,14 @@ const MyShop = () => {
       .then((res) => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
+        console.log("res.data.products", res.data.products);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
       });
-  }, [ownerId, page, selectedCategories, searchTerm, token, API, key]);
+  }, [_id, page, selectedCategories, searchTerm, token, API, key]);
 
+  // handdle page change
   const handlePageChange = (event, value) => {
     setPage(value);
   };
@@ -121,15 +124,41 @@ const MyShop = () => {
       );
     }
   };
+
+  // creat a chat
+  const creatChat = async () => {
+    const senderId = ownerId;
+    const receiverId = _id;
+    try {
+      const response = await axios.post(
+        `${API}/chat/`,
+        { senderId, receiverId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.data.message === "Chat already exists") {
+        console.log("Chat already exists", response.data.chat);
+        navigate("/chat")
+      } else {
+        console.log("Chat created successfully", response.data);
+        navigate("/chat")
+      }
+    } catch (error) {
+      console.error("Error creating chat", error);
+    }
+  };
   return (
     <>
-      <MyShopSideBar
+      <SideBar
         selectedCategories={selectedCategories}
         handleCategoryChange={handleCategoryChange}
       />
-      <div className="my-shop-position">
+      <div className="single-shop-position">
         {/* Category filter dropdown with checkboxes */}
-        <MdEmail className="my-shop-messangerie" />
+        <MdEmail className="my-shop-messangerie" onClick={creatChat} />
         <div className="shop-category-dropdown">
           <button className="shop-categry-btn" onClick={toggleDropdown}>
             {t("homeProducts.selectCategories")} <span>&#9662;</span>
@@ -228,4 +257,4 @@ const MyShop = () => {
   );
 };
 
-export default MyShop;
+export default SingleShop;

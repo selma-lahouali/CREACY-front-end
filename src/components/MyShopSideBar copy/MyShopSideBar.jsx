@@ -1,30 +1,20 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./MyShopSideBar.css";
 import { FaPlusCircle } from "react-icons/fa";
 import { RiEdit2Fill } from "react-icons/ri";
+import { ImStatsDots } from "react-icons/im";
+import { PiUserListFill } from "react-icons/pi";
 import ShopCard from "../../components/ShopCard/ShopCard";
 import { useTranslation } from "react-i18next";
-import { IoSettingsSharp } from "react-icons/io5";
-import { MdLogout } from "react-icons/md";
-import { useDispatch } from "react-redux";
-import { logout } from "../../redux/slices/AuthSlice";
 
 const MyShopSideBar = () => {
-    const { t } = useTranslation();
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-  
-    const handleLogout = () => {
-      dispatch(logout());
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
-      navigate("/login");
-    };
+  const { t } = useTranslation();
   return (
     <>
       <div className="shop-sideBar">
         <ul>
           <ShopCard></ShopCard>
+
           {/* add New Product / add New Product / add New Product / add New Product  */}
           <div className="sideBar-list">
             <NavLink to="/addNewProduct">
@@ -42,23 +32,22 @@ const MyShopSideBar = () => {
               </li>
             </NavLink>
           </div>
-          {/* settings */}
+          {/* sales Statistic / sales Statistic / sales Statistic / sales Statistic / sales Statistic */}
           <div className="sideBar-list">
-          <Link to="/shopSettings">
-            <li>
-              <IoSettingsSharp className="sideBar-icon" />
-              {t('homePage.settings')}
-            </li>
-          </Link>
+            <NavLink to="/salesStatistic">
+              <li>
+                <ImStatsDots className="shop-icon" />
+                {t("myShopSideBar.salesStatistic")}
+              </li>
+            </NavLink>
           </div>
-          {/* log out */}
+          {/* customers List / customers List / customers List / customers List / customers List */}
           <div className="sideBar-list">
-          <Link to="/login">
-            <li onClick={handleLogout}>
-              <MdLogout className="sideBar-icon" />
-              {t('homePage.logOut')}
-            </li>
-          </Link>
+            <NavLink to="/customersList">
+              <li>
+              <PiUserListFill className="shop-icon" /> {t("myShopSideBar.customersList")}
+              </li>
+            </NavLink>
           </div>
         </ul>
       </div>

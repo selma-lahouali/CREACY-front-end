@@ -1,14 +1,12 @@
 .update-shop-position {
   position: absolute;
-  top: 90vh;
+  top: 15vh;
   left: 15vw;
-  margin-top: 6vh;
 }
 .update-shop-position h1 {
   color: var(--fontColor);
   font-size: 1.8vw;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
 }
 .update-shop-profile {
   border: 2px solid var(--darkBleu);

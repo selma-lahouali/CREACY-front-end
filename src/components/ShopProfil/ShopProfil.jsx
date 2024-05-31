@@ -64,7 +64,7 @@ const ShopProfil = () => {
                 <h3>{t("ShopProfil.createdOn")}: {formatDate(shop.createdAt)} </h3>
               </div>
             </div>
-            <Link to="/settings">
+            <Link to="/shopSettings">
             <button>{t("ShopProfil.editShop")}</button>
             </Link>
           </div>

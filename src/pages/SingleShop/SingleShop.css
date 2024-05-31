@@ -1,0 +1,134 @@
+.single-shop-position {
+    position: absolute;
+    top: 11.5vh;
+    left: 13vw;
+    color: var(--fontColor);
+  }
+  .my-products-display {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.3vw;
+  }
+  .my-product-image {
+    width: 100%;
+    height: 22vh;
+    border-bottom: 1px solid var(--darkBleu);
+  }
+  .my-products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    border: 1px solid var(--darkBleu);
+    width: 14vw;
+    max-width: 14vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .my-product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5vh;
+    margin: 1vh 0px 1vh -1.6vw;
+    font-size: 1.3vw;
+    font-weight: lighter;
+    padding-left: 0.4vw;
+  }
+  .my-prod-name-price {
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+    font-weight: lighter;
+  }
+  /* like feature */
+  .shop-prod-likes {
+    display: flex;
+    gap: 0.5vw;
+    font-size: 1.5vw;
+  }
+  .my-shop-prod-like-icon-liked {
+    color: rgb(30, 99, 228);
+  }
+  .my-shop-prod-unlike-icon {
+    color: var(--darkBleu);
+  }
+  .my-product-pagination {
+    margin-top: 3vh;
+  }
+  .myShop-prod-detail-btn {
+    background-color: var(--mainBleu);
+    border: none;
+    border-radius: 0.4vw;
+    width: 6.5vw;
+    height: 3.2vh;
+    color: var(--bodyColor);
+    font-size: 1vw;
+    letter-spacing: 0.08vw;
+    margin-left: 3.6vw;
+    margin-bottom: 1vh;
+  }
+  /* limit product info size to  ot ruin the css */
+  .my-products .my-prod-name-limit {
+    max-width: 7.5vw;
+    overflow: hidden;
+  }
+  .my-products .my-prod-info-limit {
+    max-width: 8vw;
+    overflow: hidden;
+  }
+  .my-products .my-prod-price-limit {
+    max-width: 3.6vw;
+    overflow: hidden;
+  }
+  /* categories filter button */
+  .shop-category-dropdown {
+    margin-left: 68.1vw;
+    margin-bottom: 3vh;
+  }
+  .shop-categry-btn {
+    background-color: var(--mainBleu);
+    border: 0.1vw solid var(--darkBleu);
+    border-radius: 0.5vw;
+    color: var(--bodyColor);
+    padding: 1.2vh 1vw;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1vw;
+    width: 11.8vw;
+  }
+  .shop-categry-btn:hover {
+    scale: 1.1;
+  }
+  .shop-categry-btn-content {
+    position: absolute;
+    background-color: var(--searchBareColor);
+    color: black;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 20;
+  }
+  .shop-categry-checkbox {
+    padding: 0.8vh 1vw;
+  }
+  .shop-categry-checkbox input,
+  label {
+    cursor: pointer;
+  }
+  .my-shop-messangerie {
+    position: relative;
+    left: 60vw;
+    top: 6vh;
+    background-color: var(--mainBleu);
+    border: 0.1vw solid var(--darkBleu);
+    border-radius: 0.6vw;
+    padding: 0.2vw 0.8vw;
+    cursor: pointer;
+    color: var(--bodyColor);
+    font-size: 1.88vw;
+  }
+  .my-shop-messangerie:hover {
+    scale: 1.1;
+  }
+  

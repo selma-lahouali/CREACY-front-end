@@ -26,6 +26,8 @@ import UpdateProductDescription from "./pages/MyShop/ManageProducts/UpdateProduc
 import Stripe from "./pages/Stripe/Stripe.jsx";
 import Order from "./pages/Order/Order.jsx";
 import Chat from "./pages/Chat/Chat.jsx";
+import SingleShop from "./pages/SingleShop/SingleShop.jsx";
+import MyShopSettings from "./pages/MyShop/MyShopSettings/MyShopSettings.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "myShop",
         element: <MyShop></MyShop>,
+      },
+      {
+        path: "singleShop/:_id",
+        element: <SingleShop></SingleShop>,
       },
       {
         path: "creatShop",
@@ -71,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: "UpdateProductDescription/:_id",
         element: <UpdateProductDescription></UpdateProductDescription>,
+      },
+      {
+        path: "shopSettings",
+        element: <MyShopSettings></MyShopSettings>,
       },
       {
         path: "settings",

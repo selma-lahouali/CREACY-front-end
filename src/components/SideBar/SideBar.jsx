@@ -1,4 +1,3 @@
-// src/components/SideBar.js
 import { FaShoppingCart } from "react-icons/fa";
 import { GiShoppingBag } from "react-icons/gi";
 import { FaShop } from "react-icons/fa6";

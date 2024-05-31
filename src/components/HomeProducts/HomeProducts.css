@@ -42,6 +42,12 @@
   gap: 2vw;
   font-weight: lighter;
 }
+.home-product-shop{
+  width: 2.5vw;
+  height: 5.5vh;
+   border: 1px solid var(--darkBleu);
+  border-radius: 50%;
+}
 .home-prod-likes {
   display: flex;
   gap: 0.5vw;

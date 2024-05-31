@@ -54,6 +54,11 @@ const SingleProductPage = () => {
   return (
     <>
       <MyShopSideBar />
+      <Link to="/myShop">
+        <button className="back-to-shop-btn">
+          {t("singleProduct.BackToShop")}
+        </button>
+      </Link>
       <div className="single-prod-position">
         <div className="single-products">
           {/* Display image */}
@@ -65,20 +70,20 @@ const SingleProductPage = () => {
           <div className="single-prod-info">
             <div className="single-prod-name-price">
               <h4 className="single-prod-name-limit">
-              {t("UserCart.name")} : {singleProduct.name}
+                {t("UserCart.name")} : {singleProduct.name}
               </h4>
               <h4 className="single-prod-price-limit">
-              {t("UserCart.price")} : $ {singleProduct.price}
+                {t("UserCart.price")} : $ {singleProduct.price}
               </h4>
               <p className="single-prod-likes home-prod-info-limit">
                 <BiSolidLike className="single-product-icon single-prod-info-limit" />
                 {singleProduct.likes?.length}
               </p>
               <h4 className="single-prod-info-limit">
-              {t("singleProduct.category")} : {singleProduct.category}
+                {t("singleProduct.category")} : {singleProduct.category}
               </h4>
               <h4 className="single-prod-info-limit">
-              {t("singleProduct.quantity")} : {singleProduct.quantity}
+                {t("singleProduct.quantity")} : {singleProduct.quantity}
               </h4>
               <p>{singleProduct.description}</p>
             </div>
@@ -140,12 +145,9 @@ const SingleProductPage = () => {
             )}
           </div>
         </div>
-        <Link to="/myShop">
-          <button className="back-to-shop-btn">{t("singleProduct.BackToShop")}</button>
-        </Link>
         <Link to={`/UpdateProductDescription/${_id}`}>
           <button className="modify-prod-description-btn">
-          {t("singleProduct.ModifyProductDescription")}
+            {t("singleProduct.ModifyProductDescription")}
           </button>
         </Link>
       </div>

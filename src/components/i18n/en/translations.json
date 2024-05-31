@@ -25,7 +25,6 @@
  
  },
  
-
   "homeProducts": {
     "selectCategories": "Select Categories",
     "clothing": "Clothing",
@@ -194,7 +193,7 @@
   "category":"category",
   "link":"Links",
   "BackToShop":"Back To The Shop",
-  " ModifyProductDescription":" Modify Product Description"
+  "ModifyProductDescription":" Modify Product Description"
   },
   "order":{
     "OrderTotal":"Order Total",
