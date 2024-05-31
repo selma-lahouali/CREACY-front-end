@@ -20,8 +20,8 @@
   justify-content: center;
   align-items: baseline;
   border: 1px solid var(--darkBleu);
-  width: 14vw;
-  max-width: 14vw;
+  width: 12em;
+  min-width: 14vw;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -123,13 +123,13 @@ label {
   .home-products-display {
     grid-template-columns: repeat(4, 1fr);
     gap: 2.3vw;
-    margin-right: 30vw;
   }
 }
 
 /* Responsive design for phones */
 @media (max-width: 768px) {
   .home-products-display {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.3vw  }
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.3vw;
+  }
 }
