@@ -37,3 +37,14 @@
 .sideBar-icon {
   color: var(--darkBleu);
 }
+/* Responsive design for phones */
+@media (min-width: 160px) and (max-width: 500px) {
+  .sideBar {
+    background-color: var(--mediumBleu);
+    width: 9.3vw;
+    height: 93vh;
+    position: fixed;
+    top: 6.8vh;
+    z-index: 998;
+  }
+}

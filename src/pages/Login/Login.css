@@ -1,4 +1,6 @@
 .login {
+  position: absolute;
+  top: 5vh;
   display: flex;
   background-color: var(--bodyColor);
 }

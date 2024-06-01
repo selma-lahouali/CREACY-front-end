@@ -69,7 +69,7 @@
   font-size: 1.25vw;
   font-weight: bold;
 }
-.contactUs-form button{
+.contactUs-form button {
   background-color: var(--mainBleu);
   border: none;
   border-radius: 0.5vw;
@@ -79,5 +79,82 @@
   font-size: 1.2vw;
   font-weight: bold;
   letter-spacing: 0.04vw;
- 
+}
+/* Responsive design for phones */
+@media (min-width: 160px) and (max-width: 500px) {
+  .contactUs {
+    position: relative;
+    top: 10vh;
+    left: 13vw;
+    width: 66vw;
+    color: var(--fontColor);
+  }
+  .contactUs-intro h1 {
+    font-size: 2vw;
+    letter-spacing: 0.1vw;
+    text-decoration: underline 2px var(--darkBleu);
+    text-underline-offset: 0.6vh;
+    margin-bottom: 2vh;
+  }
+  .contactUs p {
+    font-size: 2vw;
+    line-height: 1vh;
+    padding-bottom: 1vh;
+  }
+  .contactUs-form {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--darkBleu);
+    border-radius: 0.8vw;
+    padding: 1vw 2vw;
+    margin-top: 2vh;
+    width: 53vw;
+  }
+  .contactUs-form input {
+    width: 28vw;
+    height: 2vh;
+    border: none;
+    border-radius: 0.5vw;
+    padding-left: 0.6vw;
+    border: 1px solid var(--darkBleu);
+    background-color: var(--searchBareColor);
+    margin-bottom: 1.5vh;
+    font-size: 1.1vw;
+  }
+  .contactUs-form input::placeholder {
+    color: black;
+    font-size: 1vw;
+  }
+  .contactUs-form input:focus {
+    outline: 0.2vw solid #adb5bd;
+  }
+  .contactUs-form textarea {
+    width: 50vw;
+    height: 15vh;
+    border: none;
+    border-radius: 0.5vw;
+    padding-left: 0.6vw;
+    padding-top: 1.5vh;
+    border: 1px solid var(--darkBleu);
+    background-color: var(--searchBareColor);
+    margin-bottom: 1vh;
+    font-size: 1.5vw;
+  }
+    .contactUs-form label {
+    margin-bottom: 1vh;
+    font-size: 2vw;
+    font-weight: bold;
+  }
+  .contactUs-form button {
+    background-color: var(--mainBleu);
+    border: none;
+    border-radius: 0.5vw;
+    width: 20vw;
+    height: 2vh;
+    color: var(--bodyColor);
+    font-size: 1.2vw;
+    font-weight: bold;
+    letter-spacing: 0.04vw;
+    margin-bottom: 0.8vh;
+  }
 }

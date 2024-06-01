@@ -106,19 +106,19 @@ const SingleShop = () => {
       const liked = product.likes.includes(ownerId);
       return liked ? (
         <BiSolidLike
-          className="my-shop-prod-like-icon-liked"
+          className="single-shop-prod-like-icon-liked"
           onClick={() => handleLike(productId)}
         />
       ) : (
         <BiSolidLike
-          className="my-shop-prod-unlike-icon"
+          className="single-shop-prod-unlike-icon"
           onClick={() => handleLike(productId)}
         />
       );
     } else {
       return (
         <BiSolidLike
-          className="my-shop-prod-icon"
+          className="single-shop--prod-icon"
           onClick={() => handleLike(productId)}
         />
       );
@@ -158,14 +158,14 @@ const SingleShop = () => {
       />
       <div className="single-shop-position">
         {/* Category filter dropdown with checkboxes */}
-        <MdEmail className="my-shop-messangerie" onClick={creatChat} />
-        <div className="shop-category-dropdown">
-          <button className="shop-categry-btn" onClick={toggleDropdown}>
+        <MdEmail className="single-shop-messangerie" onClick={creatChat} />
+        <div className="single-shop-category-dropdown">
+          <button className="single-shop-categry-btn" onClick={toggleDropdown}>
             {t("homeProducts.selectCategories")} <span>&#9662;</span>
           </button>
           {showDropdown && (
-            <div className="shop-categry-btn-content">
-              <div className="shop-categry-checkbox">
+            <div className="single-shop-categry-btn-content">
+              <div className="single-shop-categry-checkbox">
                 <input
                   type="checkbox"
                   id="clothing"
@@ -175,7 +175,7 @@ const SingleShop = () => {
                 />
                 <label htmlFor="clothing">{t("homeProducts.clothing")}</label>
               </div>
-              <div className="shop-categry-checkbox">
+              <div className="single-shop-categry-checkbox">
                 <input
                   type="checkbox"
                   id="accessory"
@@ -185,7 +185,7 @@ const SingleShop = () => {
                 />
                 <label htmlFor="accessory">{t("homeProducts.accessory")}</label>
               </div>
-              <div className="shop-categry-checkbox">
+              <div className="single-shop-categry-checkbox">
                 <input
                   type="checkbox"
                   id="shoes"
@@ -195,7 +195,7 @@ const SingleShop = () => {
                 />
                 <label htmlFor="shoes">{t("homeProducts.shoes")}</label>
               </div>
-              <div className="shop-categry-checkbox">
+              <div className="single-shop-categry-checkbox">
                 <input
                   type="checkbox"
                   id="home-decoration"
@@ -211,34 +211,34 @@ const SingleShop = () => {
           )}
         </div>
 
-        <ul className="my-products-display">
+        <ul className="single-shop-prod-display">
           {products.map((product, index) => (
             <div key={index}>
-              <li className="my-products">
+              <li className="single-shop-products">
                 <img
                   src={product.image}
                   alt="image not found"
-                  className="my-product-image"
+                  className="single-shop-product-image"
                 />
-                <div className="my-product-info">
-                  <div className="my-prod-name-price">
-                    <h4 className="my-prod-name-limit">{product.name}</h4>
-                    <h4 className="my-prod-price-limit">${product.price}</h4>
+                <div className="single-shop-product-info">
+                  <div className="single-shop-prod-name-price">
+                    <h4 className="single-shop-prod-name-limit">{product.name}</h4>
+                    <h4 className="single-shop-prod-price-limit">${product.price}</h4>
                   </div>
-                  <p className="my-prod-info-limit">
+                  <p className="single-shop-prod-info-limit">
                     {t("homeProducts.category")} : {product.category}
                   </p>
-                  <p className="my-prod-info-limit">
+                  <p className="single-shop-prod-info-limit">
                     {t("homeProducts.quantity")} : {product.quantity}
                   </p>
                   {/* Render the like icon */}
-                  <p className="shop-prod-likes my-prod-info-limit">
+                  <p className="single-shop-prod-likes single-shop-prod-info-limit">
                     {likeIcon(product._id)}
                     {product.likes ? product.likes.length : 0}
                   </p>
 
                   <Link to={`/myShop/${product._id}`}>
-                    <button className="myShop-prod-detail-btn">Detail</button>
+                    <button className="single-shop-prod-detail-btn">Detail</button>
                   </Link>
                   <AddToCart product={product}></AddToCart>
                 </div>

@@ -1,134 +1,239 @@
 .single-shop-position {
+  position: absolute;
+  top: 11.5vh;
+  left: 13vw;
+  color: var(--fontColor);
+}
+.single-shop-prod-display {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.3vw;
+}
+.single-shop-product-image {
+  width: 100%;
+  height: 22vh;
+  height: 8.4em;
+  border-bottom: 1px solid var(--darkBleu);
+}
+.single-shop-products {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  border: 1px solid var(--darkBleu);
+  width: 12em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.single-shop-product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2em;
+  margin: 0.4em 0em 0.4em;
+  font-size: 1.1em;
+  font-weight: lighter;
+  padding-left: 0.3em;
+}
+.single-shop-prod-name-price {
+  display: flex;
+  justify-content: space-between;
+  font-weight: lighter;
+}
+/* like feature */
+.single-shop-prod-likes {
+  display: flex;
+  gap: 0.4em;
+  font-size: 1.1em;
+}
+.single-shop-prod-like-icon-liked {
+  color: rgb(30, 99, 228);
+}
+.single-shop-prod-unlike-icon {
+  color: var(--darkBleu);
+}
+.my-product-pagination {
+  margin-top: 3vh;
+}
+.single-shop-prod-detail-btn {
+  background-color: var(--mainBleu);
+  border: none;
+  border-radius: 0.4em;
+  width: 6.5em;
+  height: 1.45em;
+  color: var(--bodyColor);
+  font-size: 0.8em;
+  letter-spacing: 0.08vw;
+  margin-left: 3.5em;
+  margin-bottom: 0.4em;
+}
+/* limit product info size to  ot ruin the css */
+.single-shop-products .single-shop-prod-name-limit {
+  max-width: 6.5em;
+  overflow: hidden;
+}
+.single-shop-products .single-shop-prod-info-limit {
+  max-width: 12.8vw;
+  overflow: hidden;
+}
+.single-shop-products .single-shop-prod-price-limit {
+  max-width: 3.6vw;
+  overflow: hidden;
+}
+/* categories filter button */
+.single-shop-category-dropdown {
+  margin-left: 60em;
+  margin-bottom: 1em;
+}
+.single-shop-categry-btn {
+  background-color: var(--mainBleu);
+  border: 0.1vw solid var(--darkBleu);
+  border-radius: 0.6em;
+  color: var(--bodyColor);
+  padding: 0.6em 1em;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8em;
+  width: 12em;
+}
+.single-shop-categry-btn:hover {
+  scale: 1.1;
+}
+.single-shop-categry-btn-content {
+  position: absolute;
+  background-color: var(--searchBareColor);
+  border: 0.1vw solid var(--darkBleu);
+  border-radius: 0.6em;
+  color: black;
+  min-width: 9.5em;
+  box-shadow: 0 0.4em 0.8em 0 rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+.single-shop-categry-checkbox {
+  padding: 0.3em 0.9em;
+}
+.single-shop-categry-checkbox input,
+label {
+  cursor: pointer;
+}
+.single-shop-messangerie {
+  position: relative;
+  left: 32em;
+  top: 1.4em;
+  background-color: var(--mainBleu);
+  border: 0.1vw solid var(--darkBleu);
+  border-radius: 0.3em;
+  padding: 0.1em 0.4em;
+  cursor: pointer;
+  color: var(--bodyColor);
+  font-size: 1.6em;
+}
+.single-shop-messangerie:hover {
+  scale: 1.1;
+}
+/* Responsive design for phones */
+@media (min-width: 160px) and (max-width: 500px) {
+  .single-shop-position  {
     position: absolute;
-    top: 11.5vh;
-    left: 13vw;
+    top: 3.5em;
+    left: 5em;
     color: var(--fontColor);
   }
-  .my-products-display {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+  .single-shop-prod-display {
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.3vw;
   }
-  .my-product-image {
+  .single-shop-product-image {
     width: 100%;
-    height: 22vh;
+    height: 7em;
     border-bottom: 1px solid var(--darkBleu);
   }
-  .my-products {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
-    border: 1px solid var(--darkBleu);
-    width: 14vw;
-    max-width: 14vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .single-shop-products {
+    width: 8.9em;
   }
-  .my-product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5vh;
-    margin: 1vh 0px 1vh -1.6vw;
-    font-size: 1.3vw;
+  .single-shop-product-info  {
+    gap: 0.2em;
+    margin: 0.4em 0em 0.4em;
+    font-size: 0.9em;
     font-weight: lighter;
-    padding-left: 0.4vw;
+    padding-left: 0.3em;
   }
-  .my-prod-name-price {
+  .single-shop-prod-name-price  {
     display: flex;
     justify-content: space-between;
-    gap: 2vw;
-    font-weight: lighter;
+    gap: 0.7em;
   }
-  /* like feature */
-  .shop-prod-likes {
+  .single-shop-prod-likes {
     display: flex;
-    gap: 0.5vw;
-    font-size: 1.5vw;
+    gap: 0.4em;
+    font-size: 0.9em;
   }
-  .my-shop-prod-like-icon-liked {
-    color: rgb(30, 99, 228);
-  }
-  .my-shop-prod-unlike-icon {
-    color: var(--darkBleu);
-  }
-  .my-product-pagination {
-    margin-top: 3vh;
-  }
-  .myShop-prod-detail-btn {
+  .single-shop-prod-detail-btn {
     background-color: var(--mainBleu);
     border: none;
-    border-radius: 0.4vw;
-    width: 6.5vw;
-    height: 3.2vh;
+    border-radius: 0.4em;
+    width: 6em;
+    height: 2.1em;
     color: var(--bodyColor);
-    font-size: 1vw;
+    font-size: 2em;
     letter-spacing: 0.08vw;
-    margin-left: 3.6vw;
-    margin-bottom: 1vh;
+    margin-left: 4.6em;
+    margin-bottom: 0.4em;
   }
-  /* limit product info size to  ot ruin the css */
-  .my-products .my-prod-name-limit {
-    max-width: 7.5vw;
+  .single-shop-products .single-shop-prod-name-limit {
+    max-width: 6em;
     overflow: hidden;
   }
-  .my-products .my-prod-info-limit {
-    max-width: 8vw;
+  .single-shop-products .single-shop-prod-info-limit {
+    max-width: 9em;
     overflow: hidden;
   }
-  .my-products .my-prod-price-limit {
-    max-width: 3.6vw;
+  .single-shop-products .single-shop-prod-price-limit{
+    max-width: 2.25em;
     overflow: hidden;
   }
   /* categories filter button */
-  .shop-category-dropdown {
-    margin-left: 68.1vw;
-    margin-bottom: 3vh;
+  .single-shop-category-dropdown{
+    margin-left: 11.5em;
+    margin-bottom: 1em;
   }
-  .shop-categry-btn {
+  .single-shop-categry-btn{
     background-color: var(--mainBleu);
     border: 0.1vw solid var(--darkBleu);
-    border-radius: 0.5vw;
+    border-radius: 0.6em;
     color: var(--bodyColor);
-    padding: 1.2vh 1vw;
+    padding: 0.6em 1em;
     cursor: pointer;
     font-weight: bold;
-    font-size: 1vw;
-    width: 11.8vw;
+    font-size: 0.6em;
+    width: 12em;
   }
-  .shop-categry-btn:hover {
-    scale: 1.1;
-  }
-  .shop-categry-btn-content {
+  .single-shop-categry-btn-content {
     position: absolute;
     background-color: var(--searchBareColor);
+    border: 0.1vw solid var(--darkBleu);
+    border-radius: 0.6em;
     color: black;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    z-index: 20;
+    min-width: 8.8em;
+    box-shadow: 0 0.4em 0.8em 0 rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    font-size: 0.8em;
   }
-  .shop-categry-checkbox {
+  .single-shop-categry-checkbox {
     padding: 0.8vh 1vw;
+    padding: 0.3em 0.9em;
   }
-  .shop-categry-checkbox input,
-  label {
-    cursor: pointer;
-  }
-  .my-shop-messangerie {
+  .single-shop-messangerie  {
     position: relative;
-    left: 60vw;
-    top: 6vh;
+    left: 5.5em;
+    top: 1.4em;
     background-color: var(--mainBleu);
     border: 0.1vw solid var(--darkBleu);
-    border-radius: 0.6vw;
-    padding: 0.2vw 0.8vw;
+    border-radius: 0.3em;
+    padding: 0.1em 0.4em;
     cursor: pointer;
     color: var(--bodyColor);
-    font-size: 1.88vw;
+    font-size: 1.3em;
   }
-  .my-shop-messangerie:hover {
-    scale: 1.1;
-  }
-  
+}

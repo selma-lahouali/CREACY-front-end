@@ -11,7 +11,7 @@
 }
 .manag-prod-image {
   width: 100%;
-  height: 22vh;
+  height: 8.4em;
   border-bottom: 1px solid var(--darkBleu);
 }
 .manag-products {
@@ -20,8 +20,7 @@
   justify-content: center;
   align-items: baseline;
   border: 1px solid var(--darkBleu);
-  width: 14vw;
-  max-width: 14vw;
+  width: 12em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -30,22 +29,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.5vh;
-  margin: 1vh 0px 1vh -1.6vw;
-  font-size: 1.3vw;
+  gap: 0.2em;
+  margin: 0.4em 0em 0.4em;
+  font-size: 1.1em;
   font-weight: lighter;
-  padding-left: 0.4vw;
+  padding-left: 0.3em;
 }
 .manag-prod-name-price {
   display: flex;
   justify-content: space-between;
-  gap: 2vw;
   font-weight: lighter;
 }
 .manag-prod-likes {
   display: flex;
-  align-items: center;
-  gap: 0.5vw;
+  gap: 0.4em;
+  font-size: 1.1em;
 }
 .manag-prod-icon {
   color: var(--darkBleu);
@@ -68,24 +66,100 @@
 .manag-prod-info button {
   background-color: var(--mainBleu);
   border: none;
-  border-radius: 0.4vw;
-  width: 6.5vw;
-  height: 3.5vh;
+  border-radius: 0.4em;
+  width: 6.5em;
+  height: 1.45em;
   color: var(--bodyColor);
-  font-size: 1vw;
+  font-size: 0.8em;
   letter-spacing: 0.08vw;
-  margin-left: 3.8vw;
+  margin-left: 3.5em;
+  margin-bottom: 0.4em;
 }
 /* limit product info size to  ot ruin the css */
 .manag-products .manag-prod-name-limit {
-  max-width: 7.5vw;
+  max-width: 6.5em;
   overflow: hidden;
 }
 .manag-products .manag-prod-info-limit {
-  max-width: 8vw;
+  max-width: 12.8vw;
   overflow: hidden;
 }
 .manag-products .manag-prod-price-limit {
   max-width: 3.6vw;
   overflow: hidden;
+}
+
+/* Responsive design for phones */
+@media (min-width: 160px) and (max-width: 500px) {
+  .manag-prod-position {
+    position: absolute;
+    top: 5em;
+    left: 17vw;
+    color: var(--fontColor);
+  }
+  .manag-prod-display {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.3vw;
+  }
+  .manag-prod-image {
+    width: 100%;
+    height: 7em;
+    border-bottom: 1px solid var(--darkBleu);
+  }
+  .manag-products {
+    width: 8.9em;
+  }
+  .manag-prod-info {
+    gap: 0.2em;
+    margin: 0.4em 0em 0.4em;
+    font-size: 0.9em;
+    font-weight: lighter;
+    padding-left: 0.3em;
+  }
+  .manag-prod-name-price {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.7em;
+  }
+  .manag-prod-likes {
+    display: flex;
+    gap: 0.4em;
+    font-size: 0.9em;
+  }
+  /* modify product */
+.modify-Product {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  font-weight: lighter;
+  cursor: pointer;
+  text-decoration: underline 2px solid rgb(125, 22, 74);
+  color: rgb(255, 42, 149);
+  margin-left: 2.8em;
+  font-size: 1.5em;
+}
+  .manag-prod-info button  {
+    background-color: var(--mainBleu);
+    border: none;
+    border-radius: 0.4em;
+    width: 6em;
+    height: 2em;
+    color: var(--bodyColor);
+    font-size: 1.5em;
+    letter-spacing: 0.08vw;
+    margin-left: 4.5em;
+    margin-bottom: 0.4em;
+  }
+  .manag-products .manag-prod-name-limit {
+    max-width: 6em;
+    overflow: hidden;
+  }
+  .manag-products .manag-prod-info-limit {
+    max-width: 9em;
+    overflow: hidden;
+  }
+  .manag-products .manag-prod-price-limit{
+    max-width: 2.25em;
+    overflow: hidden;
+  }
 }

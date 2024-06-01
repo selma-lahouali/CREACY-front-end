@@ -12,8 +12,7 @@
 }
 .home-product-image {
   width: 100%;
-  height: 22vh;
-  height: 8.4em;
+    height: 8.4em;
   border-bottom: 1px solid var(--darkBleu);
 }
 /* ///////////////////////////// */
@@ -105,6 +104,9 @@
   font-size: 0.8em;
   width: 12em;
 }
+.home-categry-btn:hover {
+  scale: 1.1;
+}
 .home-categry-btn-content {
   position: absolute;
   background-color: var(--searchBareColor);
@@ -116,18 +118,18 @@
   z-index: 10;
 }
 .home-categry-checkbox {
-  padding: 0.8vh 1vw;
   padding: 0.3em 0.9em;
 }
 .home-categry-checkbox input,
 label {
   cursor: pointer;
 }
+
 /* Responsive design for phones */
-@media (min-width: 160px) and (max-width: 420px) {
+@media (min-width: 160px) and (max-width: 500px) {
   .home-products-position {
     position: absolute;
-    top: 7em;
+    top: 5em;
     left: 13vw;
     color: var(--fontColor);
   }

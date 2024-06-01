@@ -44,5 +44,33 @@ a {
 }
 .profil-Btn .username-name:hover {
   text-decoration: none;
- 
+}
+/* Responsive design for phones */
+@media (min-width: 160px) and (max-width: 500px) {
+  .profil-Btn-box {
+    position: absolute;
+    right: 5vw;
+    top: 3.4vw;
+  }
+  .profil-Btn {
+    padding: 0.4vh 0.8vw;
+    width: 9.5vw;
+  }
+  .profil-Btn li,
+  a {
+    font-size: 1.5vw;
+  }
+  .profil-Btn h1 {
+    font-size: 1.5vw;
+    padding-top: 0.3vh;
+  }
+  .profil-Btn-image {
+    width: 2.5vw;
+    height: 2vh;
+    border: 1px solid var(--darkBleu);
+    border-radius: 50%;
+  }
+  .profil-Btn .username-name:hover {
+    text-decoration: none;
+  }
 }

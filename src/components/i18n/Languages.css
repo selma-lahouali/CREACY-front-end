@@ -11,6 +11,7 @@
 .language h1 {
   font-size: 1.2vw;
   padding: 0.65vw 1.3vw;
+  color: var(--darkBleu);
 }
 .language ul {
   list-style: none;
@@ -32,4 +33,14 @@
   background-color: var(--NBbackGroundColor);
   background-image: var(--NBbackGroundImage);
   border-radius: 0.3vw;
+}
+/* Responsive design for phones */
+@media (min-width: 160px) and (max-width: 500px) {
+  .language h1 {
+    font-size: 2.6vw;
+    padding: 0.9vw 1.3vw;
+  }
+  .language button {
+    font-size: 2.6vw;
+  }
 }

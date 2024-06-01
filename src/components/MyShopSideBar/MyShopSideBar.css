@@ -34,3 +34,13 @@
 .active {
   background-color: aqua;
 }
+/* Responsive design for phones */
+@media (min-width: 160px) and (max-width: 500px) {
+  .shop-sideBar {
+    background-color: var(--mediumBleu);
+    width: 12vw;
+    height: 99vh;
+    position: fixed;
+    top: 6.8vh;
+  }
+}

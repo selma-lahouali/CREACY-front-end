@@ -4,6 +4,7 @@ import axios from "axios";
 import Conversation from "../../components/Conversation/Conversation";
 import ChatBox from "../../components/ChatBox/ChatBox";
 import "../../components/ChatBox/ChatStyle.css";
+import SideBar from "../../components/SideBar/SideBar";
 import { io } from "socket.io-client";
 
 const Chat = () => {
@@ -68,6 +69,7 @@ const Chat = () => {
 
   return (
     <>
+    <SideBar></SideBar>
       <div className="Chat">
         {/* Left Side */}
         <div className="Left-side-chat">

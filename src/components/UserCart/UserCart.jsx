@@ -206,9 +206,9 @@ const UserCart = () => {
                   </td>
                   <td>
                     <div className="cart-quantity">
-                      <FaMinus onClick={() => updateQuantity(index, -1)} />
+                      <FaMinus className="cart-quantity-icon" onClick={() => updateQuantity(index, -1)} />
                       <h1>{product.quantity}</h1>
-                      <FaPlus onClick={() => updateQuantity(index, 1)} />
+                      <FaPlus className="cart-quantity-icon" onClick={() => updateQuantity(index, 1)} />
                     </div>
                   </td>
                   <td>

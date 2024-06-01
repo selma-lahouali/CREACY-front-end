@@ -103,7 +103,10 @@ const router = createBrowserRouter([
         path: "payment",
         element: <Stripe></Stripe>,
       },
-      
+      {
+        path: "chat",
+        element: <Chat></Chat>,
+      },
     ],
   },
   {
@@ -120,10 +123,7 @@ const router = createBrowserRouter([
     element: <NotFound></NotFound>,
   },
 
-  {
-    path: "chat",
-    element: <Chat></Chat>,
-  },
+ 
 
 ]);
 

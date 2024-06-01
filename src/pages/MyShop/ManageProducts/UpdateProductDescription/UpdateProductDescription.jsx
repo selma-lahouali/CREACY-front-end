@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import MyShopSideBar from "../../../../components/MyShopSideBar/MyShopSideBar";
 import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
 const UpdateProductDescription = () => {
   const { t } = useTranslation();
@@ -30,10 +31,11 @@ const UpdateProductDescription = () => {
       })
       .then((res) => {
         setProductDescription(res.data);
+      
       })
       .catch((err) => {
         console.error(err);
-        console.log("Failed to load product.");
+        
       });
   }, [_id, token, API]);
   // update prod description
@@ -59,10 +61,20 @@ const UpdateProductDescription = () => {
       })
       .then(() => {
         console.log("Product Description Updated Successfully");
+        Swal.fire({
+          title: t("AddNewProd.productCreatedTitle"),
+          text: t("AddNewProd.productCreatedText"),
+          icon: "success",
+        });
       })
       .catch((err) => {
         console.error(err);
-        console.log("Failed to update product description.");
+       // Display error message
+       Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: t("AddNewProd.somethingWentWrong"),
+      });
       });
   };
 
@@ -86,7 +98,7 @@ const UpdateProductDescription = () => {
       <div className="ProductDescription">
         <form onSubmit={updateDescription}>
           <div className="update-prod-descs">
-          <h1>{t("UpdateProductDescription.productDescriptionsTitle")}</h1>
+            <h1>{t("UpdateProductDescription.productDescriptionsTitle")}</h1>
             <label>{t("UpdateProductDescription.descriptionLabel")}</label>
             <textarea
               type="text"
@@ -105,7 +117,7 @@ const UpdateProductDescription = () => {
             />
           </div>
           <div className="update-prod-desc-details">
-          <h1>{t("UpdateProductDescription.productDetails")}</h1>
+            <h1>{t("UpdateProductDescription.productDetails")}</h1>
             <label>{t("UpdateProductDescription.colorsLabel")}</label>
             <input
               type="text"
@@ -113,7 +125,7 @@ const UpdateProductDescription = () => {
               name="color"
               onChange={handleChange}
             />
-           <label>{t("UpdateProductDescription.sizeLabel")}</label>
+            <label>{t("UpdateProductDescription.sizeLabel")}</label>
             <input
               type="text"
               placeholder={t("UpdateProductDescription.sizePlaceholder")}
@@ -122,7 +134,7 @@ const UpdateProductDescription = () => {
             />
           </div>
           <div className="updat-prod-desc-socials">
-          <h1>{t("UpdateProductDescription.socialsTitle")}</h1>
+            <h1>{t("UpdateProductDescription.socialsTitle")}</h1>
             <label>TikTok :</label>
             <input
               type="text"
@@ -130,7 +142,7 @@ const UpdateProductDescription = () => {
               name="tiktok"
               onChange={handleChange}
             />
-             <label>Instagram :</label>
+            <label>Instagram :</label>
             <input
               type="text"
               placeholder={t("UpdateProductDescription.instagramPlaceholder")}
@@ -139,7 +151,7 @@ const UpdateProductDescription = () => {
             />
           </div>
           <div className="update-prod-desc-image">
-          <h1>{t("UpdateProductDescription.photosTitle")} :</h1>
+            <h1>{t("UpdateProductDescription.photosTitle")} :</h1>
             <input
               type="file"
               accept="image/*"
@@ -148,7 +160,7 @@ const UpdateProductDescription = () => {
             />
           </div>
           <button type="submit" className="update-product-desc-btn">
-          {t("UpdateProductDescription.updateProductDescriptionButton")}
+            {t("UpdateProductDescription.updateProductDescriptionButton")}
           </button>
         </form>
       </div>

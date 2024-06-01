@@ -118,6 +118,22 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
   }, [receivedMessage]);
 
   const scroll = useRef();
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        handleSend();
+      }
+    };
+
+    // Add event listener for keydown
+    document.addEventListener('keydown', handleKeyPress);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
   return (
     <>
       <div className="ChatBox-container">
@@ -167,8 +183,11 @@ const ChatBox = ({ chat, currentUser, setSendMessage, receivedMessage }) => {
             </div>
             {/* chat-sender */}
             <div className="chat-sender">
-              <div>+</div>
-              <InputEmoji value={newMessage} onChange={handleChange} />
+              <InputEmoji value={newMessage} onChange={handleChange} onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSend(e);
+                }
+              }} />
               <div className="send-button button" onClick={handleSend}>
                 Send
               </div>
