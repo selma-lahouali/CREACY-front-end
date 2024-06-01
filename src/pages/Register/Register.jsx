@@ -48,13 +48,14 @@ const Register = () => {
       })
       .then((res) => {
         dispatch(register(res?.data?.user));
-              
+
         // sweet alert successess message
         Swal.fire({
           title: "Good job!",
           text: "Your Account Has Been Created!",
           icon: "success",
         });
+        console.log("success");
         navigate("/login");
       })
       .catch((err) => {
