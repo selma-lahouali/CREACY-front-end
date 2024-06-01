@@ -55,8 +55,7 @@ const Register = () => {
           text: "Your Account Has Been Created!",
           icon: "success",
         });
-        console.log("success");
-        navigate("/login");
+      
       })
       .catch((err) => {
         console.error(err);
