@@ -96,8 +96,8 @@ const SingleProductPage = () => {
         <div className="signle-prod-extra-info">
           <div className="signle-prod-extra-info-toggle">
             <button onClick={toggleDescription}>Description</button>
-            <button onClick={toggleDetails}>Details</button>
-            <button onClick={toggleLinks}>{t("singleProduct.link")}</button>
+            {/* <button onClick={toggleDetails}>Details</button>
+            <button onClick={toggleLinks}>{t("singleProduct.link")}</button> */}
           </div>
           <div className="signle-prod-extra-info-desc">
             {description && (
@@ -119,8 +119,8 @@ const SingleProductPage = () => {
           <div className="signle-prod-extra-info-detail">
             {details && (
               <>
-                <h2>{singleProduct.color}</h2>
-                <h2>{singleProduct.size}</h2>
+                {/* <h2>{singleProduct.color}</h2>
+                <h2>{singleProduct.size}</h2> */}
               </>
             )}
           </div>
