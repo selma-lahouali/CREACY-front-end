@@ -116,7 +116,40 @@ const UpdateProductDescription = () => {
               onChange={handleChange}
             />
           </div>
-          
+          <div className="update-prod-desc-details">
+            <h1>{t("UpdateProductDescription.productDetails")}</h1>
+            <label>{t("UpdateProductDescription.colorsLabel")}</label>
+            <input
+              type="text"
+              placeholder={t("UpdateProductDescription.colorsPlaceholder")}
+              name="color"
+              onChange={handleChange}
+            />
+            <label>{t("UpdateProductDescription.sizeLabel")}</label>
+            <input
+              type="text"
+              placeholder={t("UpdateProductDescription.sizePlaceholder")}
+              name="size"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="updat-prod-desc-socials">
+            <h1>{t("UpdateProductDescription.socialsTitle")}</h1>
+            <label>TikTok :</label>
+            <input
+              type="text"
+              placeholder={t("UpdateProductDescription.tiktokPlaceholder")}
+              name="tiktok"
+              onChange={handleChange}
+            />
+            <label>Instagram :</label>
+            <input
+              type="text"
+              placeholder={t("UpdateProductDescription.instagramPlaceholder")}
+              name="instagram"
+              onChange={handleChange}
+            />
+          </div>
           <div className="update-prod-desc-image">
             <h1>{t("UpdateProductDescription.photosTitle")} :</h1>
             <input
