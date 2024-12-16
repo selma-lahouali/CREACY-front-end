@@ -1,0 +1,30 @@
+.navBar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--mediumBleu);
+  padding: 0.2rem 1rem;
+  border-bottom: 1px solid var(--darkBleu);
+  color: var(--fontColor);
+  z-index: 999;
+}
+.home-logo {
+  width: 9.5rem;
+}
+.home-messangerie {
+  border: 1px solid var(--darkBleu);
+  background-color: var(--lightBleu);
+  border-radius: 50rem;
+  padding: 0.7rem;
+  cursor: pointer;
+  color: var(--darkBleu);
+}
+
+/* Responsive design for phones */
+@media (max-width: 430px) {
+  .home-logo {
+    width: 2.8rem;
+  }
+}

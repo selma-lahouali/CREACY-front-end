@@ -1,0 +1,40 @@
+.searchBar input {
+  width: 25vw;
+  height: 5vh;
+  border: none;
+  border-radius: 7px;
+  padding-left: 2.4vw;
+  border: 1px solid var(--darkBleu);
+  margin-right: 1.5vw;
+  background-color: var(--searchBareColor);
+}
+.searchBar input::placeholder {
+  color: black;
+  font-size: 1vw;
+  letter-spacing: 0.05vw;
+}
+.searchIcon {
+  position: absolute;
+  left: 22.8vw;
+  top: 4.2vh;
+  color: black;
+}
+.searchBar input:focus {
+  outline: 1px solid var(--darkBleu);
+}
+/* Responsive design for phones */
+@media (min-width: 160px) and (max-width: 500px) {
+  .searchBar input {
+    width: 20vw;
+    height: 3vh;
+    border-radius: 5px;
+    padding-left: 2.4vw;
+    margin-right: 1vw;
+  }
+  .searchIcon {
+    position: absolute;
+    left: 40vw;
+    top: 2.3vh;
+    font-size: 4vw;
+  }
+}

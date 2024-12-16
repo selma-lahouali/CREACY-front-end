@@ -201,11 +201,11 @@
   },
   "profil":{
     "WelcomeToYourProfile":"Welcome To Your Profile",
-    "UserName ":"User Name ",
-    "E.mail ":"E.mail ",
-    "JoinedOn ":"Joined On",
+    "UserName":"User Name ",
+    "E.mail":"E.mail ",
+    "JoinedOn":"Joined On",
     "EditProfil":"Edit Profil",
-    "UserNotFound ":"User not found"
+    "UserNotFound":"User not found"
   }
 
 }
